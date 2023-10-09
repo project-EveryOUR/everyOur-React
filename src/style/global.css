@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "Pretendard";
+  src: url("../assets/pretendard-font/Pretendard-Regular.woff");
+}
+
+body,
+body::before,
+body::after,
+body *,
+body *::before,
+body *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font: inherit;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    sans-serif;
+  background-color: #fff;
+  color: #000;
+
+  box-sizing: border-box;
+}
+/* 숨김 콘텐츠 */
+.a11y-hidden,
+legend {
+  overflow: hidden;
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+button {
+  font-family: inherit;
+}
