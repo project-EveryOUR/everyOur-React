@@ -1,9 +1,10 @@
 import React from "react";
+import SettingsPage from "./SettingsPage";
 
 function App() {
   return (
     <div>
-      <h1> Hello, world! </h1>{" "}
+      <SettingsPage title="My Settings" />
     </div>
   );
 }

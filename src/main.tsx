@@ -1,10 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom";
+import SettingsPage from "./SettingsPage.tsx";
+import "./SettingsPage.scss";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <SettingsPage />
   </React.StrictMode>,
-)
+  document.getElementById("root")
+);
