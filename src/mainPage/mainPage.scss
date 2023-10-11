@@ -1,0 +1,61 @@
+button {
+  cursor: pointer;
+}
+.main {
+  position: relative;
+  height: 1000px;
+  width: 100%;
+}
+
+.sideMenuBtn {
+  position: absolute;
+  top: 0px;
+  right: 8px;
+}
+.loginBtn {
+  position: absolute;
+  top: 15px;
+  right: 60px;
+  border: 2px solid #c5c5c5;
+  border-radius: 20px;
+}
+.everyOURLogo {
+  position: absolute;
+  top: 60px;
+  left: 127px;
+}
+.hotposts {
+  position: absolute;
+  top: 150px;
+  width: 320px;
+  padding: 15px;
+
+  &__ggNorth {
+    &__list {
+      background: pink;
+      border: 2px solid #c5c5c5;
+      border-radius: 10px;
+      &__ul {
+        &__li {
+          padding: 3px;
+          height: 40px;
+          border-bottom: 2px solid #c5c5c5;
+        }
+      }
+    }
+  }
+  &__ggSouth {
+    &__list {
+      background: pink;
+      border: 2px solid #c5c5c5;
+      border-radius: 10px;
+      &__ul {
+        &__li {
+          padding: 3px;
+          height: 40px;
+          border-bottom: 2px solid #c5c5c5;
+        }
+      }
+    }
+  }
+}
