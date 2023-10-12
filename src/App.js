@@ -1,5 +1,7 @@
 import React from "react";
-import SettingsPage from "./SettingsPage";
+import SettingsPage from "./SettingsPage/SettingsPage";
+
+// import Login from "./Login/Login";
 
 function App() {
   return (

@@ -1,4 +1,3 @@
-// SettingsPage.tsx
 import React, { useState } from "react";
 import "./SettingsPage.scss";
 
@@ -25,7 +24,6 @@ const Modal = ({ message, onCancel, onDelete }) => {
 const SettingsPage: React.FC<SettingsPageProps> = (props) => {
   const [darkModeEnabled, setDarkModeEnabled] = useState(false);
   const [pushNotificationEnabled, setPushNotificationEnabled] = useState(false);
-  const [clearCacheEnabled, setClearCacheEnabled] = useState<boolean>(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const openNewWindow = (className: string) => {
@@ -41,13 +39,6 @@ const SettingsPage: React.FC<SettingsPageProps> = (props) => {
     }
   };
 
-  const handleToggle = () => {
-    setClearCacheEnabled(!clearCacheEnabled);
-    if (!clearCacheEnabled) {
-      setIsModalVisible(true);
-    }
-  };
-
   const handleDelete = () => {
     // 여기에서 캐시를 삭제하는 로직을 추가할 수 있습니다.
 
@@ -58,13 +49,18 @@ const SettingsPage: React.FC<SettingsPageProps> = (props) => {
     alert("캐시가 삭제되었습니다.");
   };
 
+  const handleOpenModal = () => {
+    // 모달을 열기 위한 함수
+    setIsModalVisible(true);
+  };
+
   const handleCloseModal = () => {
+    // 모달을 닫기 위한 함수
     setIsModalVisible(false);
   };
 
   return (
     <div className="position-relative">
-      {" "}
       {/* .position-relative 클래스 추가 */}
       <h1 className="settings-title">{props.title || "Settings"}</h1>
       {/* 내용을 추가할 수 있습니다 */}
@@ -148,15 +144,9 @@ const SettingsPage: React.FC<SettingsPageProps> = (props) => {
           <span className="toggle-btn"></span>
         </label>
 
-        <label className={clearCacheEnabled ? "cache active" : "cache"}>
+        <button className="clear-cache" onClick={handleOpenModal}>
           캐시 삭제
-          <input
-            type="checkbox"
-            checked={clearCacheEnabled}
-            onChange={handleToggle}
-          />
-          <span className="toggle-btn"></span>
-        </label>
+        </button>
 
         {isModalVisible && (
           <div className="modal-backdrop">

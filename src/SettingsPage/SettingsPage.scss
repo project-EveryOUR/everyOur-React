@@ -1,0 +1,432 @@
+/* SettingsPage.scss */
+
+.position-relative {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 8px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.settings-title {
+  font-family: "Nanum Gothic", sans-serif;
+  color: #279eff;
+}
+
+.gray-box-1 {
+  width: 370px;
+  height: 110px;
+  border: 2.5px solid #c5c5c5;
+  border-radius: 15px;
+  margin-bottom: 5px;
+}
+
+.gray-box-2 {
+  width: 370px;
+  height: 160px;
+  border: 2.5px solid #c5c5c5;
+  border-radius: 15px;
+  margin-bottom: 5px;
+}
+
+.gray-box-3 {
+  width: 370px;
+  height: 260px;
+  border: 2.5px solid #c5c5c5;
+  border-radius: 15px;
+  margin-bottom: 5px;
+}
+
+.gray-box-4 {
+  width: 370px;
+  height: 180px;
+  border: 2.5px solid #c5c5c5;
+  border-radius: 15px;
+  margin-bottom: 5px;
+}
+
+.userinfo {
+  // 김수아(suaring)
+  position: absolute;
+  width: 125px;
+  height: 30px;
+  left: 115px;
+  top: 105px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.univinfo {
+  // 경기남부 한세대 컴공 20
+  position: absolute;
+  width: 190px;
+  height: 23px;
+  left: 115px;
+  top: 135px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.myinfo {
+  // 내 정보
+  position: absolute;
+  width: 65px;
+  height: 20px;
+  left: 30px;
+  top: 210px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.mypost {
+  //내가 쓴 글
+  cursor: pointer;
+  position: absolute;
+  width: 90px;
+  height: 10px;
+  left: 30px;
+  top: 265px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.myreply {
+  //내가 쓴 댓글
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  width: 108px;
+  height: 10px;
+  left: 30px;
+  top: 300px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.mylike {
+  // 내가 좋아요 누른 글
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  width: 165px;
+  height: 10px;
+  left: 29px;
+  top: 335px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.accset {
+  //계정 설정
+  position: absolute;
+  width: 80px;
+  height: 21px;
+  left: 30px;
+  top: 380px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.univset {
+  //학교 설정
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  width: 85px;
+  height: 21px;
+  left: 34px;
+  top: 440px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.pwshift {
+  //비밀번호 변경
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  width: 120px;
+  height: 21px;
+  left: 34px;
+  top: 480px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+  color: #000000;
+}
+
+.emailshift {
+  //이메일 변경
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  width: 110px;
+  height: 21px;
+  left: 30px;
+  top: 520px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+  color: #000000;
+}
+
+.nicknameshift {
+  //닉네임 변경
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  width: 110px;
+  height: 21px;
+  left: 30px;
+  top: 560px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+  color: #000000;
+}
+
+.leave {
+  //탈퇴
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  width: 48px;
+  height: 21px;
+  left: 33px;
+  top: 600px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+  color: #000000;
+}
+
+.sysset {
+  /* 시스템 설정 */
+  position: absolute;
+  width: 100px;
+  height: 23px;
+  left: 28px;
+  top: 652px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.darkmod {
+  /* 다크 모드 */
+  position: absolute;
+  width: 75px;
+  height: 22px;
+  left: 36px;
+  top: 715px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+  color: #000000;
+}
+
+.alarm {
+  /* 푸시 알림 */
+  position: absolute;
+  width: 75px;
+  height: 22px;
+  left: 36px;
+  top: 755px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+  color: #000000;
+}
+
+.clear-cache {
+  /* 캐시 삭제 */
+  position: absolute;
+  width: 85px;
+  height: 22px;
+  left: 31px;
+  top: 795px;
+  font-family: "NanumGothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+  color: #000000;
+  /* 배경색을 투명으로 설정 */
+  background-color: transparent;
+  /* 테두리 스타일과 색상을 없애기 */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  /* 커서 모양 변경 (선택사항) */
+}
+
+/* 토글 버튼 스타일 */
+
+/* 체크박스를 숨깁니다. */
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.toggle-btn {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 20px;
+  left: 230px;
+  top: -23px;
+  background-color: #ffffff;
+  /* 초기 배경색을 흰색으로 설정 */
+  border: 2px solid #c5c5c5;
+  /* 테두리 색을 C5C5C5로 설정 */
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  /* 배경색과 테두리 색 변화 시 부드럽게 전환 */
+}
+
+/* 체크된 상태일 때 토글 버튼 색상 변경 */
+
+input[type="checkbox"]:checked + .toggle-btn {
+  background-color: #279eff;
+  /* 체크된 상태의 배경색을 #279eff로 변경 */
+  border-color: #279eff;
+  /* 체크된 상태의 테두리 색을 #279eff로 변경 */
+}
+
+/* 토글 버튼 내부의 슬라이더 모양 */
+
+.toggle-btn::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 15px;
+  background-color: #c5c5c5;
+  /* 슬라이더 배경색을 C5C5C5로 설정 */
+  border-radius: 50%;
+  top: 2px;
+  left: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* 체크된 상태일 때 슬라이더 이동 */
+
+input[type="checkbox"]:checked + .toggle-btn::before {
+  transform: translateX(20px);
+}
+
+//내가 쓴 글, 댓글, 좋아요 누른 글의 정보가 모두 삭제됩니다.
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  border-radius: 10px;
+}
+
+.modal button {
+  cursor: pointer;
+  background-color: white;
+  /* 초기 배경색을 하얀색으로 설정 */
+  color: black;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+  /* 배경색 변화에 트랜지션 추가 */
+  &:hover {
+    background-color: #279eff;
+    /* 마우스 호버 시 배경색을 변경 */
+    color: white;
+    /* 마우스 호버 시 텍스트 색상을 변경 */
+  }
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* 반투명한 배경색 */
+  backdrop-filter: blur(10px);
+  /* 블러 효과 적용 */
+  z-index: 999;
+  /* 모달보다 낮은 층위로 배치 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
