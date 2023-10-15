@@ -19,20 +19,31 @@ button {
   border: 2px solid #c5c5c5;
   border-radius: 20px;
 }
-.everyOURLogo {
-  position: absolute;
-  top: 60px;
-  left: 127px;
+.everyOUR {
+  &__Logo {
+    position: absolute;
+    top: 70px;
+    left: 127px;
+  }
+  &__Main {
+    position: absolute;
+    top: 150px;
+    left: 120px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #279eff;
+  }
 }
+
 .hotposts {
   position: absolute;
-  top: 150px;
-  width: 320px;
+  top: 210px;
+  width: 100%;
   padding: 15px;
 
   &__ggNorth {
+    padding-bottom: 20px;
     &__list {
-      background: pink;
       border: 2px solid #c5c5c5;
       border-radius: 10px;
       &__ul {
@@ -40,13 +51,33 @@ button {
           padding: 3px;
           height: 40px;
           border-bottom: 2px solid #c5c5c5;
+          display: flex;
+          flex-wrap: wrap;
+          &__title {
+            width: 190px;
+            margin-right: 5px;
+          }
+          &__comment {
+            font-size: 11px;
+            padding-right: 4px;
+          }
+          &__like {
+            font-size: 11px;
+          }
+          &__nickname {
+            font-size: 11px;
+            padding-right: 4px;
+          }
+          &__date {
+            font-size: 11px;
+          }
         }
       }
     }
   }
   &__ggSouth {
+    padding-bottom: 20px;
     &__list {
-      background: pink;
       border: 2px solid #c5c5c5;
       border-radius: 10px;
       &__ul {
@@ -54,6 +85,26 @@ button {
           padding: 3px;
           height: 40px;
           border-bottom: 2px solid #c5c5c5;
+          display: flex;
+          flex-wrap: wrap;
+          &__title {
+            width: 190px;
+            margin-right: 5px;
+          }
+          &__comment {
+            font-size: 11px;
+            padding-right: 4px;
+          }
+          &__like {
+            font-size: 11px;
+          }
+          &__nickname {
+            font-size: 11px;
+            padding-right: 4px;
+          }
+          &__date {
+            font-size: 11px;
+          }
         }
       }
     }
