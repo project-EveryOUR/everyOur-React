@@ -5,7 +5,7 @@ interface SettingsPageProps {
   title?: string;
 }
 
-const Modal = ({ message, onCancel, onDelete }) => {
+const CacheModal = ({ message, onCancel, onDelete }) => {
   return (
     <div className="modal">
       <div className="modal-content">
@@ -25,19 +25,6 @@ const SettingsPage: React.FC<SettingsPageProps> = (props) => {
   const [darkModeEnabled, setDarkModeEnabled] = useState(false);
   const [pushNotificationEnabled, setPushNotificationEnabled] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const openNewWindow = (className: string) => {
-    const textContent = document.querySelector("." + className)?.textContent;
-    if (textContent) {
-      const newWindow = window.open("", "", "width=500,height=300");
-      if (newWindow) {
-        newWindow.document.write(
-          `<html><head><title>${className}</title></head><body><p>${textContent}</p></body></html>`
-        );
-        newWindow.document.close();
-      }
-    }
-  };
 
   const handleDelete = () => {
     // 여기에서 캐시를 삭제하는 로직을 추가할 수 있습니다.
@@ -62,6 +49,7 @@ const SettingsPage: React.FC<SettingsPageProps> = (props) => {
   return (
     <div className="position-relative">
       {/* .position-relative 클래스 추가 */}
+
       <h1 className="settings-title">{props.title || "Settings"}</h1>
       {/* 내용을 추가할 수 있습니다 */}
       <div className="gray-box-1">
@@ -83,43 +71,22 @@ const SettingsPage: React.FC<SettingsPageProps> = (props) => {
       </div>
       <div className="gray-box-2">
         <p className="myinfo">내 정보</p>
-        <button className="mypost" onClick={() => openNewWindow("mypost")}>
-          내가 쓴 글
-        </button>
-        <button className="myreply" onClick={() => openNewWindow("myreply")}>
-          내가 쓴 댓글
-        </button>
-        <button className="mylike" onClick={() => openNewWindow("mylike")}>
-          내가 좋아요 누른 글
-        </button>
+
+        <p className="mypost">내가 쓴 글</p>
+
+        <p className="myreply">내가 쓴 댓글</p>
+
+        <p className="mylike">내가 좋아요 누른 글</p>
       </div>
       <div className="gray-box-3">
         <p className="accset">계정 설정</p>
-        <button className="univset" onClick={() => openNewWindow("univset")}>
-          학교 설정
-        </button>
+        <p className="univset">학교 설정</p>
+        <p className="pwshift">비밀번호 변경</p>
 
-        <button className="pwshift" onClick={() => openNewWindow("pwshift")}>
-          비밀번호 변경
-        </button>
+        <p className="emailshift">이메일 변경</p>
+        <p className="nicknameshift">닉네임 변경</p>
 
-        <button
-          className="emailshift"
-          onClick={() => openNewWindow("emailshift")}
-        >
-          이메일 변경
-        </button>
-
-        <button
-          className="nicknameshift"
-          onClick={() => openNewWindow("nicknameshift")}
-        >
-          닉네임 변경
-        </button>
-
-        <button className="leave" onClick={() => openNewWindow("leave")}>
-          탈퇴
-        </button>
+        <p className="leave">탈퇴</p>
       </div>
       <div className="gray-box-4">
         <p className="sysset">시스템 설정</p>
@@ -132,6 +99,7 @@ const SettingsPage: React.FC<SettingsPageProps> = (props) => {
           />
           <span className="toggle-btn"></span>
         </label>
+
         <label className="alarm">
           푸시 알림
           <input
@@ -144,15 +112,15 @@ const SettingsPage: React.FC<SettingsPageProps> = (props) => {
           <span className="toggle-btn"></span>
         </label>
 
-        <button className="clear-cache" onClick={handleOpenModal}>
+        <p className="clear-cache" onClick={handleOpenModal}>
           캐시 삭제
-        </button>
+        </p>
 
         {isModalVisible && (
           <div className="modal-backdrop">
             {" "}
             {/* 블러 효과가 적용될 부분 */}
-            <Modal
+            <CacheModal
               message="내가 쓴 글•댓글, 좋아요 누른 글에 대한 정보가 모두 삭제됩니다."
               onCancel={handleCloseModal}
               onDelete={handleDelete}

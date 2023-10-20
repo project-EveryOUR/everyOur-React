@@ -1,15 +1,20 @@
 import React from "react";
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./vite.svg";
 import "./App.css";
-import SettingsPage from "./SettingsPage/SettingsPage";
-// import Login from "./Login/Login";
+// import MyPost from "./MyPost/MyPost";
+import Pw from "./Pw/Pw";
+import Nickname from "./Nickname/Nickname";
+import Email from "./Email/Email";
+import Leave from "./Leave/Leave";
+import UnivShift from "./UnivShift/UnivShift";
+import MyPost from "./MyPost/MyPost";
+
+// import SettingsPage from "./SettingsPage/SettingsPage";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <SettingsPage />;
+  return (
+    <div className="App">
+      <MyPost />
+    </div>
+  );
 }
-
 export default App;

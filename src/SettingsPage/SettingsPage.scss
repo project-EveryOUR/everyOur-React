@@ -11,10 +11,10 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  font-family: "Nanum Gothic", sans-serif;
 }
 
 .settings-title {
-  font-family: "Nanum Gothic", sans-serif;
   color: #279eff;
 }
 
@@ -56,8 +56,7 @@
   width: 125px;
   height: 30px;
   left: 115px;
-  top: 105px;
-  font-family: "NanumGothic";
+  top: 110px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -72,7 +71,6 @@
   height: 23px;
   left: 115px;
   top: 135px;
-  font-family: "NanumGothic";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -87,7 +85,6 @@
   height: 20px;
   left: 30px;
   top: 210px;
-  font-family: "NanumGothic";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -102,8 +99,7 @@
   width: 90px;
   height: 10px;
   left: 30px;
-  top: 265px;
-  font-family: "NanumGothic";
+  top: 250px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -120,8 +116,7 @@
   width: 108px;
   height: 10px;
   left: 30px;
-  top: 300px;
-  font-family: "NanumGothic";
+  top: 288px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -138,8 +133,7 @@
   width: 165px;
   height: 10px;
   left: 29px;
-  top: 335px;
-  font-family: "NanumGothic";
+  top: 325px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -154,7 +148,6 @@
   height: 21px;
   left: 30px;
   top: 380px;
-  font-family: "NanumGothic";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -171,8 +164,7 @@
   width: 85px;
   height: 21px;
   left: 34px;
-  top: 440px;
-  font-family: "NanumGothic";
+  top: 425px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -189,8 +181,7 @@
   width: 120px;
   height: 21px;
   left: 34px;
-  top: 480px;
-  font-family: "NanumGothic";
+  top: 465px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -208,8 +199,7 @@
   width: 110px;
   height: 21px;
   left: 30px;
-  top: 520px;
-  font-family: "NanumGothic";
+  top: 505px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -227,8 +217,7 @@
   width: 110px;
   height: 21px;
   left: 30px;
-  top: 560px;
-  font-family: "NanumGothic";
+  top: 545px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -246,8 +235,7 @@
   width: 48px;
   height: 21px;
   left: 33px;
-  top: 600px;
-  font-family: "NanumGothic";
+  top: 585px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -263,7 +251,6 @@
   height: 23px;
   left: 28px;
   top: 652px;
-  font-family: "NanumGothic";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -277,8 +264,7 @@
   width: 75px;
   height: 22px;
   left: 36px;
-  top: 715px;
-  font-family: "NanumGothic";
+  top: 710px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -293,8 +279,7 @@
   width: 75px;
   height: 22px;
   left: 36px;
-  top: 755px;
-  font-family: "NanumGothic";
+  top: 752px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -309,8 +294,7 @@
   width: 85px;
   height: 22px;
   left: 31px;
-  top: 795px;
-  font-family: "NanumGothic";
+  top: 775px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -340,7 +324,7 @@ input[type="checkbox"] {
 .toggle-btn {
   position: relative;
   display: inline-block;
-  width: 55px;
+  width: 50px;
   height: 20px;
   left: 230px;
   top: -23px;
@@ -369,12 +353,11 @@ input[type="checkbox"]:checked + .toggle-btn {
   content: "";
   position: absolute;
   width: 25px;
-  height: 15px;
+  height: 20px;
   background-color: #c5c5c5;
   /* 슬라이더 배경색을 C5C5C5로 설정 */
   border-radius: 50%;
-  top: 2px;
-  left: 5px;
+  left: 2px;
   transition: transform 0.3s ease;
 }
 

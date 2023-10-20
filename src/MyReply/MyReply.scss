@@ -1,0 +1,77 @@
+.position-relative {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 8px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+h2 {
+  color: #279eff;
+  text-align: center;
+}
+
+.myreplys_list {
+  border: 2px solid #c5c5c5;
+  border-radius: 10px;
+  /* div 주변의 여백 설정 */
+}
+
+.myreplys_list_li {
+  cursor: pointer;
+  list-style: none;
+  border-bottom: 2px solid #c5c5c5;
+  /* li 태그 사이에 선 추가 */
+  /* 각 li 태그 주변의 여백 설정 */
+  display: flex;
+  flex-direction: column;
+  /* 내용을 위아래로 나열 */
+  .my {
+    text-align: left;
+    /* 왼쪽 정렬 적용 */
+    font-family: "Nanum Gothic", sans-serif;
+    /* 원하는 폰트로 변경, 'Your-Font-Here' 대신 사용하려는 폰트 명을 입력 */
+    font-weight: bold;
+    /* 폰트 두께 설정, 필요에 따라 조절 */
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .mytitle {
+    // .mytitle 스타일을 정의
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  .info-row {
+    // .info-row 스타일을 정의
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    .reg_at {
+      // .myreply_cnt, .mylike_cnt, .created_at 스타일을 정의
+      flex: 1;
+      text-align: right;
+    }
+  }
+}
+
+.submit-btn {
+  background-color: #c5c5c5;
+  color: black;
+  padding: 5px 10px;
+  width: 70px; // 버튼 너비 조절
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  &:active {
+    background-color: #279eff;
+  }
+  margin-top: 20px;
+}
