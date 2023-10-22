@@ -1,5 +1,6 @@
 import React from "react";
 import "./MyReply.scss";
+import { Link } from "react-router-dom";
 // import LikeBtn from "../MyPost/LikeBtn";
 
 const MyReply = () => {
@@ -48,7 +49,9 @@ const MyReply = () => {
           </div>
         </li>
       </div>
-      <button className="submit-btn">완료</button>
+      <Link to={"/settingspage"}>
+        <button className="submit-btn">이전</button>
+      </Link>
     </div>
   );
 };
