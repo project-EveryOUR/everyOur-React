@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SettingsPage.scss";
+import { Link } from "react-router-dom";
 
 interface SettingsPageProps {
   title?: string;
@@ -47,9 +48,7 @@ const SettingsPage: React.FC<SettingsPageProps> = (props) => {
   };
 
   return (
-    <div className="position-relative">
-      {/* .position-relative 클래스 추가 */}
-
+    <div className="settingspage">
       <h1 className="settings-title">{props.title || "Settings"}</h1>
       {/* 내용을 추가할 수 있습니다 */}
       <div className="gray-box-1">
@@ -72,21 +71,39 @@ const SettingsPage: React.FC<SettingsPageProps> = (props) => {
       <div className="gray-box-2">
         <p className="myinfo">내 정보</p>
 
-        <p className="mypost">내가 쓴 글</p>
+        <Link to={"/mypost"}>
+          <p className="mypost">내가 쓴 글</p>
+        </Link>
 
-        <p className="myreply">내가 쓴 댓글</p>
+        <Link to={"/myreply"}>
+          <p className="myreply">내가 쓴 댓글</p>
+        </Link>
 
-        <p className="mylike">내가 좋아요 누른 글</p>
+        <Link to={"/mylike"}>
+          <p className="mylike">내가 좋아요 누른 글</p>
+        </Link>
       </div>
       <div className="gray-box-3">
         <p className="accset">계정 설정</p>
-        <p className="univset">학교 설정</p>
-        <p className="pwshift">비밀번호 변경</p>
+        <Link to={"/univshift"}>
+          <p className="univset">학교 설정</p>
+        </Link>
 
-        <p className="emailshift">이메일 변경</p>
-        <p className="nicknameshift">닉네임 변경</p>
+        <Link to={"/pw"}>
+          <p className="pwshift">비밀번호 변경</p>
+        </Link>
 
-        <p className="leave">탈퇴</p>
+        <Link to={"/Email"}>
+          <p className="emailshift">이메일 변경</p>
+        </Link>
+
+        <Link to={"/nickname"}>
+          <p className="nicknameshift">닉네임 변경</p>
+        </Link>
+
+        <Link to={"/leave"}>
+          <p className="leave">탈퇴</p>
+        </Link>
       </div>
       <div className="gray-box-4">
         <p className="sysset">시스템 설정</p>
