@@ -20,7 +20,7 @@ const UnivShift = () => {
             type="text"
             placeholder="이메일을 입력하세요"
           />
-          <button>인증</button>
+          <button className="okbutton">인증</button>
         </div>
 
         <div className="form-group">
