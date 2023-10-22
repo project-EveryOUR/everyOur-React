@@ -26,3 +26,4 @@ const Nickname = () => {
 };
 
 export default Nickname;
+//엥
