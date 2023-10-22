@@ -1,0 +1,95 @@
+$font-family: 'NanumGothic';
+$font-weight: 700;
+$white: #FFFFFF;
+$gray: #C5C5C5;
+$light-gray: #D9D9D9;
+$width: 390px;
+$height: 844px;
+
+.container {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 8px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  &__title {
+    position: absolute;
+    height: 40px;
+    width: 350px;
+    left: 18px;
+    top: 14px;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-size: 18px;
+    line-height: 18px;
+    color: $gray;
+    outline: none;
+  }
+
+  &__content {
+    position: absolute;
+    height: 700px;
+    width: 350px;
+    left: 18px;
+    top: 83px;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-size: 16px;
+    line-height: 16px;
+    color: $gray;
+    resize: none;
+    outline: none;
+  }
+
+  &__line {
+    position: absolute;
+    width: $width;
+    height: 0px;
+    left: 0px;
+    top: 63px;
+    border: 2px solid $gray;
+  }
+
+  &__writebtn {
+    position: absolute;
+    left: 337px;
+    width: 32px;
+    height: 32px;
+    top: 783px;
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  
+  }
+  
+  &__filelink {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 20px;
+    top: 783px;
+    cursor: pointer;
+    img {
+      width: 115%;
+      height: 115%;
+    }
+
+  }
+  &__writebtn:active {
+    background-color: #279eff !important;
+  }
+  
+  &__filelink:active {
+    background-color: #279eff !important;
+  }
+  
+  
+}
