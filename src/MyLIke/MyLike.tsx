@@ -1,6 +1,7 @@
 import React from "react";
 import "./MyLike.scss";
 import LikeBtn from "../MyPost/LikeBtn";
+import { Link } from "react-router-dom";
 
 const MyLike = () => {
   return (
@@ -71,7 +72,9 @@ const MyLike = () => {
           </div>
         </li>
       </div>
-      <button className="submit-btn">완료</button>
+      <Link to={"/settingspage"}>
+        <button className="submit-btn">이전</button>
+      </Link>
     </div>
   );
 };
