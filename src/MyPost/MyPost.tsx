@@ -2,6 +2,7 @@ import React from "react";
 import "./MyPost.scss";
 import "./LikeBtn";
 import LikeBtn from "./LikeBtn";
+import { Link } from "react-router-dom";
 
 const MyPost = () => {
   return (
@@ -99,7 +100,9 @@ const MyPost = () => {
           </div>
         </li>
       </div>
-      <button className="submit-btn">완료</button>
+      <Link to={"/settingspage"}>
+        <button className="submit-btn">이전</button>
+      </Link>
     </div>
   );
 };
