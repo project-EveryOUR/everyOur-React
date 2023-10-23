@@ -1,0 +1,26 @@
+.articleList {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.sideMenuBtn {
+  position: absolute;
+  top: 0px;
+  right: 8px;
+}
+.smallLogo {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 31px;
+  height: 31px;
+}
+
+.listBox {
+  background: pink;
+  padding-top: 60px;
+  .boardName {
+    background: red;
+  }
+}
