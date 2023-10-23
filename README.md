@@ -1,27 +1,47 @@
-# React + TypeScript + Vite
+# everyOUR
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+지역 범위내에 있는 대학에 재학 중인 학생들이 자유롭게 소통할 수 있는 인터넷 커뮤니티입니다.
 
-Currently, two official plugins are available:
+## 참여인원
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+김수아, 윤세진, 정진이
 
-## Expanding the ESLint configuration
+## 주제 선정 배경
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<li>대학생들 간의 소통 활성화<br>
+<li>연합 동아리, 공모전 등 지역 대학생들의 학습을 도모<br>
+<li>학교 간 단체활동, 미팅 등을 통한 친목 도모<br>
+<li>대면활동의 접근, 용이성을 웹으로 제공한다.<br>
 
-- Configure the top-level `parserOptions` property like this:
+## 개발 환경 - 기술 스택  및 간단한 소개
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+프론트 엔드 - Visual Studio Code, mdx, TailwindCSS, React18, NextJS<br><br>
+백 엔드 - Intellij, Mysql, Spring boot, Prisma, Sendgrid, Nodejs<br><br>
+협업 툴 - Git, Github, Jira, Discord
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 시스템 구성도
+
+메인 화면 : 홈페이지 로고, 로그인 바, 메뉴 선택 바, 메인 게시판<br><br>
+홈페이지 로고 : 홈페이지 메인 화면 이동<br><br>
+로그인 바(로그인 전): 지역 선택, ID, PW, 로그인 버튼, 로그인 유지, 회원가입, 아이디,패스워드 찾기<br><br>
+로그인 바(로그인 후): 정보 변경, 내가 쓴 글, 내가 쓴 댓글, 회원탈퇴, 로그아웃<br><br>
+메뉴 선택 바: 공지사항, 자유게시판, 정보게시판, 장터게시판, 같이해요게시판, 시사게시판 등<br><br>
+
+
+## 구현 기술
+
+<li>대학생 신분을 확인하기 위하여 회원가입시에 학교 이메일로 인증을 해야한다.<br>
+<li>사용자들은 학과,학번,학교이름이 사용자의 작성 글에 나타나 신뢰성과 익명성을 가진다.<br>
+<li>입시나 행사 관련 데이터를 사용자들이 이용하기 편리한 인터페이스를 제공한다.<br>
+<li>욕설, 비방어, 정치 관련, 도배성 게시글을 작성한 사용자의 해당 ip는 사용하지 못하게 한다.<br>
+<li>지역별 대외활동 및 축제에 대한 정보를 받고 홍보를 해준다.<br><br>
+
+
+## 구현 결과
+
+
+
+## 기대 효과
+
+<li>CDN을 통한 해외 대학 자원관리 및 리소스 비용을 절감할 수 있다.<br>
+<li>앱으로도 구현이 가능하다.<br>
