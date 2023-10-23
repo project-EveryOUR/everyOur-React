@@ -1,0 +1,23 @@
+.sidebar-wrap {
+  z-index: 5;
+  padding: 12px;
+  background-color: #fff;
+  height: 100%;
+  width: 55%;
+  right: -55%;
+  top: 0;
+  position: fixed;
+  transition: 0.5s ease;
+
+  &.open {
+    right: 0;
+    transition: 0.5s ease;
+  }
+  &__ul {
+    height: 100%;
+    &__li {
+      display: block;
+      padding: 20px;
+    }
+  }
+}
