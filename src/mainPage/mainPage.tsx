@@ -1,27 +1,41 @@
 //import { useState } from "react";
+import React, { useState } from "react";
 import everyOURLogo from "../assets/logo.svg";
 import sidemenu from "../assets/sidemenu.svg";
 import "../mainPage/mainPage.scss";
+import { Link } from "react-router-dom";
+import SideBar from "./../SideBar/SideBar";
+
+// interface Props {
+//   isOpen: isOpen
+// }
 
 function MainPage(): JSX.Element {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleSide = () => {
+    setIsOpen(true);
+  };
   return (
     <div className="main">
       <div className="everyOUR">
-        <a href="#!">
+        <Link to={"/"}>
           <img
             src={everyOURLogo}
             alt="everyOUR 메인 로고"
             className="everyOUR__Logo"
           />
-        </a>
+        </Link>
         <a href="#!">
           <span className="everyOUR__Main">everyOUR</span>
         </a>
       </div>
-      <button className="loginBtn">LOGIN</button>
-      <button className="sideMenuBtn">
+      <button className="loginBtn">
+        <Link to={"/loginpage"}>LOGIN</Link>
+      </button>
+      <button className="sideMenuBtn" onClick={toggleSide}>
         <img src={sidemenu} alt="사이드 메뉴 버튼" className="sideMenuBtn" />
       </button>
+      <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="hotposts">
         <div className="hotposts__ggNorth">
           <span className="hotposts__ggNorth__title">

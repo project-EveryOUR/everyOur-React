@@ -22,13 +22,15 @@ button {
 .everyOUR {
   &__Logo {
     position: absolute;
-    top: 70px;
-    left: 127px;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   &__Main {
     position: absolute;
     top: 150px;
-    left: 120px;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 17px;
     font-weight: bold;
     color: #279eff;
