@@ -1,4 +1,4 @@
-.position-relative {
+.leave {
   position: relative;
   width: 390px;
   height: 844px;
@@ -10,75 +10,53 @@
   align-items: center;
   box-sizing: border-box;
   font-family: "Nanum Gothic", sans-serif;
-}
-
-h2 {
-  color: #279eff;
-  text-align: center;
-}
-
-.leave-menual {
-  text-align: left;
-  font-weight: bold;
-}
-
-.readbox {
-  background-color: #c5c5c5;
-}
-
-.leave-1 {
-  text-align: left;
-  color: red;
-  font-weight: bold;
-}
-
-.content-1 {
-  text-align: left;
-}
-
-.leave-2 {
-  text-align: left;
-  color: red;
-  font-weight: bold;
-}
-
-.content-2 {
-  text-align: left;
-}
-
-.content-3 {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.checkbox-container {
-  display: flex;
-  align-items: center;
-  input[type="checkbox"] {
-    margin-right: 10px;
-    // 체크박스 체크 색상 설정
-    &:checked {
-      background-color: #279eff; // 원하는 색상으로 설정
+  &__leave-title {
+    color: #279eff;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  &__leave-menual {
+    text-align: left;
+    font-weight: bold;
+  }
+  &__readbox {
+    background-color: #c5c5c5;
+    margin-bottom: 10px;
+    p {
+      text-align: left;
+    }
+    &__leave-1 {
+      text-align: left;
+      color: red;
+      font-weight: bold;
+    }
+    &__leave-2 {
+      text-align: left;
+      color: red;
+      font-weight: bold;
     }
   }
-  label {
-    color: black;
+  &__content-3 {
     text-align: left;
+    margin-bottom: 10px;
+  }
+  &__leave-box {
+    &:checked {
+      background-color: #279eff;
+    }
+  }
+  &__leave-check {
+    margin-top: 15px;
+  }
+  &__leave-btn {
+    background-color: #c5c5c5;
+    padding: 5px 10px;
+    width: 70px; // 버튼 너비 조절
+    margin-top: 10px;
+    transition: background-color 0 &__3s;
+    &:active {
+      background-color: #279eff;
+    }
   }
 }
-
-.leave-btn {
-  background-color: #c5c5c5;
-  color: black;
-  padding: 5px 10px;
-  width: 70px; // 버튼 너비 조절
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s;
-  &:active {
-    background-color: #279eff;
-  }
-}
-
-//엥
