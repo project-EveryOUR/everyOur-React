@@ -15,12 +15,16 @@ import UnivShift from "./UnivShift/UnivShift";
 import WritePage from "./WritePage/WritePage";
 import MyPost from "./MyPost/MyPost";
 import Leave from "./Leave/Leave";
+import FreeArticleList from "./ArticleList/FreeArticleList/FreeArticleList";
+import HotArticleList from "./ArticleList/HotArticleList/HotArticleList";
+import InfoArticleList from "./ArticleList/InfoArticleList/InfoArticleList";
+import SecretArticleList from "./ArticleList/SecretArticleList/SecretArticleList";
 
 function App() {
   return (
     <Routes>
       <Route element={<MainPage />} path="/" />
-      <Route element={<ArticleList />} path="/articlelist" />
+      {/* <Route element={<ArticleList />} path="/articlelist" /> */}
       <Route element={<MyLike />} path="/mylike" />
       <Route element={<MyPost />} path="/mypost" />
       <Route element={<Email />} path="/email" />
@@ -33,6 +37,10 @@ function App() {
       <Route element={<UnivShift />} path="/univshift" />
       <Route element={<WritePage />} path="/writepage" />
       <Route element={<Leave />} path="/leave" />
+      <Route element={<FreeArticleList />} path="/freearticlelist" />
+      <Route element={<HotArticleList />} path="/hotarticlelist" />
+      <Route element={<InfoArticleList />} path="/infoarticlelist" />
+      <Route element={<SecretArticleList />} path="/Secretarticlelist" />
     </Routes>
   );
 }

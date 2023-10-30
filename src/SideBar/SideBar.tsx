@@ -45,16 +45,16 @@ function SideBar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
             <Link to={"/settingspage"}>마이 페이지</Link>
           </span>
           <span className="sidebar-wrap__ul__li">
-            <Link to={"/articlelist"}>Hot 게시글</Link>
+            <Link to={"/hotarticlelist"}>Hot 게시글</Link>
           </span>
           <span className="sidebar-wrap__ul__li">
-            <Link to={"/articlelist"}>자유 게시판</Link>
+            <Link to={"/freearticlelist"}>자유 게시판</Link>
           </span>
           <span className="sidebar-wrap__ul__li">
-            <Link to={"/articlelist"}>비밀 게시판</Link>
+            <Link to={"/secretarticlelist"}>비밀 게시판</Link>
           </span>
           <span className="sidebar-wrap__ul__li">
-            <Link to={"/articlelist"}>정보 게시판</Link>
+            <Link to={"/infoarticlelist"}>정보 게시판</Link>
           </span>
         </ul>
       </div>
