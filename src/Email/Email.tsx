@@ -6,32 +6,33 @@ const Email = () => {
     alert("수정되었습니다");
   };
   return (
-    <div className="position-relative">
-      <h2>이메일 변경</h2>
-      <div className="input-container">
-        <div className="form-group">
-          <p>이메일 인증 : </p>
+    <div className="email">
+      <h2 className="email__email-title">이메일 변경</h2>
+      <div className="email__email-input">
+        <div className="email__email-input__email-group">
+          <span className="email__email-input__email-group__email-oauth">
+            이메일 인증 :{" "}
+          </span>
           <input
-            className="school-input"
-            type="text"
+            className="email__email-input__email-group__email-text"
+            type="email"
             placeholder="이메일을 입력하세요"
           />
           <button>인증</button>
         </div>
 
-        <div className="form-group">
-          <p>이메일 변경 : </p>
+        <div className="email__email-input__email-group">
+          <span>이메일 변경 : </span>
           <input
-            className="major-input-box"
-            type="text"
+            className="email__email-input__email-group__email-new"
+            type="email"
             placeholder="이메일을 입력하세요"
           />
           <button onClick={handleButtonClick}>수정</button>
         </div>
       </div>
-      <button className="submit-btn">완료</button>
+      <button className="email__email-btn">완료</button>
     </div>
   );
 };
 export default Email;
-// 엥

@@ -1,4 +1,4 @@
-.position-relative {
+.nickname {
   position: relative;
   width: 390px;
   height: 844px;
@@ -10,58 +10,43 @@
   align-items: center;
   box-sizing: border-box;
   font-family: "Nanum Gothic", sans-serif;
-}
-
-h2 {
-  color: #279eff;
-  text-align: center;
-}
-
-.input-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  .form-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    gap: 10px;
-    p {
-      margin: 0;
-      width: 100px; // 텍스트 너비 조절 (학교 변경, 학과 변경 등)
-    }
-    input {
-      flex: 1; // 텍스트박스가 나머지 공간을 차지하도록 설정
-      padding: 5px;
-      width: 100%; // 텍스트박스 너비 100%로 설정
-    }
-    button {
-      background-color: #c5c5c5;
-      color: black;
-      padding: 5px 10px;
-      width: 50px; // 버튼 너비 조절
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      &:active {
-        background-color: #279eff;
+  &__nick-title {
+    color: #279eff;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  &__nick-input {
+    &__nick-group {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+      input {
+        flex: 1; // 텍스트박스가 나머지 공간을 차지하도록 설정
+        padding: 5px;
+        width: 100%; // 텍스트박스 너비 100%로 설정
+      }
+      button {
+        background-color: #c5c5c5;
+        padding: 5px 10px;
+        width: 70px; // 버튼 너비 조절
+        transition: background-color 0.3s;
+        &:active {
+          background-color: #279eff;
+        }
       }
     }
   }
-}
-
-.submit-btn {
-  background-color: #c5c5c5;
-  color: black;
-  padding: 5px 10px;
-  width: 70px; // 버튼 너비 조절
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  &:active {
-    background-color: #279eff;
+  &__nick-btn {
+    background-color: #c5c5c5;
+    padding: 5px 10px;
+    width: 70px; // 버튼 너비 조절
+    transition: background-color 0.3s;
+    &:active {
+      background-color: #279eff;
+    }
+    margin-top: 20px;
   }
-  margin-top: 20px;
 }
-
-//엥
