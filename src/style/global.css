@@ -21,10 +21,11 @@ body {
     sans-serif;
   background-color: #fff;
   color: #000;
-
   box-sizing: border-box;
 }
+
 /* 숨김 콘텐츠 */
+
 .a11y-hidden,
 legend {
   overflow: hidden;

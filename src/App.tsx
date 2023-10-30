@@ -3,7 +3,7 @@ import MainPage from "./MainPage/mainPage";
 import ArticleList from "./ArticleList/ArticleList";
 import { Route, Routes } from "react-router-dom";
 import React from "react";
-import MyLike from "./MyLIke/MyLike";
+import MyLike from "./MyLike/MyLike";
 import Email from "./Email/Email";
 import LoginPage from "./LoginPage/LoginPage";
 import MyReply from "./MyReply/MyReply";
@@ -19,12 +19,14 @@ import FreeArticleList from "./ArticleList/FreeArticleList/FreeArticleList";
 import HotArticleList from "./ArticleList/HotArticleList/HotArticleList";
 import InfoArticleList from "./ArticleList/InfoArticleList/InfoArticleList";
 import SecretArticleList from "./ArticleList/SecretArticleList/SecretArticleList";
+import PostIn from "./PostIn/PostIn";
 
 function App() {
   return (
     <Routes>
       <Route element={<MainPage />} path="/" />
       {/* <Route element={<ArticleList />} path="/articlelist" /> */}
+      <Route element={<PostIn />} path="/PostIn" />
       <Route element={<MyLike />} path="/mylike" />
       <Route element={<MyPost />} path="/mypost" />
       <Route element={<Email />} path="/email" />

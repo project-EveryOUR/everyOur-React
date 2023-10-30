@@ -95,8 +95,9 @@ const SettingsPage: React.FC = () => {
           </button>
         </div>
       </div>
-
-      <button className="settingspage__resetBtn">이전</button>
+      <Link to={"/"}>
+        <button className="settingspage__resetBtn">이전</button>
+      </Link>
     </div>
   );
 };
