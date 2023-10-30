@@ -1,0 +1,114 @@
+button {
+  cursor: pointer;
+}
+.main {
+  position: relative;
+  height: 1000px;
+  width: 100%;
+}
+
+.sideMenuBtn {
+  position: absolute;
+  top: 0px;
+  right: 8px;
+}
+.loginBtn {
+  position: absolute;
+  top: 15px;
+  right: 60px;
+  border: 2px solid #c5c5c5;
+  border-radius: 20px;
+}
+.everyOUR {
+  &__Logo {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__Main {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 17px;
+    font-weight: bold;
+    color: #279eff;
+  }
+}
+
+.hotposts {
+  position: absolute;
+  top: 210px;
+  width: 100%;
+  padding: 15px;
+
+  &__ggNorth {
+    padding-bottom: 20px;
+    &__list {
+      border: 2px solid #c5c5c5;
+      border-radius: 10px;
+      &__ul {
+        &__li {
+          padding: 3px;
+          height: 40px;
+          border-bottom: 2px solid #c5c5c5;
+          display: flex;
+          flex-wrap: wrap;
+          &__title {
+            width: 190px;
+            margin-right: 5px;
+          }
+          &__comment {
+            font-size: 11px;
+            padding-right: 4px;
+          }
+          &__like {
+            font-size: 11px;
+          }
+          &__nickname {
+            font-size: 11px;
+            padding-right: 4px;
+          }
+          &__date {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+  &__ggSouth {
+    padding-bottom: 20px;
+    &__list {
+      border: 2px solid #c5c5c5;
+      border-radius: 10px;
+      &__ul {
+        &__li {
+          padding: 3px;
+          height: 40px;
+          border-bottom: 2px solid #c5c5c5;
+          display: flex;
+          flex-wrap: wrap;
+          &__title {
+            width: 190px;
+            margin-right: 5px;
+          }
+          &__comment {
+            font-size: 11px;
+            padding-right: 4px;
+          }
+          &__like {
+            font-size: 11px;
+          }
+          &__nickname {
+            font-size: 11px;
+            padding-right: 4px;
+          }
+          &__date {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+}

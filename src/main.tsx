@@ -1,16 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Pw from "./Pw/Pw";
-import Nickname from "./Nickname/Nickname";
-// import SettingsPage from "./SettingsPage/SettingsPage";'
-import Email from "./Email/Email";
-import Leave from "./Leave/Leave";
-import UnivShift from "./UnivShift/UnivShift";
-import MyPost from "./MyPost/MyPost";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+// import "./reset.css";
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <MyPost />
-  </React.StrictMode>,
-  document.getElementById("root")
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
 );

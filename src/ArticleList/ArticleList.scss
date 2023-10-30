@@ -1,0 +1,70 @@
+.articleList {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: ffffff;
+}
+.sideMenuBtn {
+  position: absolute;
+  top: 0px;
+  right: 8px;
+}
+.smallLogo {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 31px;
+  height: 31px;
+}
+
+.listBox {
+  // background: pink;
+  padding-top: 60px;
+  .boardName {
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+  }
+  .ggArea {
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .articleSearch {
+    position: absolute;
+    right: 70px;
+  }
+  .writeBtn {
+    position: absolute;
+    right: 8px;
+  }
+  .boardArticleList {
+    padding-top: 50px;
+    &__ul {
+      border-bottom: 2px solid #c5c5c5;
+      &__li {
+        padding: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        &__comment {
+          font-size: 11px;
+          padding: 3px;
+        }
+        &__like {
+          font-size: 11px;
+          padding: 3px;
+        }
+        &__nickname {
+          font-size: 11px;
+          padding: 3px;
+        }
+        &__date {
+          font-size: 11px;
+          padding: 3px;
+        }
+      }
+    }
+  }
+}
