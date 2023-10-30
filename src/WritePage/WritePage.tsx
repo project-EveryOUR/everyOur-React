@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import './WritePage.scss';
 import filelinkImage from './filelink.svg';
 import writebtnImage from './writebtn.svg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const WritePageComponent: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -38,22 +38,22 @@ const WritePageComponent: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className="writepage">
       <input
-        className="container__title"
-        type="text"
+        className="writepage__title"
+
         value={Titletext}
         onChange={TitleChange}
         placeholder="제목을 입력하세요. (최대 16글자)"
       />
-      <div className="container__line"></div>
+      <div className="writepage__line"></div>
       <textarea
-        className="container__content"
+        className="writepage__content"
         value={Contenttext}
         onChange={ContentChange}
         placeholder="내용을 입력하세요."
       />
-      <div className="container__filelink" onClick={handleFilelinkClick}>
+      <div className="writepage__filelink" onClick={handleFilelinkClick}>
         <img src={filelinkImage} alt="filelink" />
       </div>
       <input
@@ -62,9 +62,11 @@ const WritePageComponent: React.FC = () => {
         style={{ display: 'none' }}
         onChange={handleFileChange}
       />
-      <div className="container__writebtn">
-        <img src={writebtnImage} alt="writebtn" />
-      </div>
+    <Link to={`/PostIn?title=${Titletext}&content=${Contenttext}`}>
+    <div className="writepage__writebtn">
+    <img src={writebtnImage} alt="writebtn" />
+    </div>
+    </Link>
     </div>
   );
 };
