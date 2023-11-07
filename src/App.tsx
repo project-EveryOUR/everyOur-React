@@ -43,6 +43,7 @@ function App() {
       <Route element={<HotArticleList />} path="/hotarticlelist" />
       <Route element={<InfoArticleList />} path="/infoarticlelist" />
       <Route element={<SecretArticleList />} path="/Secretarticlelist" />
+      <Route element={<PostIn />} path="/PostIn" />
     </Routes>
   );
 }

@@ -23,9 +23,9 @@ function ArticleList(): JSX.Element {
       <div className="listBox">
         <div className="boardName">Hot 게시판</div>
         <div className="ggArea">경기 남부</div>
-        <button className="sideMenuBtn" onClick={toggleSide}>
+        <div className="sideMenuBtn" onClick={toggleSide}>
           <img src={sidemenu} alt="사이드 메뉴 버튼" className="sideMenuBtn" />
-        </button>
+        </div>
         <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
         <button className="articleSearch">검색</button>
         <button className="writeBtn">

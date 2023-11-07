@@ -40,3 +40,29 @@ legend {
 button {
   font-family: inherit;
 }
+
+.dark-mode div {
+  background-color: #333;
+  color: white;
+}
+
+.dark-mode div button {
+  color: white;
+  background-color: #333;
+  border: solid 1.5px white;
+}
+
+.dark-mode .settingspage__gray-box-4__sysset__togglewrap__ToggleBtn {
+  border: 3px solid #c5c5c5;
+}
+
+.dark-mode .settingspage__gray-box-4__cache {
+  color: white;
+  background-color: #333;
+  border: none;
+}
+
+.dark-mode .univ__univ-menual {
+  color: black;
+  font-weight: bold;
+}
