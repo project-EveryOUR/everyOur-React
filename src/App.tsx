@@ -20,13 +20,15 @@ import HotArticleList from "./ArticleList/HotArticleList/HotArticleList";
 import InfoArticleList from "./ArticleList/InfoArticleList/InfoArticleList";
 import SecretArticleList from "./ArticleList/SecretArticleList/SecretArticleList";
 import PostIn from "./PostIn/PostIn";
+import UsePage from "./UsePage/UsePage";
+import InfoPage from "./ArticleList/InfoPage/InfoPage";
 
 function App() {
   return (
     <Routes>
       <Route element={<MainPage />} path="/" />
       {/* <Route element={<ArticleList />} path="/articlelist" /> */}
-      <Route element={<PostIn />} path="/PostIn" />
+      <Route element={<PostIn />} path="/postIn" />
       <Route element={<MyLike />} path="/mylike" />
       <Route element={<MyPost />} path="/mypost" />
       <Route element={<Email />} path="/email" />
@@ -42,8 +44,9 @@ function App() {
       <Route element={<FreeArticleList />} path="/freearticlelist" />
       <Route element={<HotArticleList />} path="/hotarticlelist" />
       <Route element={<InfoArticleList />} path="/infoarticlelist" />
-      <Route element={<SecretArticleList />} path="/Secretarticlelist" />
-      <Route element={<PostIn />} path="/PostIn" />
+      <Route element={<SecretArticleList />} path="/secretarticlelist" />
+      <Route element={<UsePage />} path="/usepage" />
+      <Route element={<InfoPage />} path="/infopage" />
     </Routes>
   );
 }

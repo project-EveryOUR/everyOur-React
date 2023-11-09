@@ -11,10 +11,12 @@
   box-sizing: border-box;
   font-family: "Nanum Gothic", sans-serif;
   &__post-title {
-    color: #279eff;
-    text-align: center;
-    font-size: 24px;
+    color: black;
     margin-bottom: 15px;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    font-weight: 660;
   }
   &__post-list {
     border: 2px solid #c5c5c5;

@@ -19,7 +19,7 @@ const SettingsPage: React.FC = () => {
 
   return (
     <div className="settingspage">
-      <h1 className="settingspage__settings-title">설정</h1>
+      <h1 className="settingspage__settings-title">계정 설정</h1>
       {/* 내용을 추가할 수 있습니다 */}
       <div className="settingspage__gray-box-1">
         <Profile />
