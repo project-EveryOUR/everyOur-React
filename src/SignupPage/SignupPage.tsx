@@ -76,16 +76,13 @@ const SignupComponent: React.FC = () => {
       <div className="SignupFrame__SignUpbanner">Sign-Up</div>
       <div className="SignupFrame__InterFrame"></div>
       <div className="SignupFrame__Nickname">닉네임:</div>
-      <div className="SignupFrame__ID">ID:</div>
-      <div className="SignupFrame__PW">PW:</div>
-      <div className="SignupFrame__PWConfirmation">PW 확인:</div>
+      <div className="SignupFrame__ID">Gmail:</div>
+
       <div className="SignupFrame__Name">이름:</div>
       <div className="SignupFrame__Location">지역:</div>
       <div className="SignupFrame__School">학교:</div>
       <div className="SignupFrame__StudentID">학번:</div>
       <div className="SignupFrame__Department">학과:</div>
-      <div className="SignupFrame__SchoolEmail">학교 메일:</div>
-      <div className="SignupFrame__VerificationCode">인증 코드:</div>
 
       <input
         className="SignupFrame__Nicknametext"
@@ -99,18 +96,7 @@ const SignupComponent: React.FC = () => {
         value={IDtext}
         onChange={IDChange}
       />
-      <input
-        className="SignupFrame__PWtext"
-        type="password"
-        value={PWtext}
-        onChange={PWChange}
-      />
-      <input
-        className="SignupFrame__PWConfirmationtext"
-        type="password"
-        value={PWcontext}
-        onChange={PWconChange}
-      />
+
       <input
         className="SignupFrame__Nametext"
         type="text"
@@ -142,20 +128,7 @@ const SignupComponent: React.FC = () => {
         onChange={DepartmentChange}
       />
 
-      <input
-        className="SignupFrame__SchoolEmailtext"
-        type="email"
-        value={SchoolEmailtext}
-        onChange={SchoolEmailChange}
-      />
-      <input
-        className="SignupFrame__Verificationtext"
-        type="number"
-        value={VerificationCodetext}
-        onChange={VerificationCodeChange}
-      />
-      <div className="SignupFrame__Submitbtn">Submit</div>
-      <div className="SignupFrame__Verificationbtn">인증</div>
+      <div className="SignupFrame__Submitbtn">Sign-Up</div>
     </div>
   );
 };

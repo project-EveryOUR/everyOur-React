@@ -6,78 +6,78 @@ $light-gray: #d9d9d9;
 $width: 100vh;
 $height: 100vh;
 .writepage {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  background: ffffff;
-  left: 0%;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  &__title {
-    position: absolute;
-    height: 40px;
-    width: 350px;
-    left: 18px;
-    top: 14px;
-    font-family: $font-family;
-    font-weight: $font-weight;
-    font-size: 18px;
-    line-height: 18px;
-    outline: none;
-  }
-  &__content {
-    position: absolute;
-    height: 700px;
-    width: 350px;
-    left: 18px;
-    top: 83px;
-    font-family: $font-family;
-    font-weight: $font-weight;
-    font-size: 16px;
-    line-height: 16px;
-    resize: none;
-    outline: none;
-  }
-  &__line {
-    position: absolute;
-    width: 1000%;
-    height: 0px;
-    left: 0px;
-    top: 63px;
-    border: 2px solid $gray;
-  }
-  &__writebtn {
-    position: absolute;
-    left: 50%;
-    transform: translate(400%, -35%);
-    width: 32px;
-    height: 32px;
-    top: 800px;
-    cursor: pointer;
-    img {
-      width: 100%;
-      height: 100%;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: ffffff;
+    left: 0%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    &__title {
+        position: absolute;
+        height: 40px;
+        width: 350px;
+        left: 18px;
+        top: 14px;
+        font-family: $font-family;
+        font-weight: $font-weight;
+        font-size: 18px;
+        line-height: 18px;
+        outline: none;
     }
-  }
-  &__filelink {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: 50%;
-    transform: translate(-500%, -50%);
-    top: 800px;
-    cursor: pointer;
-    img {
-      width: 115%;
-      height: 115%;
+    &__content {
+        position: absolute;
+        height: 700px;
+        width: 350px;
+        left: 18px;
+        top: 83px;
+        font-family: $font-family;
+        font-weight: $font-weight;
+        font-size: 16px;
+        line-height: 16px;
+        resize: none;
+        outline: none;
     }
-  }
-  &__writebtn:active {
-    background-color: #279eff !important;
-  }
-  &__filelink:active {
-    background-color: #279eff !important;
-  }
+    &__line {
+        position: absolute;
+        width: 1000%;
+        height: 0px;
+        left: 0px;
+        top: 63px;
+        border: 2px solid $gray;
+    }
+    &__writebtn {
+        position: absolute;
+        left: 50%;
+        transform: translate(400%, -35%);
+        width: 32px;
+        height: 32px;
+        top: 800px;
+        cursor: pointer;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__filelink {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        left: 50%;
+        transform: translate(-500%, -50%);
+        top: 800px;
+        cursor: pointer;
+        img {
+            width: 115%;
+            height: 115%;
+        }
+    }
+    &__writebtn:active {
+        background-color: #279eff !important;
+    }
+    &__filelink:active {
+        background-color: #279eff !important;
+    }
 }

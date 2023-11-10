@@ -41,13 +41,12 @@ function SideBar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
           <span className="sidebar-wrap__ul__li">
             <Link to={"/InfoPage"}>공지 사항</Link>
           </span>
-
           <span className="sidebar-wrap__ul__li">
             <Link to={"/UsePage"}>사용 문의</Link>
           </span>
-
-          <span className="sidebar-wrap__ul__li">언어 설정</span>
-
+          <span className="sidebar-wrap__ul__li">
+            <Link to={"/langset"}>언어 설정</Link>
+          </span>
           <span className="sidebar-wrap__ul__li">
             <Link to={"/settingspage"}>계정 설정</Link>
           </span>
