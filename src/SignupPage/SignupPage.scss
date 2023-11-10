@@ -1,22 +1,17 @@
 .SignupFrame{
   position: relative;
-  width: 390px;
-  height: 844px;
-  background: #FFFFFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 8px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-
+  height: 100vh;
+  width: 100%;
+  background: ffffff;
+  left: 0%;
 
   &__SignUpbanner {
     position: absolute;
-    width: 150px;
+    width: 116px;
     height: 35px;
-    left: 120px;
-    top: 120px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 160px;
     font-family: 'NanumGothic';
     font-style: normal;
     font-weight: 700;
@@ -24,22 +19,26 @@
     line-height: 30px;
     color: #279EFF;
   }
+  
   &__InterFrame {
     box-sizing: border-box;
     position: absolute;
-    width: 377px;
-    height: 576px;
-    left: 6px;
-    top: 201px;
+    width: 370px;
+    height: 500px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 495px;
     border: 2px solid rgba(197, 197, 197, 0.980392);
     border-radius: 15px;
   }
+
   &__Nickname {
     position: absolute;
-    width: 62px;
+    width: 84px;
     height: 18px;
-    left: 44px;
-    top: 245px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 325px;
     font-family: 'NanumGothic';
     font-style: normal;
     font-weight: 400;
@@ -47,12 +46,14 @@
     line-height: 18px;
     color: #000000;
   }
+
   &__ID {
     position: absolute;
-    width: 28px;
+    width: 84px;
     height: 18px;
-    left: 44px;
-    top: 285px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 365px;
     font-family: 'NanumGothic';
     font-style: normal;
     font-weight: 400;
@@ -62,9 +63,10 @@
   }
   &__PW {
     position: absolute;
-    width: 40px;
+    width: 84px;
     height: 18px;
-    left: 44px;
+    left: 50%;
+    transform: translate(-180%, 0%);
     top: 325px;
     font-family: 'NanumGothic';
     font-style: normal;
@@ -75,9 +77,10 @@
   }
   &__PWConfirmation {
     position: absolute;
-    width: 79px;
+    width: 84px;
     height: 18px;
-    left: 44px;
+    left: 50%;
+    transform: translate(-180%, 0%);
     top: 365px;
     font-family: 'NanumGothic';
     font-style: normal;
@@ -88,9 +91,10 @@
   }
   &__Name {
     position: absolute;
-    width: 45px;
+    width: 84px;
     height: 21px;
-    left: 44px;
+    left: 50%;
+    transform: translate(-180%, 0%);
     top: 405px;
     font-family: 'NanumGothic';
     font-style: normal;
@@ -101,9 +105,10 @@
   }
   &__Location {
     position: absolute;
-    width: 45px;
+    width: 84px;
     height: 18px;
-    left: 44px;
+    left: 50%;
+    transform: translate(-180%, 0%);
     top: 445px;
     font-family: 'NanumGothic';
     font-style: normal;
@@ -114,9 +119,10 @@
   }
   &__School {
     position: absolute;
-    width: 45px;
+    width: 84px;
     height: 18px;
-    left: 44px;
+    left: 50%;
+    transform: translate(-180%, 0%);
     top: 485px;
     font-family: 'NanumGothic';
     font-style: normal;
@@ -127,9 +133,10 @@
   }
   &__StudentID {
     position: absolute;
-    width: 45px;
+    width: 84px;
     height: 18px;
-    left: 44px;
+    left: 50%;
+    transform: translate(-180%, 0%);
     top: 525px;
     font-family: 'NanumGothic';
     font-style: normal;
@@ -142,9 +149,10 @@
   }
   &__Department {
     position: absolute;
-    width: 45px;
+    width: 84px;
     height: 18px;
-    left: 44px;
+    left: 50%;
+    transform: translate(-180%, 0%);
     top: 565px;
     font-family: 'NanumGothic';
     font-style: normal;
@@ -157,7 +165,8 @@
     position: absolute;
     width: 84px;
     height: 18px;
-    left: 44px;
+    left: 50%;
+    transform: translate(-180%, 0%);
     top: 605px;
     font-family: 'NanumGothic';
     font-style: normal;
@@ -170,7 +179,8 @@
     position: absolute;
     width: 84px;
     height: 18px;
-    left: 44px;
+    left: 50%;
+    transform: translate(-180%, 0%);
     top: 645px;
     font-family: 'NanumGothic';
     font-style: normal;
@@ -180,30 +190,23 @@
     color: #000000;
   }
   
-
-
-  
-
-
-
-  
-  
   &__Submitbtn{
     position: absolute;
-    width: 99px;
+    width: 107px;
     height: 36px;
-    left: 145px;
-    top: 708px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    top: 650px;
     cursor: pointer;
     &:active {
       background-color: #279eff;
     }
     border: 2px solid #000000;
-    border-radius: 15px;
+
     font-family: 'NanumGothic';
     font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
+
+    font-size: 25px;
     line-height: 23px;
     color: #000000;
     padding: 5px;
@@ -213,8 +216,9 @@
     position: absolute;
     width: 186px;
     height: 23px;
-    left: 140px;
-    top: 245px;
+    left: 50%;
+    transform: translate(-30%, 0%);
+    top: 325px;
     background: #D9D9D9;
     font-family: 'NanumGothic';
     font-style: normal;
@@ -230,8 +234,9 @@
     position: absolute;
     width: 186px;
     height: 23px;
-    left: 140px;
-    top: 285px;
+    left: 50%;
+    transform: translate(-30%, 0%);
+    top: 365px;
     background: #D9D9D9;
     font-family: 'NanumGothic';
     font-style: normal;
@@ -247,7 +252,8 @@
   position: absolute;
   width: 186px;
   height: 23px;
-  left: 140px;
+  left: 50%;
+  transform: translate(-30%, 0%);
   top: 325px;
   background: #D9D9D9;
   font-family: 'NanumGothic';
@@ -264,7 +270,8 @@
   position: absolute;
   width: 186px;
   height: 23px;
-  left: 140px;
+  left: 50%;
+  transform: translate(-30%, 0%);
   top: 365px;
   background: #D9D9D9;
   font-family: 'NanumGothic';
@@ -281,7 +288,8 @@
   position: absolute;
   width: 186px;
   height: 23px;
-  left: 140px;
+  left: 50%;
+  transform: translate(-30%, 0%);
   top: 405px;
   background: #D9D9D9;
   font-family: 'NanumGothic';
@@ -298,7 +306,8 @@
   position: absolute;
   width: 186px;
   height: 23px;
-  left: 140px;
+  left: 50%;
+  transform: translate(-30%, 0%);
   top: 445px;
   background: #D9D9D9;
   font-family: 'NanumGothic';
@@ -313,7 +322,8 @@
   position: absolute;
   width: 186px;
   height: 23px;
-  left: 140px;
+  left: 50%;
+  transform: translate(-30%, 0%);
   top: 485px;
   background: #D9D9D9;
   font-family: 'NanumGothic';
@@ -330,7 +340,8 @@
   position: absolute;
   width: 186px;
   height: 23px;
-  left: 140px;
+  left: 50%;
+  transform: translate(-30%, 0%);
   top: 525px;
   background: #D9D9D9;
   font-family: 'NanumGothic';
@@ -340,8 +351,6 @@
   line-height: 23px;
   color: #000000;
   padding: 5px;
-  
-  /* fix */
   -webkit-appearance: none;
   -moz-appearance: textfield;
   appearance: textfield;
@@ -352,7 +361,8 @@
   position: absolute;
   width: 186px;
   height: 23px;
-  left: 140px;
+  left: 50%;
+  transform: translate(-30%, 0%);
   top: 565px;
   background: #D9D9D9;
   font-family: 'NanumGothic';
@@ -369,7 +379,8 @@
   position: absolute;
   width: 153px;
   height: 23px;
-  left: 140px;
+  left: 50%;
+  transform: translate(-36.5%, 0%);
   top: 605px;
   background: #D9D9D9;
   font-family: 'NanumGothic';
@@ -380,11 +391,13 @@
   color: #000000;
   padding: 5px;
 }
+
 &__Verificationtext {
   position: absolute;
   width: 186px;
   height: 23px;
-  left: 140px;
+  left: 50%;
+  transform: translate(-30%, 0%);
   top: 645px;
   background: #D9D9D9;
   font-family: 'NanumGothic';
@@ -406,7 +419,8 @@
   position: absolute;
   width: 33px;
   height: 23px;
-  left: 293px;
+  left: 50%;
+  transform: translate(300%, 0%);
   top: 605px;
   background: #FFFFFF;
   border: 1px solid #000000;
@@ -415,7 +429,6 @@
   font-weight: 550;
   font-size: 13px;
   line-height: 23px;
-  line-height: 15px;
   color: #000000;
   padding: 2px;
   cursor: pointer;
