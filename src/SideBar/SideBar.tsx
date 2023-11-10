@@ -38,11 +38,17 @@ function SideBar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
           onKeyDown={toggleSide}
         />
         <ul className="sidebar-wrap__ul">
-          <span className="sidebar-wrap__ul__li">공지 사항</span>
-          <span className="sidebar-wrap__ul__li">사용 문의</span>
-          <span className="sidebar-wrap__ul__li">언어 설정</span>
+        <span className="sidebar-wrap__ul__li">
+            <Link to={"/InfoPage"}>공지 사항</Link>
+          </span>
           <span className="sidebar-wrap__ul__li">
-            <Link to={"/settingspage"}>마이 페이지</Link>
+            <Link to={"/UsePage"}>사용 문의</Link>
+          </span>
+          <span className="sidebar-wrap__ul__li">
+            <Link to={"/langset"}>언어 설정</Link>
+          </span>
+          <span className="sidebar-wrap__ul__li">
+            <Link to={"/settingspage"}>계정 설정</Link>
           </span>
           <span className="sidebar-wrap__ul__li">
             <Link to={"/hotarticlelist"}>Hot 게시글</Link>
