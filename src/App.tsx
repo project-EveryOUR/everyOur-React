@@ -20,7 +20,9 @@ import HotArticleList from "./ArticleList/HotArticleList/HotArticleList";
 import InfoArticleList from "./ArticleList/InfoArticleList/InfoArticleList";
 import SecretArticleList from "./ArticleList/SecretArticleList/SecretArticleList";
 import PostIn from "./PostIn/PostIn";
-
+import Langset from "./LangsetPage/LangsetPage";
+import UsePage from "./UsePage/UsePage";
+import InfoPage from "./ArticleList/InfoPage/InfoPage";
 function App() {
   return (
     <Routes>
@@ -41,8 +43,11 @@ function App() {
       <Route element={<FreeArticleList />} path="/freearticlelist" />
       <Route element={<HotArticleList />} path="/hotarticlelist" />
       <Route element={<InfoArticleList />} path="/infoarticlelist" />
-      <Route element={<SecretArticleList />} path="/Secretarticlelist" />
-      <Route element={<PostIn />} path="/PostIn" />
+      <Route element={<SecretArticleList />} path="/secretarticlelist" />
+      <Route element={<PostIn />} path="/postIn" />
+      <Route element={<Langset />} path="/langset" />
+      <Route element={<UsePage />} path="/usepage" />
+      <Route element={<InfoPage />} path="/infopage" />
     </Routes>
   );
 }
