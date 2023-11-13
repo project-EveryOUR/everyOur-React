@@ -1,10 +1,11 @@
 // import { useState } from "react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import everyOURLogo from "../assets/logo.svg";
 import sidemenu from "../assets/sidemenu.svg";
 import "../mainPage/mainPage.scss";
 import { Link } from "react-router-dom";
 import SideBar from "./../SideBar/SideBar";
+import { signOutUser, auth } from "../firebase";
 
 // interface Props {
 //   isOpen: isOpen
@@ -15,6 +16,28 @@ const MainPage: React.FC = () => {
   const toggleSide = () => {
     setIsOpen(true);
   };
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setIsLoggedIn(!!user); // user가 있으면 로그인 상태, 없으면 로그아웃 상태
+      console.log("로그인 상태 변경:", !!user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  // 로그아웃 처리 함수
+  const handleLogout = async () => {
+    try {
+      await signOutUser();
+      console.log("로그아웃 성공");
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error("로그아웃 실패:", error.message);
+      }
+    }
+  };
+
   return (
     <div className="main">
       <div className="everyOUR">
@@ -29,9 +52,21 @@ const MainPage: React.FC = () => {
           <span className="everyOUR__Main">everyOUR</span>
         </a>
       </div>
-      <button className="loginBtn">
+
+      {/* 로그인 상태에 따라 다르게 렌더링 */}
+      {isLoggedIn ? (
+        <button className="loginBtn" onClick={handleLogout}>
+          LOGOUT
+        </button>
+      ) : (
+        <button className="loginBtn">
+          <Link to={"/loginpage"}>LOGIN</Link>
+        </button>
+      )}
+      {/* <button className="loginBtn">
         <Link to={"/loginpage"}>LOGIN</Link>
-      </button>
+      </button> */}
+
       <div className="sideMenuBtn" onClick={toggleSide}>
         <img src={sidemenu} alt="사이드 메뉴 버튼" className="sideMenuBtn" />
       </div>

@@ -1,149 +1,162 @@
 .iFrame {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    background: ffffff;
-    &__InternalFrame {
-        box-sizing: border-box;
-        position: absolute;
-        width: 370px;
-        height: 218px;
-        left: 50%;
-        transform: translate(-50%, -5%);
-        top: 304px;
-        border: 2px solid rgba(197, 197, 197, 0.980392);
-        border-radius: 15px;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: ffffff;
+  &__InternalFrame {
+    box-sizing: border-box;
+    position: absolute;
+    width: 370px;
+    height: 218px;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    top: 304px;
+    border: 2px solid rgba(197, 197, 197, 0.980392);
+    border-radius: 15px;
+  }
+  &__Loginbanner {
+    position: absolute;
+    width: 86px;
+    height: 27px;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    top: 151px;
+    font-family: "NanumGothic";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 32px;
+    color: #279eff;
+  }
+  &__ID {
+    position: absolute;
+    width: 39px;
+    height: 20px;
+    left: 50%;
+    transform: translate(-350%, -50%);
+    top: 364px;
+    font-family: "NanumGothic";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__PW {
+    position: absolute;
+    width: 39px;
+    height: 20px;
+    left: 50%;
+    transform: translate(-350%, -50%);
+    top: 413px;
+    font-family: "NanumGothic";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__GyeonggiSouthframe {
+    box-sizing: border-box;
+    position: absolute;
+    width: 126px;
+    height: 43px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 224px;
+    border: 2px solid #279eff;
+    border-radius: 15px;
+  }
+  &__GmailLoginbtn {
+    box-sizing: border-box;
+    position: absolute;
+    width: 99px;
+    height: 36px;
+    left: 50%;
+    transform: translate(-115%, -50%);
+    top: 467px;
+    cursor: pointer;
+    font-family: "NanumGothic";
+    font-style: normal;
+    font-weight: 550;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+    &:active {
+      background-color: #279eff;
     }
-    &__Loginbanner {
-        position: absolute;
-        width: 86px;
-        height: 27px;
-        left: 50%;
-        transform: translate(-50%, -80%);
-        top: 151px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 32px;
-        color: #279eff;
+  }
+  &__Signupbtn {
+    position: absolute;
+    width: 110px;
+    height: 36px;
+    left: 50%;
+    transform: translate(15%, -50%);
+    top: 467px;
+    cursor: pointer;
+    font-family: "NanumGothic";
+    font-style: normal;
+    font-weight: 550;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+    &:active {
+      background-color: #279eff;
     }
-    &__ID {
-        position: absolute;
-        width: 39px;
-        height: 20px;
-        left: 50%;
-        transform: translate(-350%, -50%);
-        top: 364px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
+  }
+  &__GyeonggiSouth {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    left: 50%;
+    transform: translate(-43%, -50%);
+    top: 230px;
+    font-family: "NanumGothic";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    color: #000000;
+  }
+  &__IDtext {
+    position: absolute;
+    width: 211px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-40%, -40%);
+    top: 363px;
+    background: #d9d9d9;
+    font-family: "NanumGothic";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__Loginbtn {
+    position: absolute;
+    width: 211px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-40%, -40%);
+    top: 408px;
+    background: #d9d9d9;
+    font-family: "NanumGothic";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    &:active {
+      background-color: #279eff;
     }
-    &__PW {
-        position: absolute;
-        width: 39px;
-        height: 20px;
-        left: 50%;
-        transform: translate(-350%, -50%);
-        top: 413px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
-    &__GyeonggiSouthframe {
-        box-sizing: border-box;
-        position: absolute;
-        width: 126px;
-        height: 43px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        top: 224px;
-        border: 2px solid #279eff;
-        border-radius: 15px;
-    }
-    &__Loginbtn {
-        box-sizing: border-box;
-        position: absolute;
-        width: 99px;
-        height: 36px;
-        left: 50%;
-        transform: translate(-115%, -50%);
-        top: 467px;
-        cursor: pointer;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 550;
-        font-size: 24px;
-        line-height: 24px;
-        text-align: center;
-        border: 2px solid #000000;
-        border-radius: 15px;
-    }
-    &__Signupbtn {
-        position: absolute;
-        width: 110px;
-        height: 36px;
-        left: 50%;
-        transform: translate(15%, -50%);
-        top: 467px;
-        cursor: pointer;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 550;
-        font-size: 24px;
-        line-height: 24px;
-        text-align: center;
-        border: 2px solid #000000;
-        border-radius: 15px;
-    }
-    &__GyeonggiSouth {
-        position: absolute;
-        width: 100px;
-        height: 30px;
-        left: 50%;
-        transform: translate(-43%, -50%);
-        top: 230px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 20px;
-        color: #000000;
-    }
-    &__IDtext {
-        position: absolute;
-        width: 211px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-40%, -40%);
-        top: 363px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
-    &__PWtext {
-        position: absolute;
-        width: 211px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-40%, -40%);
-        top: 408px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
+  }
 }

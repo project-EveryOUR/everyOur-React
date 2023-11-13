@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignupPage.scss";
+import { signInWithGoogle } from "../firebase";
 
-const SignupComponent: React.FC = () => {
+const SignupPage: React.FC = () => {
   const [Nicknametext, setNicknameText] = useState<string>("");
   const [IDtext, setIDText] = useState<string>("");
   const [PWtext, setPWText] = useState<string>("");
@@ -15,6 +16,14 @@ const SignupComponent: React.FC = () => {
   const [SchoolEmailtext, setSchoolEmailText] = useState<string>("");
   const [VerificationCodetext, setVerificationCodeText] = useState<string>("");
 
+  const navigate = useNavigate();
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle().then(() => {
+      navigate("/");
+    });
+  };
+
   const NicknameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length <= 10) {
       setNicknameText(e.target.value);
@@ -25,16 +34,7 @@ const SignupComponent: React.FC = () => {
       setIDText(e.target.value);
     }
   };
-  const PWChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 16) {
-      setPWText(e.target.value);
-    }
-  };
-  const PWconChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 16) {
-      setPWconText(e.target.value);
-    }
-  };
+
   const NameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length <= 8) {
       setNameText(e.target.value);
@@ -128,9 +128,11 @@ const SignupComponent: React.FC = () => {
         onChange={DepartmentChange}
       />
 
-      <div className="SignupFrame__Submitbtn">Sign-Up</div>
+      <div className="SignupFrame__Submitbtn" onClick={handleGoogleSignIn}>
+        Sign-Up
+      </div>
     </div>
   );
 };
 
-export default SignupComponent;
+export default SignupPage;
