@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./SettingsPage.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Profile from "./Profile";
+import Backbtn from "../assets/Backbtn.svg";
+
 
 const SettingsPage: React.FC = () => {
   // 다크 모드 설정을 로컬 스토리지에서 읽어옵니다.
@@ -16,15 +18,23 @@ const SettingsPage: React.FC = () => {
 
     document.body.classList.toggle("dark-mode", newDarkMode);
   };
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   return (
     <div className="settingspage">
+      <img src={Backbtn} alt="Backbtn" className="usepage__Backbtn" onClick={goBack} />
       <h1 className="settingspage__settings-title">계정 설정</h1>
       {/* 내용을 추가할 수 있습니다 */}
       <div className="settingspage__gray-box-1">
         <Profile />
         <p className="settingspage__gray-box-1__userinfo">
-          김수아(suaring) <br />
+        <br />김수아(suaring)<br />
+        </p>
+        <p className="settingspage__gray-box-1__userinfo">
           경기남부 한세대 컴공 20
         </p>
       </div>
@@ -93,12 +103,10 @@ const SettingsPage: React.FC = () => {
           >
             삭제
           </button>
+
         </div>
       </div>
-
-      <Link to={"/"}>
-        <button className="settingspage__resetBtn">이전</button>
-      </Link>
+      
     </div>
   );
 };
