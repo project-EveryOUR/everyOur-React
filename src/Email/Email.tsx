@@ -1,12 +1,19 @@
 import React from "react";
 import "./Email.scss";
-
+import Backbtn from "../assets/Backbtn.svg";
+import { Link, useNavigate } from "react-router-dom";
 const Email = () => {
   const handleButtonClick = () => {
     alert("수정되었습니다");
   };
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
     <div className="email">
+       <img src={Backbtn} alt="Backbtn" className="email__Backbtn" onClick={goBack} />
       <h2 className="email__email-title">이메일 변경</h2>
       <div className="email__email-input">
         <div className="email__email-input__email-group">
