@@ -1,91 +1,127 @@
 .settingspage {
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  font-family: "Nanum Gothic", sans-serif;
-  align-items: center;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: ffffff;
+
+
   &__settings-title {
-    color: black;
-    margin-bottom: 15px;
-    font-size: 20px;
-    text-align: center;
-    padding: 10px;
-    font-weight: 660;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 13px;
+    font-family: 'NanumGothic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 30px;
   }
+
   &__gray-box-1 {
-    width: 370px;
-    height: 100px;
-    border: 2.5px solid #c5c5c5;
+    position: absolute;
+    width: 350px;
+    height: 86px;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    top: 63px;
+    border: 2px solid #C5C5C5;
     border-radius: 15px;
-    margin-bottom: 5px;
+    &__userinfo {
+      //내 정보
+      font-weight: 600;
+    }
+
     p {
       text-align: left;
+      margin: 9px;
       font-size: 18px;
-      font-style: normal;
-      font-weight: 600;
-      margin-top: 32px;
     }
   }
+
   &__gray-box-2 {
-    width: 370px;
-    height: 160px;
-    border: 2.5px solid #c5c5c5;
+    position: absolute;
+    width: 350px;
+    height: 161px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    top: 151px;
+
+    border: 2px solid rgba(197, 197, 197, 0.980392);
     border-radius: 15px;
-    margin-bottom: 5px;
+
     &__myinfo {
       //내 정보
       font-style: normal;
       font-weight: 600;
     }
+
     p {
       text-align: left;
       margin: 15px;
       font-size: 18px;
     }
   }
+
   &__gray-box-3 {
-    width: 370px;
-    height: 230px;
-    border: 2.5px solid #c5c5c5;
+    position: absolute;
+    width: 350px;
+    height: 271.6px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    top: 321.4px;
+
+    border: 2px solid rgba(197, 197, 197, 0.980392);
     border-radius: 15px;
-    margin-bottom: 5px;
+
     &__accset {
       //계정 설정
       font-style: normal;
       font-weight: 600;
     }
+
     p {
       text-align: left;
       margin: 15px;
       font-size: 18px;
     }
   }
+
   &__gray-box-4 {
-    width: 370px;
-    height: 170px;
-    border: 2.5px solid #c5c5c5;
+    box-sizing: border-box;
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    top: 603px;
+
+    border: 2px solid rgba(197, 197, 197, 0.980392);
     border-radius: 15px;
-    margin-bottom: 5px;
+
     &__sysset {
       /* 시스템 설정 */
       font-style: normal;
       font-weight: 600;
       font-size: 18px;
     }
+
     p {
       text-align: left;
       margin: 15px;
       font-size: 18px;
     }
+
     button {
       text-align: left;
       display: flex;
       font-size: 18px;
       margin: 10px;
     }
+
     &__dark-wrap {
       display: flex;
       gap: 150px;
+
       &__ToggleBtn {
         width: 60px;
         height: 30px;
@@ -94,6 +130,7 @@
         /* 테두리 스타일 추가 */
         position: relative;
         border-radius: 15px;
+
         &::before {
           content: "";
           position: absolute;
@@ -106,6 +143,7 @@
           top: 1px;
           transition: transform 0.2s ease-in-out;
         }
+
         /* 활성화 상태에서의 토글 모양 및 배경색 변경 */
         &.active::before {
           background-color: white;
@@ -114,32 +152,39 @@
         }
       }
     }
+
     &__cache-wrap {
       display: flex;
       gap: 150px;
+
       &__cachedel {
         background-color: #c5c5c5;
         padding: 5px 10px;
         width: 60px;
         transition: background-color 0.3s;
+
         &:active {
           background-color: #279eff;
         }
       }
     }
   }
-  &__resetBtn {
-    background-color: #c5c5c5;
-    padding: 5px 10px;
-    width: 70px; // 버튼 너비 조절
-    transition: background-color 0.3s;
-    &:active {
-      background-color: #279eff;
-    }
-    margin-top: 20px;
-    margin-left: 40%;
-  }
+
+
   .profile {
-    margin-top: -5px;
+    margin-top: -14px;
   }
+  &__Backbtn {    
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    top: 22px;
+    cursor: pointer;
+    img {
+        width: 115%;
+        height: 115%;
+    }
+}
 }

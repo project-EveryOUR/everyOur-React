@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import "./Leave.scss";
-
+import Backbtn from "../assets/Backbtn.svg";
+import { Link, useNavigate } from "react-router-dom";
 const Leave = () => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(e.target.checked);
   };
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
     <div className="leave">
+       <img src={Backbtn} alt="Backbtn" className="leave__Backbtn" onClick={goBack} />
       <h2 className="leave__leave-title">탈퇴</h2>
       <p className="leave__leave-menual">
         회원탈퇴를 신청하기 전에 안내 사항을 꼭 확인해주세요.

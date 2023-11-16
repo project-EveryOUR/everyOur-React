@@ -1,9 +1,16 @@
 import React from "react";
 import "./Pw.scss";
-
+import Backbtn from "../assets/Backbtn.svg";
+import { Link, useNavigate } from "react-router-dom";
 const Pw = () => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
     <div className="pw">
+       <img src={Backbtn} alt="Backbtn" className="pw__Backbtn" onClick={goBack} />
       <h2 className="pw__pw-title">비밀번호 변경</h2>
 
       <div className="pw__pw-input">

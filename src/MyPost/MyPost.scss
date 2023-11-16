@@ -16,6 +16,19 @@
     padding: 10px;
     font-weight: 660;
   }
+  &__Backbtn {    
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    top: 22px;
+    cursor: pointer;
+    img {
+        width: 115%;
+        height: 115%;
+    }
+}
   &__post-list {
     border: 2px solid #c5c5c5;
     border-radius: 10px;

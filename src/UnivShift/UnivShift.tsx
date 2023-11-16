@@ -1,9 +1,15 @@
 import React from "react";
 import "./UnivShift.scss";
-
+import Backbtn from "../assets/Backbtn.svg";
+import { Link, useNavigate } from "react-router-dom";
 const UnivShift = () => {
   const handleButtonClick = () => {
     alert("수정되었습니다");
+  };
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
   };
   return (
     <div className="univshift">
@@ -55,6 +61,7 @@ const UnivShift = () => {
           </button>
         </div>
       </div>
+      <img src={Backbtn} alt="Backbtn" className="univshift__Backbtn" onClick={goBack} />
       <button className="univshift__univ-btn">완료</button>
     </div>
   );

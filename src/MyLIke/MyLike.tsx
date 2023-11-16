@@ -1,11 +1,18 @@
 import React from "react";
 import "./MyLike.scss";
 import LikeBtn from "../MyPost/LikeBtn";
-import { Link } from "react-router-dom";
+import Backbtn from "../assets/Backbtn.svg";
+import { Link, useNavigate } from "react-router-dom";
 
 const MyLike = () => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
     <div className="mylike">
+       <img src={Backbtn} alt="Backbtn" className="mylike__Backbtn" onClick={goBack} />
       <h2 className="mylike__like-title">내 좋아요 목록</h2>
 
       <div className="mylike__like-list">
