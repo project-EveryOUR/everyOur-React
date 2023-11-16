@@ -7,7 +7,7 @@
     box-sizing: border-box;
     position: absolute;
     width: 370px;
-    height: 218px;
+    height: 170px;
     left: 50%;
     transform: translate(-50%, -5%);
     top: 304px;
@@ -28,33 +28,27 @@
     line-height: 32px;
     color: #279eff;
   }
-  &__ID {
+  &__EmailInput {
     position: absolute;
-    width: 39px;
-    height: 20px;
-    left: 50%;
-    transform: translate(-350%, -50%);
-    top: 364px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
     font-family: "NanumGothic";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 18px;
-    color: #000000;
-  }
-  &__PW {
-    position: absolute;
-    width: 39px;
-    height: 20px;
     left: 50%;
-    transform: translate(-350%, -50%);
-    top: 413px;
-    font-family: "NanumGothic";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 18px;
-    color: #000000;
+    top: 350px;
+    transform: translate(-50%, -50%);
+    &__Emailtext {
+      background-color: #c5c5c5;
+    }
+    &__Loginbtn {
+      cursor: pointer;
+      font-style: normal;
+      border: 1.5px solid #000000;
+      transition: background-color 0.3s;
+      &:active {
+        background-color: #279eff;
+      }
+    }
   }
   &__GyeonggiSouthframe {
     box-sizing: border-box;
@@ -74,7 +68,7 @@
     height: 36px;
     left: 50%;
     transform: translate(-115%, -50%);
-    top: 467px;
+    top: 410px;
     cursor: pointer;
     font-family: "NanumGothic";
     font-style: normal;
@@ -95,7 +89,7 @@
     height: 36px;
     left: 50%;
     transform: translate(15%, -50%);
-    top: 467px;
+    top: 410px;
     cursor: pointer;
     font-family: "NanumGothic";
     font-style: normal;
@@ -123,40 +117,5 @@
     font-size: 20px;
     line-height: 20px;
     color: #000000;
-  }
-  &__IDtext {
-    position: absolute;
-    width: 211px;
-    height: 23px;
-    left: 50%;
-    transform: translate(-40%, -40%);
-    top: 363px;
-    background: #d9d9d9;
-    font-family: "NanumGothic";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 18px;
-    color: #000000;
-  }
-  &__Loginbtn {
-    position: absolute;
-    width: 211px;
-    height: 23px;
-    left: 50%;
-    transform: translate(-40%, -40%);
-    top: 408px;
-    background: #d9d9d9;
-    font-family: "NanumGothic";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 18px;
-    color: #000000;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    &:active {
-      background-color: #279eff;
-    }
   }
 }

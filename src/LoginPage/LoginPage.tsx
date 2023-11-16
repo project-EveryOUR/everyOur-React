@@ -1,66 +1,14 @@
-// import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-// import "./LoginPage.scss";
-
-// const LoginPage: React.FC = () => {
-//   const [idText, setIdText] = useState<string>("");
-//   const [pwText, setPwText] = useState<string>("");
-
-//   const handleIdInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     if (e.target.value.length <= 16) {
-//       setIdText(e.target.value);
-//     }
-//   };
-
-//   const handlePwInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     if (e.target.value.length <= 16) {
-//       setPwText(e.target.value);
-//     }
-//   };
-
-//   return (
-//     <div className="iFrame">
-//       <div className="iFrame__InternalFrame"></div>
-//       <div className="iFrame__Loginbanner">Login</div>
-//       <div className="iFrame__ID">ID :</div>
-//       <div className="iFrame__PW">PW :</div>
-
-//       <div className="iFrame__Loginbtn">Login</div>
-//       <Link to={"/Signuppage"}>
-//         <div className="iFrame__Signupbtn"> SignUp</div>
-//       </Link>
-
-//       <div className="iFrame__GyeonggiSouth">경기 남부</div>
-//       <div className="iFrame__GyeonggiSouthframe"></div>
-//       <input
-//         className="iFrame__IDtext"
-//         type="text"
-//         value={idText}
-//         onChange={handleIdInputChange}
-//       />
-//       <input
-//         className="iFrame__PWtext"
-//         type="password"
-//         value={pwText}
-//         onChange={handlePwInputChange}
-//       />
-//     </div>
-//   );
-// };
-
-// export default LoginPage;
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithGoogle } from "../firebase";
 import "./LoginPage.scss";
 
 const LoginPage: React.FC = () => {
-  const [idText, setIdText] = useState<string>("");
+  const [emailText, setEmailText] = useState<string>("");
 
   const handleIdInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 16) {
-      setIdText(e.target.value);
+    if (e.target.value.length <= 20) {
+      setEmailText(e.target.value);
     }
   };
 
@@ -77,7 +25,16 @@ const LoginPage: React.FC = () => {
     <div className="iFrame">
       <div className="iFrame__InternalFrame"></div>
       <div className="iFrame__Loginbanner">Login</div>
-      <div className="iFrame__ID">ID :</div>
+      <div className="iFrame__EmailInput">
+        <span className="iFrame__EmailInput__Email">Email : </span>
+        <input
+          className="iFrame__EmailInput__Emailtext"
+          type="text"
+          value={emailText}
+          onChange={handleIdInputChange}
+        />
+        <span className="iFrame__EmailInput__Loginbtn">Login</span>
+      </div>
       <div className="iFrame__GmailLoginbtn" onClick={handleGoogleLogin}>
         Gmail
       </div>
@@ -86,13 +43,6 @@ const LoginPage: React.FC = () => {
       </Link>
       <div className="iFrame__GyeonggiSouth">경기 남부</div>
       <div className="iFrame__GyeonggiSouthframe"></div>
-      <input
-        className="iFrame__IDtext"
-        type="text"
-        value={idText}
-        onChange={handleIdInputChange}
-      />
-      <div className="iFrame__Loginbtn">Login</div>
     </div>
   );
 };
