@@ -1,11 +1,18 @@
 import React from "react";
 import "./MyReply.scss";
-import { Link } from "react-router-dom";
+import Backbtn from "../assets/Backbtn.svg";
+import { Link, useNavigate } from "react-router-dom";
 // import LikeBtn from "../MyPost/LikeBtn";
 
 const MyReply = () => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
     <div className="replys">
+       <img src={Backbtn} alt="Backbtn" className="replys__Backbtn" onClick={goBack} />
       <h2 className="replys__reply-title">내 댓글 목록</h2>
 
       <div className="replys__reply-list">
