@@ -1,24 +1,57 @@
 .usepage {
     position: relative;
-    width: 390px;
-    height: 844px;
-    background: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 8px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    font-family: "Nanum Gothic", sans-serif;
+    height: 100vh;
+    width: 100%;
+    background: ffffff;
+
     &__usepage-title {
-        color: black;
-        margin-bottom: 15px;
-        font-size: 20px;
-        text-align: center;
-        padding: 10px;
+        position: absolute;
+        top: 200px;
+        font-size: 24px;
+        left: 50%;
+        transform: translate(-50%, -50%);
         font-weight: 660;
     }
-    &__usebox {
+    &__Logo {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 100px;
+        cursor: pointer;
+        img {
+            width: 150%;
+            height: 150%;
+        } 
+      }
+      .usepage__usebox {
+        position: absolute;
+        top: 330px;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 80px;
+        font-size: 16px;
+        left: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-weight: 660;
+        transform: translate(-50%, -50%);
         background-color: #c5c5c5;
+      }
+
+      
+    &__Backbtn {    
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        left: 5%;
+        transform: translate(-50%, -50%);
+        top: 22px;
+        cursor: pointer;
+        img {
+            width: 115%;
+            height: 115%;
+        }
     }
 }
