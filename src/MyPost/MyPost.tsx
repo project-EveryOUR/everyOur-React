@@ -2,11 +2,18 @@ import React from "react";
 import "./MyPost.scss";
 import "./LikeBtn";
 import LikeBtn from "./LikeBtn";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
+import Backbtn from "../assets/Backbtn.svg";
 
 const MyPost = () => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
     <div className="mypost">
+       <img src={Backbtn} alt="Backbtn" className="mypost__Backbtn" onClick={goBack} />
       <h2 className="mypost__post-title">내가 쓴 글 목록</h2>
 
       <div className="mypost__post-list">
