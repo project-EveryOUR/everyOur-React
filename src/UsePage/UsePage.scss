@@ -5,12 +5,17 @@
     background: ffffff;
 
     &__usepage-title {
+        color: #279EFF;
         position: absolute;
-        top: 200px;
-        font-size: 24px;
+        height: 27px;
         left: 50%;
-        transform: translate(-50%, -50%);
-        font-weight: 660;
+        transform: translate(-50%, -80%);
+        top: 160px;
+        font-family: 'NanumGothic';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 32px;  
     }
     &__Logo {
         position: absolute;
