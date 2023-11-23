@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import './WritePage.scss';
 import filelinkImage from './filelink.svg';
 import writebtnImage from './writebtn.svg';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const WritePageComponent: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -17,7 +17,11 @@ const WritePageComponent: React.FC = () => {
   const [Titletext, setTitleText] = useState<string>('');
   const [Contenttext, setContentText] = useState<string>('');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const navigate = useNavigate();
 
+  const goBack = () => {
+    navigate(-1);
+  };
   const TitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length <= 16) {
       setTitleText(e.target.value);
@@ -62,11 +66,13 @@ const WritePageComponent: React.FC = () => {
         style={{ display: 'none' }}
         onChange={handleFileChange}
       />
+    <button className="writepage__writepage-btn" onClick={goBack} >이전</button>
     <Link to={`/PostIn?title=${Titletext}&content=${Contenttext}`}>
     <div className="writepage__writebtn">
     <img src={writebtnImage} alt="writebtn" />
     </div>
     </Link>
+    
     </div>
   );
 };

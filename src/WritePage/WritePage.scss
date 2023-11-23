@@ -50,11 +50,11 @@ $height: 100vh;
     }
     &__writebtn {
         position: absolute;
-        left: 50%;
-        transform: translate(400%, -35%);
+        margin-right: 1%;
+        margin-left: 90%;
         width: 32px;
         height: 32px;
-        top: 800px;
+        top: 792px;
         cursor: pointer;
         img {
             width: 100%;
@@ -65,9 +65,9 @@ $height: 100vh;
         position: absolute;
         width: 32px;
         height: 32px;
-        left: 50%;
-        transform: translate(-500%, -50%);
-        top: 800px;
+        margin-left: 2%;
+        margin-right: 90%;
+        top: 790px;
         cursor: pointer;
         img {
             width: 115%;
@@ -80,4 +80,18 @@ $height: 100vh;
     &__filelink:active {
         background-color: #279eff !important;
     }
+    &__writepage-btn {
+        position: absolute;
+        left: 50%;
+        top: 790px;
+        transform: translate(-50%, -50%);
+        background-color: #c5c5c5;
+        padding: 5px 10px;
+        width: 70px; // 버튼 너비 조절
+        transition: background-color 0 &__3s;
+        &:active {
+          background-color: #279eff;
+        }
+        margin-top: 20px;
+      }
 }
