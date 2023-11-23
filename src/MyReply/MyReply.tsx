@@ -3,7 +3,7 @@ import "./MyReply.scss";
 import Backbtn from "../assets/Backbtn.svg";
 import { Link, useNavigate } from "react-router-dom";
 // import LikeBtn from "../MyPost/LikeBtn";
-
+import everyOURLogo from "../assets/logo.svg";
 const MyReply = () => {
   const navigate = useNavigate();
 
@@ -12,6 +12,13 @@ const MyReply = () => {
   };
   return (
     <div className="replys">
+      <Link to={"/"}>
+        <img
+          src={everyOURLogo}
+          alt="everyOURLogo"
+          className="Langset__Logo"
+        />
+      </Link>
        <img src={Backbtn} alt="Backbtn" className="replys__Backbtn" onClick={goBack} />
       <h2 className="replys__reply-title">내 댓글 목록</h2>
 
@@ -26,9 +33,6 @@ const MyReply = () => {
           </div>
         </li>
       </div>
-      <Link to={"/settingspage"}>
-        <button className="replys__reply-btn">이전</button>
-      </Link>
     </div>
   );
 };
