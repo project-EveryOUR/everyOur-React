@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 import everyOURLogo from "../assets/logo.svg";
 import sidemenu from "../assets/sidemenu.svg";
 import "../mainPage/mainPage.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SideBar from "./../SideBar/SideBar";
 import { signOutUser, auth } from "../firebase";
+import Backbtn from "../assets/Backbtn.svg";
 
 // interface Props {
 //   isOpen: isOpen
@@ -16,7 +17,11 @@ const MainPage: React.FC = () => {
   const toggleSide = () => {
     setIsOpen(true);
   };
+  const navigate = useNavigate();
 
+  const goBack = () => {
+    navigate(-1);
+  };
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -52,7 +57,7 @@ const MainPage: React.FC = () => {
           <span className="everyOUR__Main">everyOUR</span>
         </a>
       </div>
-
+      <img src={Backbtn} alt="Backbtn" className="main__Backbtn" onClick={goBack} />
       {/* 로그인 상태에 따라 다르게 렌더링 */}
       {isLoggedIn ? (
         <button className="loginBtn" onClick={handleLogout}>
@@ -60,7 +65,7 @@ const MainPage: React.FC = () => {
         </button>
       ) : (
         <button className="loginBtn">
-          <Link to={"/loginpage"}>LOGIN</Link>
+          <Link to={"/loginpage/경기 남부"}>LOGIN</Link>
         </button>
       )}
       {/* <button className="loginBtn">

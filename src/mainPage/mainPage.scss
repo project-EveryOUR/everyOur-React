@@ -6,6 +6,19 @@
   height: 100vh;
   width: 100%;
   background: ffffff;
+  &__Backbtn {    
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    top: 22px;
+    cursor: pointer;
+    img {
+        width: 115%;
+        height: 115%;
+    }
+}
   &__hotposts {
     position: absolute;
     top: 210px;
@@ -45,6 +58,7 @@
         }
       }
     }
+    
     &__ggSouth {
       padding-bottom: 20px;
       &__list {
@@ -84,8 +98,12 @@
 
 .sideMenuBtn {
   position: absolute;
+  cursor: pointer;
   top: 0px;
   right: 8px;
+  &:active {
+    background-color: #279eff;
+  }
 }
 
 .loginBtn {
@@ -94,6 +112,9 @@
   right: 60px;
   border: 2px solid #c5c5c5;
   border-radius: 20px;
+  &:active {
+    background-color: #279eff;
+  }
 }
 
 .everyOUR {
