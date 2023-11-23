@@ -8,13 +8,29 @@
   align-items: center;
   box-sizing: border-box;
   font-family: "Nanum Gothic", sans-serif;
+  &__Logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 100px;
+    cursor: pointer;
+    img {
+        width: 150%;
+        height: 150%;
+    } 
+  }
   &__nick-title {
-    color: black;
-    margin-bottom: 15px;
-    font-size: 20px;
-    text-align: center;
-    padding: 10px;
-    font-weight: 660;
+    color: #279EFF;
+    position: absolute;
+    height: 27px;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    top: 154px;
+    font-family: 'NanumGothic';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 32px;
   }
   &__Backbtn {    
     position: absolute;
@@ -30,6 +46,9 @@
     }
 }
   &__nick-input {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 650%);
     &__nick-group {
       margin-top: 15px;
       display: flex;
@@ -42,6 +61,7 @@
         width: 100%; // 텍스트박스 너비 100%로 설정
       }
       button {
+        margin-left: -10px;
         background-color: #c5c5c5;
         padding: 5px 10px;
         width: 70px; // 버튼 너비 조절
@@ -53,6 +73,9 @@
     }
   }
   &__nick-btn {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 1800%);
     background-color: #c5c5c5;
     padding: 5px 10px;
     width: 70px; // 버튼 너비 조절

@@ -2,6 +2,9 @@ import React from "react";
 import "./Nickname.scss";
 import Backbtn from "../assets/Backbtn.svg";
 import { Link, useNavigate } from "react-router-dom";
+import everyOURLogo from "../assets/logo.svg";
+
+
 const Nickname = () => {
   const handleButtonClick = () => {
     alert("수정되었습니다");
@@ -14,6 +17,13 @@ const Nickname = () => {
 
   return (
     <div className="nickname">
+      <Link to={"/"}>
+        <img
+          src={everyOURLogo}
+          alt="everyOURLogo"
+          className="Langset__Logo"
+        />
+      </Link>
        <img src={Backbtn} alt="Backbtn" className="nickname__Backbtn" onClick={goBack} />
       <h2 className="nickname__nick-title">닉네임 변경</h2>
 
