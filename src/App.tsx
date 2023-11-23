@@ -32,7 +32,8 @@ function App() {
       <Route element={<MyLike />} path="/mylike" />
       <Route element={<MyPost />} path="/mypost" />
       <Route element={<Email />} path="/email" />
-      <Route element={<LoginPage />} path="/loginpage" />
+      <Route element={<LoginPage />} path="/loginpage/경기 남부" />
+      <Route element={<LoginPage />} path="/loginpage/경기 북부" />
       <Route element={<MyReply />} path="/myreply" />
       <Route element={<Nickname />} path="/nickname" />
       <Route element={<Pw />} path="/pw" />
