@@ -4,11 +4,21 @@ import "./SignupPage.scss";
 import { signInWithGoogle } from "../firebase";
 import everyOURLogo from "../assets/logo.svg";
 import Backbtn from "../assets/Backbtn.svg";
+import { doc, setDoc, DocumentReference } from "firebase/firestore";
+import { db, auth } from "../firebase";
+
+interface UserData {
+  nickname: string;
+  email: string;
+  major: string;
+  name: string;
+  studentId: string;
+  univName: string;
+}
 
 const SignupPage: React.FC = () => {
   const [Nicknametext, setNicknameText] = useState<string>("");
   const [IDtext, setIDText] = useState<string>("");
-  const [PWtext, setPWText] = useState<string>("");
   const [PWcontext, setPWconText] = useState<string>("");
   const [Nametext, setNameText] = useState<string>("");
   const [Locationtext, setLocationText] = useState<string>("");
@@ -17,6 +27,32 @@ const SignupPage: React.FC = () => {
   const [Departmenttext, setDepartmentText] = useState<string>("");
   const [SchoolEmailtext, setSchoolEmailText] = useState<string>("");
   const [VerificationCodetext, setVerificationCodeText] = useState<string>("");
+
+  const addUserData = async () => {
+    const user = auth.currentUser;
+
+    if (user) {
+      const userRef: DocumentReference<UserData> = doc(db, "users", user.uid);
+
+      const userData: UserData = {
+        nickname: Nicknametext,
+        email: IDtext,
+        major: Departmenttext,
+        name: Nametext,
+        studentId: StudentIDtext,
+        univName: Schooltext,
+      };
+
+      try {
+        await setDoc(userRef, userData);
+        console.log("Document successfully written!");
+      } catch (error) {
+        console.error("Error writing document: ", error);
+      }
+    } else {
+      console.error("로그인이 필요합니다.");
+    }
+  };
 
   const navigate = useNavigate();
 
@@ -34,7 +70,7 @@ const SignupPage: React.FC = () => {
     }
   };
   const IDChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 12) {
+    if (e.target.value.length <= 50) {
       setIDText(e.target.value);
     }
   };
@@ -65,7 +101,7 @@ const SignupPage: React.FC = () => {
     }
   };
   const SchoolEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 26) {
+    if (e.target.value.length <= 50) {
       setSchoolEmailText(e.target.value);
     }
   };
@@ -77,23 +113,25 @@ const SignupPage: React.FC = () => {
 
   return (
     <div className="SignupFrame">
-        <Link to={"/"}>
-          <img
-            src={everyOURLogo}
-            alt="everyOUR 메인 로고"
-            className="everyOUR__Logo"
-          />
-        </Link>
-      <div className="SignupFrame__SignUpbanner">Sign-Up</div>
+      <Link to={"/"}>
+        <img
+          src={everyOURLogo}
+          alt="everyOUR 메인 로고"
+          className="everyOUR__Logo"
+        />
+      </Link>
+      <div className="SignupFrame__SignUpbanner" onClick={addUserData}>
+        Sign-Up
+      </div>
       <div className="SignupFrame__InterFrame"></div>
-      <div className="SignupFrame__Nickname">닉네임:</div>
-      <div className="SignupFrame__ID">Gmail:</div>
+      <div className="SignupFrame__Nickname">닉네임</div>
+      <div className="SignupFrame__ID">Gmail</div>
 
-      <div className="SignupFrame__Name">이름:</div>
-      <div className="SignupFrame__Location">지역:</div>
-      <div className="SignupFrame__School">학교:</div>
-      <div className="SignupFrame__StudentID">학번:</div>
-      <div className="SignupFrame__Department">학과:</div>
+      <div className="SignupFrame__Name">이름</div>
+      <div className="SignupFrame__Location">지역</div>
+      <div className="SignupFrame__School">학교</div>
+      <div className="SignupFrame__StudentID">학번</div>
+      <div className="SignupFrame__Department">학과</div>
 
       <input
         className="SignupFrame__Nicknametext"
@@ -138,8 +176,13 @@ const SignupPage: React.FC = () => {
         value={Departmenttext}
         onChange={DepartmentChange}
       />
-      <img src={Backbtn} alt="Backbtn" className="SignupFrame__Backbtn" onClick={goBack} />
-      <div className="SignupFrame__Submitbtn" onClick={handleGoogleSignIn}>
+      <img
+        src={Backbtn}
+        alt="Backbtn"
+        className="SignupFrame__Backbtn"
+        onClick={goBack}
+      />
+      <div className="SignupFrame__Submitbtn" onClick={addUserData}>
         Sign-Up
       </div>
     </div>
