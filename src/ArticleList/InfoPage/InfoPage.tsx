@@ -1,9 +1,15 @@
 import "../ArticleList.scss";
-import React from "react";
+import sidemenu from "../../assets/sidemenu.svg";
+import React, { useState } from "react";
+import SideBar from "../../SideBar/SideBar";
 import { Link } from "react-router-dom";
 import everyOURLogo from "../../assets/logo.svg";
 
-function InfoPage(): JSX.Element {
+function ArticleList(): JSX.Element {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleSide = () => {
+    setIsOpen(true);
+  };
   return (
     <div className="articleList">
       <Link to={"/"}>
@@ -13,6 +19,10 @@ function InfoPage(): JSX.Element {
           className="smallLogo"
         />
       </Link>
+      <div className="sideMenuBtn" onClick={toggleSide}>
+          <img src={sidemenu} alt="사이드 메뉴 버튼" className="sideMenuBtn" />
+        </div>
+        <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="listBox">
         <div className="boardName">공지 사항</div>
         <button className="articleSearch">검색</button>
@@ -117,11 +127,10 @@ function InfoPage(): JSX.Element {
               </span>
             </li>
           </ul>
-          {/* <pagination /> */}
         </div>
       </div>
     </div>
   );
 }
 
-export default InfoPage;
+export default ArticleList;

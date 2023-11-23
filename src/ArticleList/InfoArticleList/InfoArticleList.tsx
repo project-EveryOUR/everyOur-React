@@ -1,5 +1,4 @@
 import "../ArticleList.scss";
-
 import sidemenu from "../../assets/sidemenu.svg";
 import React, { useState } from "react";
 import SideBar from "../../SideBar/SideBar";
