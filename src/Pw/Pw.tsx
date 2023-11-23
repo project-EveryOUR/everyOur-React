@@ -2,6 +2,9 @@ import React from "react";
 import "./Pw.scss";
 import Backbtn from "../assets/Backbtn.svg";
 import { Link, useNavigate } from "react-router-dom";
+import everyOURLogo from "../assets/logo.svg";
+
+
 const Pw = () => {
   const navigate = useNavigate();
 
@@ -10,6 +13,13 @@ const Pw = () => {
   };
   return (
     <div className="pw">
+      <Link to={"/"}>
+        <img
+          src={everyOURLogo}
+          alt="everyOURLogo"
+          className="Langset__Logo"
+        />
+      </Link>
        <img src={Backbtn} alt="Backbtn" className="pw__Backbtn" onClick={goBack} />
       <h2 className="pw__pw-title">비밀번호 변경</h2>
 
@@ -24,12 +34,13 @@ const Pw = () => {
           <button>확인</button>
         </div>
 
-        <div className="pw__pw-input__pw-group">
+        <div className="pw__pw-input2__pw-group">
           <span>새 PW : </span>
           <input
-            className="pw__pw-input__pw-group__pw-new"
+            className="pw__pw-input2__pw-group__pw-new"
             type="password"
             placeholder="변경할 비밀번호를 입력하세요"
+            
           />
           <button>확인</button>
         </div>
