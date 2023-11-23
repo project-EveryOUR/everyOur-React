@@ -4,17 +4,39 @@
     width: 100%;
     background: ffffff;
     left: 0%;
-    &__SignUpbanner {
+    &__Logo {
         position: absolute;
-        width: 116px;
-        height: 35px;
         left: 50%;
         transform: translate(-50%, -50%);
-        top: 160px;
+        top: 100px;
+        cursor: pointer;
+        img {
+            width: 150%;
+            height: 150%;
+        } 
+      }
+      &__Backbtn {    
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        left: 5%;
+        transform: translate(-50%, -50%);
+        top: 22px;
+        cursor: pointer;
+        img {
+            width: 115%;
+            height: 115%;
+        }
+    }
+    &__SignUpbanner {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 154px;
         font-family: "NanumGothic";
         font-style: normal;
         font-weight: 700;
-        font-size: 30px;
+        font-size: 18px;
         line-height: 30px;
         color: #279eff;
     }

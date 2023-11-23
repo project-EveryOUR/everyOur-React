@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./SignupPage.scss";
 import { signInWithGoogle } from "../firebase";
+import everyOURLogo from "../assets/logo.svg";
+import Backbtn from "../assets/Backbtn.svg";
 
 const SignupPage: React.FC = () => {
   const [Nicknametext, setNicknameText] = useState<string>("");
@@ -23,7 +25,9 @@ const SignupPage: React.FC = () => {
       navigate("/");
     });
   };
-
+  const goBack = () => {
+    navigate(-1);
+  };
   const NicknameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length <= 10) {
       setNicknameText(e.target.value);
@@ -73,6 +77,13 @@ const SignupPage: React.FC = () => {
 
   return (
     <div className="SignupFrame">
+        <Link to={"/"}>
+          <img
+            src={everyOURLogo}
+            alt="everyOUR 메인 로고"
+            className="everyOUR__Logo"
+          />
+        </Link>
       <div className="SignupFrame__SignUpbanner">Sign-Up</div>
       <div className="SignupFrame__InterFrame"></div>
       <div className="SignupFrame__Nickname">닉네임:</div>
@@ -127,7 +138,7 @@ const SignupPage: React.FC = () => {
         value={Departmenttext}
         onChange={DepartmentChange}
       />
-
+      <img src={Backbtn} alt="Backbtn" className="SignupFrame__Backbtn" onClick={goBack} />
       <div className="SignupFrame__Submitbtn" onClick={handleGoogleSignIn}>
         Sign-Up
       </div>
