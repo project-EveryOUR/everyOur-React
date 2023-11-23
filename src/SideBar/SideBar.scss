@@ -12,12 +12,24 @@
   &.open {
     right: 0;
     transition: 0.5s ease;
+    
   }
   &__ul {
-    height: 100%;
-    &__li {
-      display: block;
-      padding: 20px;
+    display: block;
+    width: 100%;
+    &__X {
+      cursor: pointer;
+    }
+    & p {
+      cursor: pointer;
+      &:active {
+        background-color: #279eff;
+      }
+      text-align: left;
+      margin: 30px;
+      font-size: 18px;
+    }
+      
     }
   }
-}
+

@@ -31,38 +31,21 @@ function SideBar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
         ref={outside}
         className={`sidebar-wrap ${isOpen ? "open" : ""}`}
       >
-        <img
+        <img className="sidebar-wrap__ul__X"
           src={close}
           alt="close"
           onClick={toggleSide}
           onKeyDown={toggleSide}
         />
         <ul className="sidebar-wrap__ul">
-          <span className="sidebar-wrap__ul__li">
-            <Link to={"/InfoPage"}>공지 사항</Link>
-          </span>
-          <span className="sidebar-wrap__ul__li">
-            <Link to={"/UsePage"}>사용 문의</Link>
-          </span>
-          <span className="sidebar-wrap__ul__li">
-            <Link to={"/langset"}>언어 설정</Link>
-          </span>
-          <span className="sidebar-wrap__ul__li">
-            <Link to={"/settingspage"}>계정 설정</Link>
-          </span>
-
-          <span className="sidebar-wrap__ul__li">
-            <Link to={"/hotarticlelist"}>Hot 게시글</Link>
-          </span>
-          <span className="sidebar-wrap__ul__li">
-            <Link to={"/freearticlelist"}>자유 게시판</Link>
-          </span>
-          <span className="sidebar-wrap__ul__li">
-            <Link to={"/secretarticlelist"}>비밀 게시판</Link>
-          </span>
-          <span className="sidebar-wrap__ul__li">
-            <Link to={"/infoarticlelist"}>정보 게시판</Link>
-          </span>
+          <Link to={"/InfoPage"}><p className="sidebar-wrap__ul">공지 사항</p></Link>
+          <Link to={"/UsePage"}><p className="sidebar-wrap__ul">사용 문의</p></Link>
+          <Link to={"/langset"}><p className="sidebar-wrap__ul">언어 설정</p></Link>
+          <Link to={"/settingspage"}><p className="sidebar-wrap__ul">계정 설정</p></Link>
+          <Link to={"/hotarticlelist"}><p className="sidebar-wrap__ul">Hot 게시글</p></Link>
+          <Link to={"/freearticlelist"}><p className="sidebar-wrap__ul">자유 게시판</p></Link>
+          <Link to={"/secretarticlelist"}><p className="sidebar-wrap__ul">비밀 게시판</p></Link>
+          <Link to={"/infoarticlelist"}><p className="sidebar-wrap__ul">정보 게시판</p></Link>
         </ul>
       </div>
     </div>
