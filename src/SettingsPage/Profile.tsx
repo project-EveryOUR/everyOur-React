@@ -4,9 +4,9 @@ const Profile = () => {
   return (
     <div className="profile">
       <svg
-        width="80"
+        width="75"
         height="70"
-        viewBox="0 0 70 61"
+        viewBox="0 0 70 62"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         style={{ float: "left", marginTop: "20px", marginLeft: "15px" }}
