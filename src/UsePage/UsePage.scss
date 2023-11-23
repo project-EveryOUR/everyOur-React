@@ -1,62 +1,60 @@
 .usepage {
-    position: relative;
-    height: 100vh;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: ffffff;
+
+  &__usepage-title {
+    color: #279eff;
+    position: absolute;
+    height: 27px;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    top: 160px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 32px;
+  }
+  &__Logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 100px;
+    cursor: pointer;
+    img {
+      width: 150%;
+      height: 150%;
+    }
+  }
+  .usepage__usebox {
+    position: absolute;
+    top: 330px;
+    transform: translateY(-50%);
     width: 100%;
-    background: ffffff;
+    height: 80px;
+    font-size: 16px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 660;
+    transform: translate(-50%, -50%);
+    background-color: #c5c5c5;
+  }
 
-    &__usepage-title {
-        color: #279EFF;
-        position: absolute;
-        height: 27px;
-        left: 50%;
-        transform: translate(-50%, -80%);
-        top: 160px;
-        font-family: 'NanumGothic';
-        font-style: normal;
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 32px;  
+  &__Backbtn {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    top: 22px;
+    cursor: pointer;
+    img {
+      width: 115%;
+      height: 115%;
     }
-    &__Logo {
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        top: 100px;
-        cursor: pointer;
-        img {
-            width: 150%;
-            height: 150%;
-        } 
-      }
-      .usepage__usebox {
-        position: absolute;
-        top: 330px;
-        transform: translateY(-50%);
-        width: 100%;
-        height: 80px;
-        font-size: 16px;
-        left: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-weight: 660;
-        transform: translate(-50%, -50%);
-        background-color: #c5c5c5;
-      }
-
-      
-    &__Backbtn {    
-        position: absolute;
-        width: 32px;
-        height: 32px;
-        left: 5%;
-        transform: translate(-50%, -50%);
-        top: 22px;
-        cursor: pointer;
-        img {
-            width: 115%;
-            height: 115%;
-        }
-    }
+  }
 }

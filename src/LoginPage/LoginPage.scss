@@ -14,7 +14,7 @@
     border: 2px solid rgba(197, 197, 197, 0.980392);
     border-radius: 15px;
   }
-  &__Backbtn {    
+  &__Backbtn {
     position: absolute;
     width: 32px;
     height: 32px;
@@ -23,10 +23,10 @@
     top: 22px;
     cursor: pointer;
     img {
-        width: 115%;
-        height: 115%;
+      width: 115%;
+      height: 115%;
     }
-}
+  }
   &__Logo {
     position: absolute;
     left: 50%;
@@ -34,39 +34,42 @@
     top: 100px;
     cursor: pointer;
     img {
-        width: 150%;
-        height: 150%;
-    } 
+      width: 150%;
+      height: 150%;
+    }
   }
   &__Loginbanner {
-    color: #279EFF;
+    color: #279eff;
     position: absolute;
     height: 27px;
     left: 50%;
     transform: translate(-50%, -80%);
     top: 156px;
-    font-family: 'NanumGothic';
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
-    line-height: 32px; 
+    line-height: 32px;
   }
   &__EmailInput {
     position: absolute;
     display: flex;
-    align-items: center;
     gap: 5px;
-    font-family: "NanumGothic";
     left: 50%;
     top: 350px;
     transform: translate(-50%, -50%);
+    &__Email {
+      width: 50px;
+    }
     &__Emailtext {
       background-color: #c5c5c5;
     }
     &__Loginbtn {
+      width: 60px;
+      text-align: center;
       cursor: pointer;
       font-style: normal;
       border: 1.5px solid #000000;
+      border-radius: 5px;
       transition: background-color 0.3s;
       &:active {
         background-color: #279eff;
@@ -83,7 +86,6 @@
     transform: translate(-115%, -50%);
     top: 410px;
     cursor: pointer;
-    font-family: "NanumGothic";
     font-style: normal;
     font-weight: 550;
     font-size: 24px;
@@ -104,7 +106,6 @@
     transform: translate(15%, -50%);
     top: 410px;
     cursor: pointer;
-    font-family: "NanumGothic";
     font-style: normal;
     font-weight: 550;
     font-size: 24px;
@@ -125,9 +126,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     top: 224px;
-    border: 2px solid #279EFF;
+    border: 2px solid #279eff;
     border-radius: 15px;
-    font-family: 'NanumGothic';
     font-style: normal;
     font-weight: 300;
     font-size: 20px;
@@ -135,8 +135,8 @@
     line-height: 35px;
     color: #000000;
     cursor: pointer;
+    font-weight: 450;
   }
-
 
   &__IDtext {
     position: absolute;
@@ -146,32 +146,10 @@
     transform: translate(-40%, -40%);
     top: 363px;
     background: #d9d9d9;
-    font-family: "NanumGothic";
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 18px;
     color: #000000;
   }
-  &__Loginbtn {
-    position: absolute;
-    width: 211px;
-    height: 23px;
-    left: 50%;
-    transform: translate(-40%, -40%);
-    top: 408px;
-    background: #d9d9d9;
-    font-family: "NanumGothic";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 18px;
-    color: #000000;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    &:active {
-      background-color: #279eff;
-    }
-  }
-
 }
