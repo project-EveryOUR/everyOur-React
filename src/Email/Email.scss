@@ -7,7 +7,6 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  font-family: "Nanum Gothic", sans-serif;
   &__Logo {
     position: absolute;
     left: 50%;
@@ -15,24 +14,23 @@
     top: 100px;
     cursor: pointer;
     img {
-        width: 150%;
-        height: 150%;
-    } 
+      width: 150%;
+      height: 150%;
+    }
   }
   &__email-title {
-    color: #279EFF;
+    color: #279eff;
     position: absolute;
     height: 27px;
     left: 50%;
     transform: translate(-50%, -80%);
     top: 154px;
-    font-family: 'NanumGothic';
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 32px;
   }
-  &__Backbtn {    
+  &__Backbtn {
     position: absolute;
     width: 32px;
     height: 32px;
@@ -41,10 +39,10 @@
     top: 22px;
     cursor: pointer;
     img {
-        width: 115%;
-        height: 115%;
+      width: 115%;
+      height: 115%;
     }
-}
+  }
   &__email-input {
     position: absolute;
     left: 50%;

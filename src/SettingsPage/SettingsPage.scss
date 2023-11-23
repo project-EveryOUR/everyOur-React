@@ -4,20 +4,17 @@
   width: 100%;
   background: ffffff;
 
-
   &__settings-title {
-    color: #279EFF;
+    color: #279eff;
     position: absolute;
     height: 27px;
     left: 50%;
     transform: translate(-50%, -80%);
     top: 143px;
-    font-family: 'NanumGothic';
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 32px;
-    
   }
 
   &__gray-box-1 {
@@ -27,7 +24,7 @@
     left: 50%;
     transform: translate(-50%, -10%);
     top: 203px;
-    border: 2px solid #C5C5C5;
+    border: 2px solid #c5c5c5;
     border-radius: 15px;
 
     &__userinfo {
@@ -36,7 +33,6 @@
     }
 
     p {
-      
       text-align: left;
       margin: 9px;
       font-size: 18px;
@@ -82,7 +78,7 @@
     left: 50%;
     transform: translate(-50%, 0%);
     top: 461px;
-    
+
     border: 2px solid rgba(197, 197, 197, 0.980392);
     border-radius: 15px;
 
@@ -193,12 +189,11 @@
     }
   }
 
-
   .profile {
     margin-top: -14px;
     cursor: pointer;
   }
-  &__Backbtn {    
+  &__Backbtn {
     position: absolute;
     width: 32px;
     height: 32px;
@@ -207,8 +202,8 @@
     top: 22px;
     cursor: pointer;
     img {
-        width: 115%;
-        height: 115%;
+      width: 115%;
+      height: 115%;
     }
-}
+  }
 }

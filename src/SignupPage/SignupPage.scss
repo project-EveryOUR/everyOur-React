@@ -1,430 +1,407 @@
 .SignupFrame {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    background: ffffff;
-    left: 0%;
-    &__Logo {
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        top: 100px;
-        cursor: pointer;
-        img {
-            width: 150%;
-            height: 150%;
-        } 
-      }
-      &__Backbtn {    
-        position: absolute;
-        width: 32px;
-        height: 32px;
-        left: 5%;
-        transform: translate(-50%, -50%);
-        top: 22px;
-        cursor: pointer;
-        img {
-            width: 115%;
-            height: 115%;
-        }
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: ffffff;
+  left: 0%;
+  &__Logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 100px;
+    cursor: pointer;
+    img {
+      width: 150%;
+      height: 150%;
     }
-    &__SignUpbanner {
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        top: 154px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 30px;
-        color: #279eff;
+  }
+  &__Backbtn {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    top: 22px;
+    cursor: pointer;
+    img {
+      width: 115%;
+      height: 115%;
     }
-    &__InterFrame {
-        box-sizing: border-box;
-        position: absolute;
-        width: 370px;
-        height: 500px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        top: 495px;
-        border: 2px solid rgba(197, 197, 197, 0.980392);
-        border-radius: 15px;
+  }
+  &__SignUpbanner {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 154px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    color: #279eff;
+  }
+  &__InterFrame {
+    box-sizing: border-box;
+    position: absolute;
+    width: 370px;
+    height: 500px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 495px;
+    border: 2px solid rgba(197, 197, 197, 0.980392);
+    border-radius: 15px;
+  }
+  &__Nickname {
+    position: absolute;
+    width: 84px;
+    height: 18px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 325px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__ID {
+    position: absolute;
+    width: 84px;
+    height: 18px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 365px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__PW {
+    position: absolute;
+    width: 84px;
+    height: 18px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 325px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__PWConfirmation {
+    position: absolute;
+    width: 84px;
+    height: 18px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 365px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__Name {
+    position: absolute;
+    width: 84px;
+    height: 21px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 405px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__Location {
+    position: absolute;
+    width: 84px;
+    height: 18px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 445px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__School {
+    position: absolute;
+    width: 84px;
+    height: 18px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 485px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__StudentID {
+    position: absolute;
+    width: 84px;
+    height: 18px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 525px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__Department {
+    position: absolute;
+    width: 84px;
+    height: 18px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 565px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__SchoolEmail {
+    position: absolute;
+    width: 84px;
+    height: 18px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 605px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__VerificationCode {
+    position: absolute;
+    width: 84px;
+    height: 18px;
+    left: 50%;
+    transform: translate(-180%, 0%);
+    top: 645px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+  }
+  &__Submitbtn {
+    position: absolute;
+    width: 107px;
+    height: 36px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    top: 650px;
+    cursor: pointer;
+    &:active {
+      background-color: #279eff;
     }
-    &__Nickname {
-        position: absolute;
-        width: 84px;
-        height: 18px;
-        left: 50%;
-        transform: translate(-180%, 0%);
-        top: 325px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 23px;
+    color: #000000;
+    padding: 5px;
+  }
+  &__Nicknametext {
+    position: absolute;
+    width: 186px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-30%, 0%);
+    top: 325px;
+    background: #d9d9d9;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    padding: 5px;
+  }
+  &__IDtext {
+    position: absolute;
+    width: 186px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-30%, 0%);
+    top: 365px;
+    background: #d9d9d9;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    padding: 5px;
+  }
+  &__PWtext {
+    position: absolute;
+    width: 186px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-30%, 0%);
+    top: 325px;
+    background: #d9d9d9;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    padding: 5px;
+  }
+  &__PWConfirmationtext {
+    position: absolute;
+    width: 186px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-30%, 0%);
+    top: 365px;
+    background: #d9d9d9;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    padding: 5px;
+  }
+  &__Nametext {
+    position: absolute;
+    width: 186px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-30%, 0%);
+    top: 405px;
+    background: #d9d9d9;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    padding: 5px;
+  }
+  &__Locationtext {
+    position: absolute;
+    width: 186px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-30%, 0%);
+    top: 445px;
+    background: #d9d9d9;
+    font-style: normal;
+    font-weight: 550;
+    font-size: 15px;
+    color: #000000;
+  }
+  &__Schooltext {
+    position: absolute;
+    width: 186px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-30%, 0%);
+    top: 485px;
+    background: #d9d9d9;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    padding: 5px;
+  }
+  &__StudentIDtext {
+    position: absolute;
+    width: 186px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-30%, 0%);
+    top: 525px;
+    background: #d9d9d9;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    padding: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  &__Departmenttext {
+    position: absolute;
+    width: 186px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-30%, 0%);
+    top: 565px;
+    background: #d9d9d9;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    padding: 5px;
+  }
+  &__SchoolEmailtext {
+    position: absolute;
+    width: 153px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-36.5%, 0%);
+    top: 605px;
+    background: #d9d9d9;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 23px;
+    color: #000000;
+    padding: 5px;
+  }
+  &__Verificationtext {
+    position: absolute;
+    width: 186px;
+    height: 23px;
+    left: 50%;
+    transform: translate(-30%, 0%);
+    top: 645px;
+    background: #d9d9d9;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    padding: 5px;
+    /* fix */
+    -webkit-appearance: none !important;
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+  }
+  &__Verificationbtn {
+    box-sizing: border-box;
+    position: absolute;
+    width: 33px;
+    height: 23px;
+    left: 50%;
+    transform: translate(300%, 0%);
+    top: 605px;
+    background: #ffffff;
+    border: 1px solid #000000;
+    font-style: normal;
+    font-weight: 550;
+    font-size: 13px;
+    line-height: 23px;
+    color: #000000;
+    padding: 2px;
+    cursor: pointer;
+    &:active {
+      background-color: #279eff;
     }
-    &__ID {
-        position: absolute;
-        width: 84px;
-        height: 18px;
-        left: 50%;
-        transform: translate(-180%, 0%);
-        top: 365px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
-    &__PW {
-        position: absolute;
-        width: 84px;
-        height: 18px;
-        left: 50%;
-        transform: translate(-180%, 0%);
-        top: 325px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
-    &__PWConfirmation {
-        position: absolute;
-        width: 84px;
-        height: 18px;
-        left: 50%;
-        transform: translate(-180%, 0%);
-        top: 365px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
-    &__Name {
-        position: absolute;
-        width: 84px;
-        height: 21px;
-        left: 50%;
-        transform: translate(-180%, 0%);
-        top: 405px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
-    &__Location {
-        position: absolute;
-        width: 84px;
-        height: 18px;
-        left: 50%;
-        transform: translate(-180%, 0%);
-        top: 445px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
-    &__School {
-        position: absolute;
-        width: 84px;
-        height: 18px;
-        left: 50%;
-        transform: translate(-180%, 0%);
-        top: 485px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
-    &__StudentID {
-        position: absolute;
-        width: 84px;
-        height: 18px;
-        left: 50%;
-        transform: translate(-180%, 0%);
-        top: 525px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
-    &__Department {
-        position: absolute;
-        width: 84px;
-        height: 18px;
-        left: 50%;
-        transform: translate(-180%, 0%);
-        top: 565px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
-    &__SchoolEmail {
-        position: absolute;
-        width: 84px;
-        height: 18px;
-        left: 50%;
-        transform: translate(-180%, 0%);
-        top: 605px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
-    &__VerificationCode {
-        position: absolute;
-        width: 84px;
-        height: 18px;
-        left: 50%;
-        transform: translate(-180%, 0%);
-        top: 645px;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        color: #000000;
-    }
-    &__Submitbtn {
-        position: absolute;
-        width: 107px;
-        height: 36px;
-        left: 50%;
-        transform: translate(-50%, 0%);
-        top: 650px;
-        cursor: pointer;
-        &:active {
-            background-color: #279eff;
-        }
-        border: 2px solid #000000;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-size: 25px;
-        line-height: 23px;
-        color: #000000;
-        padding: 5px;
-    }
-    &__Nicknametext {
-        position: absolute;
-        width: 186px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-30%, 0%);
-        top: 325px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 23px;
-        color: #000000;
-        padding: 5px;
-    }
-    &__IDtext {
-        position: absolute;
-        width: 186px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-30%, 0%);
-        top: 365px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 23px;
-        color: #000000;
-        padding: 5px;
-    }
-    &__PWtext {
-        position: absolute;
-        width: 186px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-30%, 0%);
-        top: 325px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 23px;
-        color: #000000;
-        padding: 5px;
-    }
-    &__PWConfirmationtext {
-        position: absolute;
-        width: 186px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-30%, 0%);
-        top: 365px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 23px;
-        color: #000000;
-        padding: 5px;
-    }
-    &__Nametext {
-        position: absolute;
-        width: 186px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-30%, 0%);
-        top: 405px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 23px;
-        color: #000000;
-        padding: 5px;
-    }
-    &__Locationtext {
-        position: absolute;
-        width: 186px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-30%, 0%);
-        top: 445px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 550;
-        font-size: 15px;
-        color: #000000;
-    }
-    &__Schooltext {
-        position: absolute;
-        width: 186px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-30%, 0%);
-        top: 485px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 23px;
-        color: #000000;
-        padding: 5px;
-    }
-    &__StudentIDtext {
-        position: absolute;
-        width: 186px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-30%, 0%);
-        top: 525px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 23px;
-        color: #000000;
-        padding: 5px;
-        -webkit-appearance: none;
-        -moz-appearance: textfield;
-        appearance: textfield;
-    }
-    &__Departmenttext {
-        position: absolute;
-        width: 186px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-30%, 0%);
-        top: 565px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 23px;
-        color: #000000;
-        padding: 5px;
-    }
-    &__SchoolEmailtext {
-        position: absolute;
-        width: 153px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-36.5%, 0%);
-        top: 605px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 23px;
-        color: #000000;
-        padding: 5px;
-    }
-    &__Verificationtext {
-        position: absolute;
-        width: 186px;
-        height: 23px;
-        left: 50%;
-        transform: translate(-30%, 0%);
-        top: 645px;
-        background: #d9d9d9;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 23px;
-        color: #000000;
-        padding: 5px;
-        /* fix */
-        -webkit-appearance: none !important;
-        -moz-appearance: textfield !important;
-        appearance: textfield !important;
-    }
-    &__Verificationbtn {
-        box-sizing: border-box;
-        position: absolute;
-        width: 33px;
-        height: 23px;
-        left: 50%;
-        transform: translate(300%, 0%);
-        top: 605px;
-        background: #ffffff;
-        border: 1px solid #000000;
-        font-family: "NanumGothic";
-        font-style: normal;
-        font-weight: 550;
-        font-size: 13px;
-        line-height: 23px;
-        color: #000000;
-        padding: 2px;
-        cursor: pointer;
-        &:active {
-            background-color: #279eff;
-        }
-    }
+  }
 }

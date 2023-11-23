@@ -1,105 +1,103 @@
 .univshift {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    font-family: "Nanum Gothic", sans-serif;
-    &__Logo {
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        top: 100px;
-        cursor: pointer;
-        img {
-            width: 150%;
-            height: 150%;
-        } 
-      }
-    &__univ-title {
-        color: #279EFF;
-        position: absolute;
-        height: 27px;
-        left: 50%;
-        transform: translate(-50%, -80%);
-        top: 154px;
-        font-family: 'NanumGothic';
-        font-style: normal;
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 32px;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  &__Logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 100px;
+    cursor: pointer;
+    img {
+      width: 150%;
+      height: 150%;
     }
+  }
+  &__univ-title {
+    color: #279eff;
+    position: absolute;
+    height: 27px;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    top: 154px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 32px;
+  }
 
-    &__univ-container {
-        transform: translate(0%, 220%);
-        display: flex;
-        flex-direction: column;
-        &__univ-menual {
-            margin-bottom: 10px;
-            background-color: #c5c5c5;
-            text-align: left;
-        }
-        &__univ-form {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            
-            &__univ-input {
-                flex: 1;
-            }
-            &__univ-major {
-                flex: 1;
-            }
-            &__univ-id {
-                flex: 1;
-            }
-            &__univ-okbtn {
-                background-color: #c5c5c5;
-                color: black;
-                transition: background-color 0.3s;
-                &:active {
-                    background-color: #279eff;
-                }
-            }
-            &__univ-modibtn {
-                background-color: #c5c5c5;
-                color: black;
-                transition: background-color 0.3s;
-                &:active {
-                    background-color: #279eff;
-                }
-            }
-        }
+  &__univ-container {
+    transform: translate(0%, 220%);
+    display: flex;
+    flex-direction: column;
+    &__univ-menual {
+      margin-bottom: 10px;
+      background-color: #c5c5c5;
+      text-align: left;
     }
-    &__Backbtn {    
-        position: absolute;
-        width: 32px;
-        height: 32px;
-        left: 5%;
-        transform: translate(-50%, -50%);
-        top: 22px;
-        cursor: pointer;
-        img {
-            width: 115%;
-            height: 115%;
-        }
-    }
-    &__univ-btn {
-        transform: translate(0%, 1000%);
-        position: relative;
+    &__univ-form {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+
+      &__univ-input {
+        flex: 1;
+      }
+      &__univ-major {
+        flex: 1;
+      }
+      &__univ-id {
+        flex: 1;
+      }
+      &__univ-okbtn {
         background-color: #c5c5c5;
         color: black;
-        padding: 5px 10px;
-        width: 70px; // 버튼 너비 조절
-        border: none;
-        cursor: pointer;
-        top: 10px;
         transition: background-color 0.3s;
         &:active {
-            background-color: #279eff;
+          background-color: #279eff;
         }
-        margin-top: 20px;
+      }
+      &__univ-modibtn {
+        background-color: #c5c5c5;
+        color: black;
+        transition: background-color 0.3s;
+        &:active {
+          background-color: #279eff;
+        }
+      }
     }
+  }
+  &__Backbtn {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    top: 22px;
+    cursor: pointer;
+    img {
+      width: 115%;
+      height: 115%;
+    }
+  }
+  &__univ-btn {
+    transform: translate(0%, 1000%);
+    position: relative;
+    background-color: #c5c5c5;
+    color: black;
+    padding: 5px 10px;
+    width: 70px; // 버튼 너비 조절
+    border: none;
+    cursor: pointer;
+    top: 10px;
+    transition: background-color 0.3s;
+    &:active {
+      background-color: #279eff;
+    }
+    margin-top: 20px;
+  }
 }
