@@ -1,4 +1,3 @@
-$font-family: "NanumGothic";
 $font-weight: 700;
 $white: #ffffff;
 $gray: #c5c5c5;
@@ -6,92 +5,90 @@ $light-gray: #d9d9d9;
 $width: 100vh;
 $height: 100vh;
 .writepage {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    background: ffffff;
-    left: 0%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    &__title {
-        position: absolute;
-        height: 40px;
-        width: 350px;
-        left: 18px;
-        top: 14px;
-        font-family: $font-family;
-        font-weight: $font-weight;
-        font-size: 18px;
-        line-height: 18px;
-        outline: none;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: ffffff;
+  left: 0%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  &__title {
+    position: absolute;
+    height: 40px;
+    width: 350px;
+    left: 18px;
+    top: 14px;
+    font-weight: $font-weight;
+    font-size: 18px;
+    line-height: 18px;
+    outline: none;
+  }
+  &__content {
+    position: absolute;
+    height: 700px;
+    width: 350px;
+    left: 18px;
+    top: 83px;
+    font-weight: $font-weight;
+    font-size: 16px;
+    line-height: 16px;
+    resize: none;
+    outline: none;
+  }
+  &__line {
+    position: absolute;
+    width: 1000%;
+    height: 0px;
+    left: 0px;
+    top: 63px;
+    border: 2px solid $gray;
+  }
+  &__writebtn {
+    position: absolute;
+    margin-right: 1%;
+    margin-left: 90%;
+    width: 32px;
+    height: 32px;
+    top: 792px;
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
     }
-    &__content {
-        position: absolute;
-        height: 700px;
-        width: 350px;
-        left: 18px;
-        top: 83px;
-        font-family: $font-family;
-        font-weight: $font-weight;
-        font-size: 16px;
-        line-height: 16px;
-        resize: none;
-        outline: none;
+  }
+  &__filelink {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    margin-left: 2%;
+    margin-right: 90%;
+    top: 790px;
+    cursor: pointer;
+    img {
+      width: 115%;
+      height: 115%;
     }
-    &__line {
-        position: absolute;
-        width: 1000%;
-        height: 0px;
-        left: 0px;
-        top: 63px;
-        border: 2px solid $gray;
+  }
+  &__writebtn:active {
+    background-color: #279eff !important;
+  }
+  &__filelink:active {
+    background-color: #279eff !important;
+  }
+  &__writepage-btn {
+    position: absolute;
+    left: 50%;
+    top: 790px;
+    transform: translate(-50%, -50%);
+    background-color: #c5c5c5;
+    padding: 5px 10px;
+    width: 70px; // 버튼 너비 조절
+    transition: background-color 0 &__3s;
+    &:active {
+      background-color: #279eff;
     }
-    &__writebtn {
-        position: absolute;
-        margin-right: 1%;
-        margin-left: 90%;
-        width: 32px;
-        height: 32px;
-        top: 792px;
-        cursor: pointer;
-        img {
-            width: 100%;
-            height: 100%;
-        }
-    }
-    &__filelink {
-        position: absolute;
-        width: 32px;
-        height: 32px;
-        margin-left: 2%;
-        margin-right: 90%;
-        top: 790px;
-        cursor: pointer;
-        img {
-            width: 115%;
-            height: 115%;
-        }
-    }
-    &__writebtn:active {
-        background-color: #279eff !important;
-    }
-    &__filelink:active {
-        background-color: #279eff !important;
-    }
-    &__writepage-btn {
-        position: absolute;
-        left: 50%;
-        top: 790px;
-        transform: translate(-50%, -50%);
-        background-color: #c5c5c5;
-        padding: 5px 10px;
-        width: 70px; // 버튼 너비 조절
-        transition: background-color 0 &__3s;
-        &:active {
-          background-color: #279eff;
-        }
-        margin-top: 20px;
-      }
+    margin-top: 20px;
+  }
 }
