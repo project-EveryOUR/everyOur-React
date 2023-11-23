@@ -3,7 +3,7 @@ import "./MyLike.scss";
 import LikeBtn from "../MyPost/LikeBtn";
 import Backbtn from "../assets/Backbtn.svg";
 import { Link, useNavigate } from "react-router-dom";
-
+import everyOURLogo from "../assets/logo.svg";
 const MyLike = () => {
   const navigate = useNavigate();
 
@@ -12,6 +12,13 @@ const MyLike = () => {
   };
   return (
     <div className="mylike">
+      <Link to={"/"}>
+        <img
+          src={everyOURLogo}
+          alt="everyOURLogo"
+          className="Langset__Logo"
+        />
+      </Link>
        <img src={Backbtn} alt="Backbtn" className="mylike__Backbtn" onClick={goBack} />
       <h2 className="mylike__like-title">내 좋아요 목록</h2>
 
@@ -33,10 +40,6 @@ const MyLike = () => {
           </div>
         </li>
       </div>
-
-      <Link to={"/settingspage"}>
-        <button className="mylike__like-btn">이전</button>
-      </Link>
     </div>
   );
 };
