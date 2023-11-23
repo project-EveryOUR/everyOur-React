@@ -3,7 +3,7 @@ import "./SettingsPage.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Profile from "./Profile";
 import Backbtn from "../assets/Backbtn.svg";
-
+import everyOURLogo from "../assets/logo.svg";
 
 const SettingsPage: React.FC = () => {
   // 다크 모드 설정을 로컬 스토리지에서 읽어옵니다.
@@ -26,6 +26,13 @@ const SettingsPage: React.FC = () => {
 
   return (
     <div className="settingspage">
+      <Link to={"/"}>
+        <img
+          src={everyOURLogo}
+          alt="everyOURLogo"
+          className="usepage__Logo"
+        />
+      </Link>
       <img src={Backbtn} alt="Backbtn" className="usepage__Backbtn" onClick={goBack} />
       <h1 className="settingspage__settings-title">계정 설정</h1>
       {/* 내용을 추가할 수 있습니다 */}
@@ -39,7 +46,7 @@ const SettingsPage: React.FC = () => {
         </p>
       </div>
       <div className="settingspage__gray-box-2">
-        <p className="settingspage__gray-box-2__myinfo">내 정보</p>
+        <div className="settingspage__gray-box-2__myinfo">내 정보</div>
 
         <Link to={"/mypost"}>
           <p className="settingspage__gray-box-2__myinfo__mypost">내가 쓴 글</p>
@@ -58,7 +65,7 @@ const SettingsPage: React.FC = () => {
         </Link>
       </div>
       <div className="settingspage__gray-box-3">
-        <p className="settingspage__gray-box-3__accset">계정 설정</p>
+        <div className="settingspage__gray-box-3__accset">계정 설정</div>
         <Link to={"/univshift"}>
           <p className="settingspage__gray-box-3__univset">학교 설정</p>
         </Link>
