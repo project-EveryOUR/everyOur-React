@@ -79,10 +79,10 @@ const SignupPage: React.FC = () => {
         console.log("회원가입 완료");
         navigate(`/loginpage/${region.toLowerCase()}`);
       } catch (error) {
-        console.error("마저 작성해주세요.", error);
-      }
-    }
-  };
+        console.error("error", error);
+      }}
+    };
+  
 
 
   const goBack = () => {
