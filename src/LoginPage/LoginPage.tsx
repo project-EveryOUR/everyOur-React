@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { signInWithGoogle } from "../firebase";
 import everyOURLogo from "../assets/logo.svg";
 import "./LoginPage.scss";
 import Backbtn from "../assets/Backbtn.svg";
 import { getFirestore, doc, getDoc, DocumentReference } from "firebase/firestore";
-import { auth, db, handleGoogleLogin, signInWithGoogle } from "../firebase";
+import { auth, db } from "../firebase";
 
 const LoginPage: React.FC = () => {
   const [region, setRegion] = useState<"경기 남부" | "경기 북부">("경기 남부");
+  const [loginAttempted, setLoginAttempted] = useState(false);
+
   const handleRegionClick = () => {
     const newRegion = region === "경기 남부" ? "경기 북부" : "경기 남부";
     setRegion(newRegion);
@@ -24,7 +27,32 @@ const LoginPage: React.FC = () => {
   const goBack = () => {
     navigate(-1);
   };
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then(async (user) => {
+        if (user) {
+          console.log('사용자 이메일:', user.email);
+          const userRef: DocumentReference<UserData> = doc(db, 'users', user.uid);
+          
+          try {
+            
+            const docSnap = await getDoc(userRef);
+            if (docSnap.exists()) {
+              navigate('/');
+            } else {
+              navigate('/signuppage');
+            }
+          } catch (error) {
+            console.error('에러', error.message);
+          }
+        }
+      })
+      .catch((error) => {
+        console.error('에러', error.message);
+      });
+  };
   
+
   return (
     <div className="iFrame">
       <Link to={"/"}>
