@@ -1,5 +1,5 @@
 import "./App.css";
-import MainPage from "./MainPage/mainPage";
+import MainPage from "./mainPage/mainPage";
 import ArticleList from "./ArticleList/ArticleList";
 import { Route, Routes } from "react-router-dom";
 import React from "react";

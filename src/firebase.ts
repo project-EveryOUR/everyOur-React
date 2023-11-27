@@ -1,13 +1,35 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
   UserCredential,
-} from "firebase/auth";
+  User,
+} from 'firebase/auth';
+import {
+  getFirestore,
+  collection,
+  doc,
+  setDoc,
+  DocumentReference,
+  DocumentData,
+  FirestoreDataConverter,
+  QueryDocumentSnapshot,
+  getDocs,
+} from 'firebase/firestore';
 
-const firebaseConfig = {
+type FirebaseConfig = {
+  apiKey: string;
+  authDomain: string;
+  projectId: string;
+  storageBucket: string;
+  messagingSenderId: string;
+  appId: string;
+  measurementId: string;
+};
+
+const firebaseConfig: FirebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
@@ -20,32 +42,108 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
 
-// Google 로그인 함수
-const signInWithGoogle = async () => {
+interface UserData {
+  nickname: string;
+  email: string;
+  major: string;
+  name: string;
+  studentId: string;
+  univName: string;
+  region: '경기 남부' | '경기 북부';
+}
+
+const userConverter: FirestoreDataConverter<UserData> = {
+  toFirestore(user: UserData): DocumentData {
+    return { ...user };
+  },
+  fromFirestore(
+    snapshot: QueryDocumentSnapshot<DocumentData>,
+    options: FirestoreDataConverter.Options
+  ): UserData {
+    const data = snapshot.data(options);
+    return {
+      nickname: data.nickname,
+      email: data.email,
+      major: data.major,
+      name: data.name,
+      studentId: data.studentId,
+      univName: data.univName,
+      region: data.region,
+    };
+  },
+};
+
+const usersCollection = collection(db, 'users');
+const isEmailValid = async (user: User): Promise<boolean> => {
+  const userEmail = user.email;
+
+  if (!userEmail) {
+    console.error('이메일 정보를 가져올 수 없습니다.');
+    return false;
+  }
+
+  try {
+    const querySnapshot = await getDocs(usersCollection);
+    const userEmails = querySnapshot.docs.map((doc) => doc.data().email);
+
+    if (userEmails.includes(userEmail)) {
+      console.log('유효한 이메일입니다. 로그인 성공:', user);
+      
+      return true;
+    } else {
+      console.log('유효하지 않은 이메일입니다. 로그인 실패.');
+      return false;
+    }
+  } catch (error) {
+    console.error('이메일 유효성을 확인하는 중 오류가 발생했습니다.', error.message || 'Unexpected error');
+    return false;
+  }
+};
+const signInWithGoogle = async (): Promise<User | null> => {
   try {
     const result: UserCredential = await signInWithPopup(auth, provider);
     const user = result.user;
-    console.log("로그인 성공:", user);
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error("로그인 실패:", error.message);
-      // 사용자에게 에러 메시지 표시 등의 추가 작업 가능
+
+    if (user && (await isEmailValid(user))) {
+      console.log('로그인 성공:', user);
+      return user;
+    } else {
+      await signOut(auth);
+      console.error('로그인 실패: 유효하지 않은 이메일');
+      return null;
     }
+  } catch (error: any) {
+    console.error('로그인 실패:', error.message || 'Unexpected error');
+    return null;
   }
 };
 
-// 로그아웃 함수
-const signOutUser = async () => {
+const signOutUser = async (): Promise<void> => {
   try {
     await signOut(auth);
-    console.log("로그아웃 성공");
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error("로그아웃 실패:", error.message);
-      // 사용자에게 에러 메시지 표시 등의 추가 작업 가능
-    }
+    console.log('로그아웃 성공');
+  } catch (error: any) {
+    console.error('로그아웃 실패:', error.message || 'Unexpected error');
   }
 };
+const handleGoogleLogin = async (): Promise<User | null> => {
+  try {
+    const result: UserCredential = await signInWithPopup(auth, provider);
+    const user = result.user;
 
-export { app, auth, provider, signInWithGoogle, signOutUser };
+    if (user && (await isEmailValid(user))) {
+      console.log('로그인 성공:', user);
+      return user;
+    } else {
+      await signOut(auth);
+      console.error('로그인 실패: 유효하지 않은 이메일');
+      return null;
+    }
+  } catch (error: any) {
+    console.error('로그인 실패:', error.message || 'Unexpected error');
+    return null;
+  }
+};
+export { auth, provider, db, usersCollection, userConverter, handleGoogleLogin, signInWithGoogle, signOutUser };
