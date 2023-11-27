@@ -1,23 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // Add useEffect import
 import "./SettingsPage.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Profile from "./Profile";
 import Backbtn from "../assets/Backbtn.svg";
 import everyOURLogo from "../assets/logo.svg";
+import { onAuthStateChanged, getAuth } from 'firebase/auth';
+import { auth } from '../firebase'; // Assuming you have a firebase file with auth export
 
 const SettingsPage: React.FC = () => {
-  // 다크 모드 설정을 로컬 스토리지에서 읽어옵니다.
+  const [user, setUser] = useState<any>(null);
+  const auth = getAuth();
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        onAuthStateChanged(auth, (currentUser) => {
+          console.log('Current User:', currentUser);
+          
+          const userData = currentUser ? currentUser.toJSON() : null;
+          console.log('User Data:', userData);
+          
+          setUser(userData);
+        });
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+  
+    fetchUserData();
+  }, [auth]);
+
   const isDarkModeStored = localStorage.getItem("darkMode");
   const [isDarkMode, setIsDarkMode] = useState(isDarkModeStored === "true");
 
   const handleDarkModeToggle = () => {
-    // 토글 버튼을 누를 때, 다크 모드 설정을 업데이트하고 로컬 스토리지에 저장합니다.
     const newDarkMode = !isDarkMode;
     localStorage.setItem("darkMode", newDarkMode.toString());
     setIsDarkMode(newDarkMode);
 
     document.body.classList.toggle("dark-mode", newDarkMode);
   };
+
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -35,15 +57,14 @@ const SettingsPage: React.FC = () => {
       </Link>
       <img src={Backbtn} alt="Backbtn" className="usepage__Backbtn" onClick={goBack} />
       <h1 className="settingspage__settings-title">계정 설정</h1>
-      {/* 내용을 추가할 수 있습니다 */}
       <div className="settingspage__gray-box-1">
-        <Profile />
-        <p className="settingspage__gray-box-1__userinfo">
-        <br />김수아(suaring)<br />
-        </p>
-        <p className="settingspage__gray-box-1__userinfo">
-          경기남부 한세대 컴공 20
-        </p>
+      <p className="settingspage__gray-box-1__userinfo">
+  <br />{user?.lastLoginAt || ''} ({user?.uid || ''})<br />
+</p>
+<p className="settingspage__gray-box-1__userinfo">
+  {user?.region || ''} {user?.displayName || ''} {user?.studentId || ''}
+</p>
+
       </div>
       <div className="settingspage__gray-box-2">
         <div className="settingspage__gray-box-2__myinfo">내 정보</div>
