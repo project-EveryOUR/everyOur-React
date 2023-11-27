@@ -5,7 +5,6 @@ import {
   signInWithPopup,
   signOut,
   UserCredential,
-  User,
 } from 'firebase/auth';
 import {
   getFirestore,
@@ -16,7 +15,6 @@ import {
   DocumentData,
   FirestoreDataConverter,
   QueryDocumentSnapshot,
-  getDocs,
 } from 'firebase/firestore';
 
 type FirebaseConfig = {
@@ -76,44 +74,13 @@ const userConverter: FirestoreDataConverter<UserData> = {
 };
 
 const usersCollection = collection(db, 'users');
-const isEmailValid = async (user: User): Promise<boolean> => {
-  const userEmail = user.email;
 
-  if (!userEmail) {
-    console.error('이메일 정보를 가져올 수 없습니다.');
-    return false;
-  }
-
-  try {
-    const querySnapshot = await getDocs(usersCollection);
-    const userEmails = querySnapshot.docs.map((doc) => doc.data().email);
-
-    if (userEmails.includes(userEmail)) {
-      console.log('유효한 이메일입니다. 로그인 성공:', user);
-      
-      return true;
-    } else {
-      console.log('유효하지 않은 이메일입니다. 로그인 실패.');
-      return false;
-    }
-  } catch (error) {
-    console.error('이메일 유효성을 확인하는 중 오류가 발생했습니다.', error.message || 'Unexpected error');
-    return false;
-  }
-};
 const signInWithGoogle = async (): Promise<User | null> => {
   try {
     const result: UserCredential = await signInWithPopup(auth, provider);
     const user = result.user;
-
-    if (user && (await isEmailValid(user))) {
-      console.log('로그인 성공:', user);
-      return user;
-    } else {
-      await signOut(auth);
-      console.error('로그인 실패: 유효하지 않은 이메일');
-      return null;
-    }
+    console.log('로그인 성공:', user);
+    return user;
   } catch (error: any) {
     console.error('로그인 실패:', error.message || 'Unexpected error');
     return null;
@@ -128,22 +95,6 @@ const signOutUser = async (): Promise<void> => {
     console.error('로그아웃 실패:', error.message || 'Unexpected error');
   }
 };
-const handleGoogleLogin = async (): Promise<User | null> => {
-  try {
-    const result: UserCredential = await signInWithPopup(auth, provider);
-    const user = result.user;
 
-    if (user && (await isEmailValid(user))) {
-      console.log('로그인 성공:', user);
-      return user;
-    } else {
-      await signOut(auth);
-      console.error('로그인 실패: 유효하지 않은 이메일');
-      return null;
-    }
-  } catch (error: any) {
-    console.error('로그인 실패:', error.message || 'Unexpected error');
-    return null;
-  }
-};
-export { auth, provider, db, usersCollection, userConverter, handleGoogleLogin, signInWithGoogle, signOutUser };
+export { auth, provider, db, usersCollection, userConverter };
+export { signInWithGoogle, signOutUser };
