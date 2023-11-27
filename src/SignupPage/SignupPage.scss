@@ -50,7 +50,7 @@
     border: 2px solid rgba(197, 197, 197, 0.980392);
     border-radius: 15px;
   }
-  &__Nickname {
+  &__ID {
     position: absolute;
     width: 84px;
     height: 18px;
@@ -63,7 +63,7 @@
     line-height: 18px;
     color: #000000;
   }
-  &__ID {
+  &__Nickname {
     position: absolute;
     width: 84px;
     height: 18px;
@@ -213,14 +213,13 @@
     color: #000000;
     padding: 5px;
   }
-  &__Nicknametext {
+  &__IDtext {
     position: absolute;
     width: 186px;
     height: 23px;
     left: 50%;
     transform: translate(-30%, 0%);
-    top: 325px;
-    background: #d9d9d9;
+    top: 316px;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -228,7 +227,7 @@
     color: #000000;
     padding: 5px;
   }
-  &__IDtext {
+  &__Nicknametext {
     position: absolute;
     width: 186px;
     height: 23px;
@@ -378,7 +377,6 @@
     line-height: 23px;
     color: #000000;
     padding: 5px;
-    /* fix */
     -webkit-appearance: none !important;
     -moz-appearance: textfield !important;
     appearance: textfield !important;
