@@ -16,10 +16,13 @@ import {
   query,
 } from "@firebase/firestore";
 
-// const db = new Firestore();
 const SettingsPage: React.FC = () => {
   const [user, setUser] = useState<any>(null);
-  const [data, setData] = useState<any>(null);
+  const [name, setName] = useState<any>(null);
+  const [region, setRegion] = useState<any>(null);
+  const [studentId, setStudentId] = useState<any>(null);
+  const [univName, setUnivName] = useState<any>(null);
+  const [nickname, setNickname] = useState<any>(null);
   const auth = getAuth();
 
   useEffect(() => {
@@ -46,11 +49,15 @@ const SettingsPage: React.FC = () => {
         if (docSnapshot.exists()) {
           const userData = docSnapshot.data();
           console.log(userData);
-          console.log(userData.nickname);
+          console.log(userData.name);
 
           // 상태 업데이트가 이 부분에서 이루어져야 합니다.
-          const usernickname = userData.nickname;
-          setData(usernickname);
+
+          setName(userData.name || "");
+          setRegion(userData.region || "");
+          setStudentId(userData.studentId || "");
+          setUnivName(userData.univName || "");
+          setNickname(userData.nickname || "");
         } else {
           console.log("No such document!");
         }
@@ -103,11 +110,11 @@ const SettingsPage: React.FC = () => {
         <div className="settingspage__gray-box-1">
           <p className="settingspage__gray-box-1__userinfo">
             <br />
-            {data || ""} ({user?.uid || ""})<br />
+            {name || ""} ({nickname || ""})
+            <br />
           </p>
           <p className="settingspage__gray-box-1__userinfo">
-            {user?.region || ""} {user?.displayName || ""}{" "}
-            {user?.studentId || ""}
+            {univName || ""} {region || ""}
           </p>
         </div>
       ) : (
