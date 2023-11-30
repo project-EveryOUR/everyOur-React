@@ -4,30 +4,71 @@ import { Link, useNavigate } from "react-router-dom";
 import Profile from "./Profile";
 import Backbtn from "../assets/Backbtn.svg";
 import everyOURLogo from "../assets/logo.svg";
-import { onAuthStateChanged, getAuth } from 'firebase/auth';
-import { auth } from '../firebase'; // Assuming you have a firebase file with auth export
+import { onAuthStateChanged, getAuth } from "firebase/auth";
+import { auth, db } from "../firebase"; // Assuming you have a firebase file with auth export
+import {
+  Firestore,
+  QuerySnapshot,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+} from "@firebase/firestore";
 
+// const db = new Firestore();
 const SettingsPage: React.FC = () => {
   const [user, setUser] = useState<any>(null);
+  const [data, setData] = useState<any>(null);
   const auth = getAuth();
+
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        onAuthStateChanged(auth, (currentUser) => {
-          console.log('Current User:', currentUser);
-          
-          const userData = currentUser ? currentUser.toJSON() : null;
-          console.log('User Data:', userData);
-          
-          setUser(userData);
-        });
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("Current User:", currentUser);
+      const userData = currentUser ? currentUser.toJSON() : null;
+      console.log("User Data:", userData);
+      setUser(userData);
+      console.log(userData?.uid);
+    });
+
+    return () => {
+      unsubscribe();
     };
-  
-    fetchUserData();
   }, [auth]);
+  const fetchData = async () => {
+    if (user && user.uid) {
+      const collectionRef = collection(db, "users"); // users 컬렉션 참조
+      const docRef = doc(collectionRef, user.uid); // 해당 사용자의 문서 참조
+
+      try {
+        const docSnapshot = await getDoc(docRef);
+
+        if (docSnapshot.exists()) {
+          const userData = docSnapshot.data();
+          console.log(userData);
+          console.log(userData.nickname);
+
+          // 상태 업데이트가 이 부분에서 이루어져야 합니다.
+          const usernickname = userData.nickname;
+          setData(usernickname);
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.log("Error fetching data:", error);
+      }
+    } else {
+      return []; // user가 null이거나 uid가 없는 경우 빈 배열 반환
+    }
+  };
+
+  useEffect(() => {
+    const getData = async () => {
+      await fetchData();
+      // fetchData는 이미 setState를 통해 값을 설정하므로 따로 setData로 설정할 필요가 없습니다.
+    };
+    getData();
+  }, [user]);
 
   const isDarkModeStored = localStorage.getItem("darkMode");
   const [isDarkMode, setIsDarkMode] = useState(isDarkModeStored === "true");
@@ -49,23 +90,32 @@ const SettingsPage: React.FC = () => {
   return (
     <div className="settingspage">
       <Link to={"/"}>
-        <img
-          src={everyOURLogo}
-          alt="everyOURLogo"
-          className="usepage__Logo"
-        />
+        <img src={everyOURLogo} alt="everyOURLogo" className="usepage__Logo" />
       </Link>
-      <img src={Backbtn} alt="Backbtn" className="usepage__Backbtn" onClick={goBack} />
+      <img
+        src={Backbtn}
+        alt="Backbtn"
+        className="usepage__Backbtn"
+        onClick={goBack}
+      />
       <h1 className="settingspage__settings-title">계정 설정</h1>
-      <div className="settingspage__gray-box-1">
-      <p className="settingspage__gray-box-1__userinfo">
-  <br />{user?.lastLoginAt || ''} ({user?.uid || ''})<br />
-</p>
-<p className="settingspage__gray-box-1__userinfo">
-  {user?.region || ''} {user?.displayName || ''} {user?.studentId || ''}
-</p>
-
-      </div>
+      {user ? (
+        <div className="settingspage__gray-box-1">
+          <p className="settingspage__gray-box-1__userinfo">
+            <br />
+            {data || ""} ({user?.uid || ""})<br />
+          </p>
+          <p className="settingspage__gray-box-1__userinfo">
+            {user?.region || ""} {user?.displayName || ""}{" "}
+            {user?.studentId || ""}
+          </p>
+        </div>
+      ) : (
+        <div className="settingspage__gray-box-1">
+          <p className="settingspage__gray-box-1__userinfo">loading...</p>
+          <p className="settingspage__gray-box-1__userinfo"></p>
+        </div>
+      )}
       <div className="settingspage__gray-box-2">
         <div className="settingspage__gray-box-2__myinfo">내 정보</div>
 
@@ -131,10 +181,8 @@ const SettingsPage: React.FC = () => {
           >
             삭제
           </button>
-
         </div>
       </div>
-      
     </div>
   );
 };
