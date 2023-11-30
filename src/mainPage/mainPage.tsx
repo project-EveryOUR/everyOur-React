@@ -5,8 +5,9 @@ import sidemenu from "../assets/sidemenu.svg";
 import "../mainPage/mainPage.scss";
 import { Link, useNavigate } from "react-router-dom";
 import SideBar from "./../SideBar/SideBar";
-import { signOutUser, auth } from "../firebase";
+import { signOutUser, auth, db, signInWithGoogle } from "../firebase";
 import Backbtn from "../assets/Backbtn.svg";
+import { getDoc, doc } from "firebase/firestore";
 
 // interface Props {
 //   isOpen: isOpen
@@ -30,6 +31,33 @@ const MainPage: React.FC = () => {
     });
     return () => unsubscribe();
   }, []);
+
+  const [isFirstLogin, setIsFirstLogin] = useState<boolean>(false);
+
+  const handleGoogleLogin = async () => {
+    try {
+      // Gmail 로그인 처리
+      await signInWithGoogle();
+
+      // Firebase에서 로그인 상태 감지
+      auth.onAuthStateChanged(async (user) => {
+        if (user) {
+          // 사용자 정보 가져오기
+          const userDoc = await getDoc(doc(db, "users", user.uid));
+
+          // 사용자 정보가 없으면 최초 로그인으로 간주
+          if (!userDoc.exists()) {
+            navigate(`/signuppage?email=${encodeURIComponent(user.email)}`);
+          } else {
+            // 이미 정보가 있는 경우 메인페이지로 이동
+            navigate("/");
+          }
+        }
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   // 로그아웃 처리 함수
   const handleLogout = async () => {
@@ -57,20 +85,24 @@ const MainPage: React.FC = () => {
           <span className="everyOUR__Main">everyOUR</span>
         </a>
       </div>
-      <img src={Backbtn} alt="Backbtn" className="main__Backbtn" onClick={goBack} />
+      <img
+        src={Backbtn}
+        alt="Backbtn"
+        className="main__Backbtn"
+        onClick={goBack}
+      />
       {/* 로그인 상태에 따라 다르게 렌더링 */}
       {isLoggedIn ? (
         <button className="loginBtn" onClick={handleLogout}>
           LOGOUT
         </button>
       ) : (
-        <button className="loginBtn">
-          <Link to={"/loginpage/경기 남부"}>LOGIN</Link>
-        </button>
+        <Link to={isFirstLogin ? "/signuppage" : "/"}>
+          <button className="loginBtn" onClick={handleGoogleLogin}>
+            LOGIN
+          </button>
+        </Link>
       )}
-      {/* <button className="loginBtn">
-        <Link to={"/loginpage"}>LOGIN</Link>
-      </button> */}
 
       <div className="sideMenuBtn" onClick={toggleSide}>
         <img src={sidemenu} alt="사이드 메뉴 버튼" className="sideMenuBtn" />
