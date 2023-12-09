@@ -192,10 +192,7 @@ const PostIn: React.FC = () => {
               collection(db, "comments"),
               commentData
             );
-            console.log(
-              "댓글이 성공적으로 추가되었습니다. 댓글 ID:",
-              commentRef.id
-            );
+
             setComments((prevComments) => {
               return [...prevComments, { id: commentRef.id, ...commentData }];
             });
