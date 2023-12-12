@@ -49,8 +49,6 @@ const PostIn: React.FC = () => {
   const [views, setViews] = useState<any>(null);
   const [Commentinput, CommentinputText] = useState<string>("");
   const [replyText2, setReplyText2] = useState<string>("");
-  const [numnum, setNumNum] = useState(0);
-  const [numnumnum, setNumNumNum] = useState(0);
   const [isHeart, setIsHeart] = useState(true);
   const auth = getAuth();
   const navigate = useNavigate();
@@ -84,17 +82,6 @@ const PostIn: React.FC = () => {
       }
     }
   };
-
-  useEffect(() => {
-    const getData = async () => {
-      await increaseViews();
-
-      // fetchData 호출을 여기로 이동
-      await fetchData();
-    };
-
-    getData();
-  }, [user, postId]);
 
   // fetchData 함수 수정
   const fetchData = async () => {
@@ -145,15 +132,6 @@ const PostIn: React.FC = () => {
     }
   };
 
-  const handleHeartClick = () => {
-    if (isHeart) {
-      setNumNumNum(numnumnum + 1);
-    } else {
-      setNumNumNum(numnumnum - 1);
-    }
-    setIsHeart(!isHeart);
-  };
-
   const goBack = () => {
     navigate(-1);
   };
@@ -162,12 +140,37 @@ const PostIn: React.FC = () => {
     navigate("/writepage");
   };
 
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState<Comment[]>([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      await increaseViews();
+      await fetchData();
+      await fetchComments();
+    };
+
+    getData();
+  }, [user, postId]);
+
+  // 댓글 데이터 가져오는 함수 추가
+  const fetchComments = async () => {
+    try {
+      const commentsSnapshot = await getDocs(
+        query(collection(db, "comments"), where("postId", "==", postId))
+      );
+      const commentsData = commentsSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setComments(commentsData);
+    } catch (error) {
+      console.error("Error fetching comments:", error);
+    }
+  };
 
   const handleCommentSend = async () => {
     try {
       if (Commentinput.trim() !== "") {
-        // 현재 로그인한 사용자의 정보를 사용
         const currentUser = auth.currentUser;
 
         if (currentUser) {
@@ -179,12 +182,13 @@ const PostIn: React.FC = () => {
 
             // comments 컬렉션에 추가할 댓글 데이터
             const commentData = {
-              author: userData?.nickname || "", // 댓글 작성자의 닉네임
-              authorUniv: userData?.univName || "", // 댓글 작성자의 학교
-              authorMajor: userData?.major || "", // 댓글 작성자의 전공
-              content: Commentinput, // 댓글 내용
-              createAt: serverTimestamp(), // 현재 서버 시간으로 설정
-              updateAt: null, // 초기에는 수정 날짜 없음
+              author: userData?.nickname || "",
+              authorUniv: userData?.univName || "",
+              authorMajor: userData?.major || "",
+              content: Commentinput,
+              createAt: serverTimestamp(),
+              updateAt: null,
+              postId: postId,
             };
 
             // comments 컬렉션에 댓글 추가
@@ -192,6 +196,11 @@ const PostIn: React.FC = () => {
               collection(db, "comments"),
               commentData
             );
+
+            // 댓글의 문서 참조를 사용하여 commentId 필드 업데이트
+            await updateDoc(commentRef, {
+              commentId: commentRef.id,
+            });
 
             setComments((prevComments) => {
               return [...prevComments, { id: commentRef.id, ...commentData }];
@@ -212,14 +221,38 @@ const PostIn: React.FC = () => {
     }
   };
 
+  const [isLiked, setIsLiked] = useState<boolean>(false);
+
+  const handleLikeClick = async () => {
+    try {
+      const postDocRef = doc(collection(db, "posts"), postId);
+
+      // 좋아요 상태 변경
+      const liked = !isLiked;
+
+      console.log("postId:", postId);
+      console.log("liked:", liked);
+
+      // 좋아요 카운트 증가 또는 감소
+      await updateDoc(postDocRef, {
+        likeCnt: liked ? increment(1) : increment(-1),
+      });
+
+      // isLiked 상태 업데이트
+      setIsLiked(liked);
+
+      // fetchData 함수 호출 또는 likeCnt 상태 업데이트
+      fetchData(); // 또는 setLikeCnt(현재 likeCnt 값 + (liked ? -1 : 1));
+    } catch (error) {
+      console.error("Error handling like:", error);
+    }
+  };
+
   return (
     <div className="container">
       <div className="container__line-1"></div>
       <div className="container__line-2"></div>
       <div className="container__line-3"></div>
-      <div className="container__line-4"></div>
-      <div className="container__line-5"></div>
-      <div className="container__line-6"></div>
       <div className="container__deleteI">
         <img src={deleteI} alt="deleteI" />
       </div>
@@ -228,53 +261,52 @@ const PostIn: React.FC = () => {
       </div>
       <div className="container__title">{title}</div>
       <div className="container__content">{content}</div>
+
       <div className="container__author">
         {author} ({authorUniv}, {authorMajor})
       </div>
-      <div className="container__timestamp"></div>
-      <div className="container__comment-count">댓글 {comCnt}개</div>
-      <div className="container__views">조회수 {views}회</div>
 
-      <div className="container__Eheart" onClick={handleHeartClick}>
+      <div className="container__timestamp"></div>
+
+      <div className="container__comment-count">
+        조회수 {views}회, 댓글 {comCnt}개
+      </div>
+
+      <div className="container__Eheart" onClick={handleLikeClick}>
         <img
-          src={isHeart ? Eheart : heart}
-          alt={isHeart ? "Eheart" : "heart"}
+          src={isLiked ? heart : Eheart}
+          alt={isLiked ? "heart" : "Eheart"}
         />
       </div>
-      <div className="container__number">{comCnt}</div>
 
-      {comments.map((comment) => (
-        <div key={comment.id}>
-          {/* 댓글 내용 표시 부분 */}
-          <div className="container__reply-author">
-            {comment.author} ({comment.authorUniv}, {comment.authorMajor})
+      <div className="container__comList">
+        {comments.map((comment) => (
+          <div className="container__comList__comment" key={comment.id}>
+            <div className="container__comList__comment__comment-header">
+              <img
+                src={ikname}
+                alt="ikname"
+                className="container__comList__comment__commentheader__comment-image"
+              />
+              <span className="container__comList__comment__commentheader__comment-dauthor">
+                {comment.author} ({comment.authorUniv}, {comment.authorMajor})
+              </span>
+            </div>
+            <div className="container__comList__comment__comment-content">
+              {comment.content}
+              <img
+                src={send}
+                alt="send"
+                className="container__comList__comment__comment-edit-btn"
+              />
+            </div>
           </div>
-          <div className="container__reply-text">{comment.content}</div>
-        </div>
-      ))}
-
-      <div className="container__user-3-reply-text"></div>
-      <div className="container__reply-send-1">
-        <img src={send} alt="send" />
-      </div>
-      <div className="container__reply-send-2">
-        <img src={send} alt="send" />
-      </div>
-      <div className="container__reply-send-3">
-        <img src={send} alt="send" />
+        ))}
       </div>
       <div className="container__ellipse-1">
         <img src={ikname} alt="ikname" />
       </div>
-      <div className="container__ellipse-2">
-        <img src={ikname} alt="ikname" />
-      </div>
-      <div className="container__ellipse-3">
-        <img src={ikname} alt="ikname" />
-      </div>
-      <div className="container__ellipse-4">
-        <img src={ikname} alt="ikname" />
-      </div>
+
       <div className="container__rectangle-2"></div>
       <div className="container__rectangle-3"></div>
       <input
@@ -282,6 +314,12 @@ const PostIn: React.FC = () => {
         type="text"
         value={Commentinput}
         onChange={CommentinputChange}
+        onKeyPress={(e) => {
+          if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault(); // 엔터 키 기본 동작 방지
+            handleCommentSend(); // 댓글 전송 함수 호출
+          }
+        }}
         placeholder="내용을 입력하세요."
       />
       <div className="container__comment-send" onClick={handleCommentSend}>

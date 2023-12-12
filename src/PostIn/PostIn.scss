@@ -5,7 +5,6 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-
   &__line-1 {
     position: absolute;
     width: 1000%;
@@ -24,25 +23,6 @@
     top: 500px;
     border: 1px solid #c5c5c5;
   }
-  &__line-4 {
-    position: absolute;
-    width: 1000%;
-    top: 590px;
-    border: 1px solid #c5c5c5;
-  }
-  &__line-5 {
-    position: absolute;
-    width: 1000%;
-    top: 610px;
-    border: 1px solid #c5c5c5;
-  }
-  &__line-6 {
-    position: absolute;
-    width: 1000%;
-    top: 700px;
-    border: 1px solid #c5c5c5;
-  }
-
   &__title {
     position: absolute;
     left: 12px;
@@ -52,7 +32,6 @@
     font-size: 18px;
     line-height: 18px;
   }
-
   &__timestamp {
     position: absolute;
     left: 50%;
@@ -61,11 +40,9 @@
     font-style: normal;
     font-size: 12px;
   }
-
   &__deleteI {
     position: absolute;
-    left: 50%;
-    transform: translate(360%,60%);
+    left: 90%;
     top: 60px;
     cursor: pointer;
     img {
@@ -73,33 +50,28 @@
       height: 115%;
     }
   }
-
   &__border_color {
     position: absolute;
     width: 26px;
     height: 28px;
-    left: 50%;
-    transform: translate(600%, 95%);
-    top: 57px;
+    left: 83%;
+    top: 60px;
     cursor: pointer;
     img {
       width: 115%;
       height: 115%;
     }
   }
-
   &__author {
     position: absolute;
-    width: 280px;
     left: 50px;
     top: 65px;
     font-style: bold;
   }
-
   &__content {
     position: absolute;
     width: 350px;
-    height: 350px;
+    height: 330px;
     left: 12px;
     top: 110px;
     font-style: normal;
@@ -107,7 +79,6 @@
     font-size: 16px;
     line-height: 16px;
   }
-
   &__reply {
     position: absolute;
     width: 24px;
@@ -120,19 +91,6 @@
       height: 115%;
     }
   }
-
-  &__rectangle-1 {
-    box-sizing: border-box;
-    position: absolute;
-    width: 357px;
-    height: 61px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    top: 720px;
-    background: #ffffff;
-    border: 1px solid #c5c5c5;
-  }
-
   &__rectangle-2 {
     box-sizing: border-box;
     position: absolute;
@@ -144,269 +102,125 @@
     background: #ffffff;
     border: 1.5px solid #b4b4b4;
   }
-
   &__rectangle-3 {
     box-sizing: border-box;
     position: absolute;
     width: 345px;
     height: 30px;
     left: 50%;
-    transform: translate(-50%, 0%);
+    transform: translate(-53%, 0%);
     top: 808px;
     background: #ffffff;
     border: 1px solid #c5c5c5;
   }
-
   &__comment-input {
     position: absolute;
     width: 330px;
     height: 18px;
     left: 50%;
-    transform: translate(-50%, 0%);
+    transform: translate(-55%, 0%);
     top: 814px;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 16px;
-
     resize: none;
     outline: none;
   }
-
   &__comment-count {
     position: absolute;
-    width: 61px;
     height: 18px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    top: 468px;
+    left: 15px;
+    top: 470px;
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 15px;
     color: #000000;
   }
-
   &__comment-send {
     position: absolute;
     width: 24px;
     height: 24px;
     left: 50%;
-    transform: translate(-50%, 0%);
+    transform: translate(677%, 0%);
     top: 811px;
     cursor: pointer;
     img {
       width: 115%;
       height: 115%;
+      transition: background-color 0.3s;
+      &:active {
+        background-color: #279eff;
+      }
     }
   }
-
   &__heart {
     position: absolute;
     width: 17px;
     height: 18px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    top: 468px;
+    left: 89%;
+    top: 467px;
     cursor: pointer;
     img {
       width: 115%;
       height: 115%;
     }
   }
-
   &__Eheart {
     position: absolute;
     width: 17px;
     height: 18px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    top: 468px;
+    left: 89%;
+    top: 467px;
     cursor: pointer;
     img {
       width: 115%;
       height: 115%;
     }
   }
-
-  &__number {
+  &__comList {
     position: absolute;
-    width: 11px;
-    height: 18px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    top: 468px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 18px;
-    color: #000000;
-  }
-
-  &__reply-author {
-    position: absolute;
-    width: 260px;
-    height: 12px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    top: 625px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 16px;
-    color: #000000;
-  }
-
-  &__reply-text {
-    position: absolute;
-    width: 305px;
-    height: 34px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    top: 645px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 16px;
-    color: #000000;
-  }
-  &__reply-author2 {
-    position: absolute;
-    width: 260px;
-    height: 12px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    top: 515px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 16px;
-    color: #000000;
-  }
-
-  &__reply-text2 {
-    position: absolute;
-    width: 305px;
-    height: 34px;
-    left: 45px;
-    top: 535px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 16px;
-    color: #000000;
-  }
-
-  &__user-3-author {
-    position: absolute;
-    width: 279px;
-    height: 11px;
-    left: 85px;
-    top: 731px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 16px;
-    color: #000000;
-  }
-
-  &__user-3-reply-text {
-    position: absolute;
-    width: 280px;
-    height: 16px;
-    left: 85px;
-    top: 754px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 16px;
-    color: #000000;
-  }
-
-  &__reply-send-1 {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 360px;
-    top: 560px;
-    cursor: pointer;
-    img {
-      width: 115%;
-      height: 115%;
+    top: 500px;
+    max-height: 300px;
+    max-width: 500px;
+    overflow-y: auto;
+    &__comment {
+      left: 50%;
+      width: 380px;
+      background: #ffffff;
+      border: 1px solid #c5c5c5;
+      padding: 10px;
+      &__comment-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        &__comment-image {
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+        &__comment-author {
+          font-weight: bold;
+        }
+      }
+      &__comment-edit-btn {
+        cursor: pointer;
+        float: right;
+        transition: background-color 0.3s;
+        &:active {
+          background-color: #279eff;
+        }
+      }
     }
   }
-
-  &__reply-send-2 {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 360px;
-    top: 670px;
-    cursor: pointer;
-    img {
-      width: 115%;
-      height: 115%;
-    }
-  }
-
-  &__reply-send-3 {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 360px;
-    top: 750px;
-    cursor: pointer;
-    img {
-      width: 115%;
-      height: 115%;
-    }
-  }
-
   &__ellipse-1 {
     position: absolute;
     width: 31px;
     height: 31px;
     left: 5px;
     top: 55px;
-    cursor: pointer;
-    img {
-      width: 115%;
-      height: 115%;
-    }
-  }
-
-  &__ellipse-2 {
-    position: absolute;
-    width: 31px;
-    height: 31px;
-    left: 5px;
-    top: 510px;
-    cursor: pointer;
-    img {
-      width: 115%;
-      height: 115%;
-    }
-  }
-
-  &__ellipse-3 {
-    position: absolute;
-    width: 31px;
-    height: 31px;
-    left: 5px;
-    top: 620px;
-    cursor: pointer;
-    img {
-      width: 115%;
-      height: 115%;
-    }
-  }
-
-  &__ellipse-4 {
-    position: absolute;
-    width: 31px;
-    height: 31px;
-    left: 45px;
-    top: 725px;
     cursor: pointer;
     img {
       width: 115%;
