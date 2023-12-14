@@ -1,8 +1,7 @@
 .leave {
   position: relative;
-  height: 100vh;
+  height: 140vh;
   width: 100%;
-  background: ffffff;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -45,15 +44,17 @@
   }
   &__leave-menual {
     position: absolute;
+    left: 50%;
     width: 100%;
-    transform: translate(0%, 1500%);
+    transform: translate(-46%,1200%);
     text-align: left;
     font-weight: bold;
   }
   &__readbox {
     position: absolute;
-    width: 100%;
-    transform: translate(0%, 200%);
+    width: 370px;
+    left: 50%;
+    transform: translate(-54%, 100%);
     background-color: #c5c5c5;
     p {
       text-align: left;
@@ -71,7 +72,9 @@
   }
   &__content-3 {
     position: absolute;
-    transform: translate(0%, 1200%);
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 1050%);
     text-align: left;
   }
   &__leave-box {
@@ -85,15 +88,14 @@
     position: absolute;
     width: 100%;
     left: 50%;
-    transform: translate(-50%, 3000%);
+    transform: translate(-50%, 3600%);
   }
   &__leave-btn {
     position: absolute;
-    transform: translate(-50%, 2100%);
+    transform: translate(-50%, 2500%);
     background-color: #c5c5c5;
     padding: 5px 10px;
-    width: 70px; // 버튼 너비 조절
-    transition: background-color 0 &__3s;
+    width: 70px;
     &:active {
       background-color: #279eff;
     }
