@@ -272,7 +272,7 @@ const PostIn: React.FC = () => {
     const mapping = {
       "비밀 게시판": "/secretarticlelist",
       "자유 게시판": "/freearticlelist",
-      "정보 게시판": "/inforarticlelist",
+      "정보 게시판": "/infoarticlelist",
       "hot 게시판": "/hotarticlelist",
     };
     console.log("Mapping for:", categoryName, "is", mapping[categoryName]);
@@ -284,6 +284,7 @@ const PostIn: React.FC = () => {
       await deleteDoc(doc(db, "posts", postId));
       console.log("Current category for redirection:", category); // 리디렉션 전 카테고리 로그 출력
       const redirectPath = categoryToURL(category);
+      alert("게시글이 삭제되었습니다.");
 
       console.log("Redirecting to:", redirectPath); // 리디렉션 경로 로그 출력
       navigate(redirectPath);
