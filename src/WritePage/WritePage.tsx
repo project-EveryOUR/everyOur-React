@@ -114,7 +114,7 @@ const WritePage: React.FC = () => {
     navigate(-1);
   };
   const TitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 16) {
+    if (e.target.value.length <= 24) {
       setTitleText(e.target.value);
     }
   };
