@@ -21,6 +21,7 @@ import {
 import "./PostIn.scss";
 import {
   addDoc,
+  deleteDoc,
   increment,
   orderBy,
   serverTimestamp,
@@ -248,12 +249,55 @@ const PostIn: React.FC = () => {
     }
   };
 
+  const [category, setCategory] = useState("");
+
+  const fetchPost = async () => {
+    const docRef = doc(db, "posts", postId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const fetchedCategory = docSnap.data().category;
+      console.log("Loaded category:", fetchedCategory); // 로드된 카테고리 로그 출력
+      setCategory(fetchedCategory);
+    } else {
+      console.log("문서를 찾을 수 없습니다.");
+    }
+  };
+
+  useEffect(() => {
+    fetchPost();
+  }, [postId]);
+
+  const categoryToURL = (categoryName: string) => {
+    const mapping = {
+      "비밀 게시판": "/secretarticlelist",
+      "자유 게시판": "/freearticlelist",
+      "정보 게시판": "/inforarticlelist",
+      "hot 게시판": "/hotarticlelist",
+    };
+    console.log("Mapping for:", categoryName, "is", mapping[categoryName]);
+    return mapping[categoryName] || "/";
+  };
+
+  const handleDelete = async () => {
+    try {
+      await deleteDoc(doc(db, "posts", postId));
+      console.log("Current category for redirection:", category); // 리디렉션 전 카테고리 로그 출력
+      const redirectPath = categoryToURL(category);
+
+      console.log("Redirecting to:", redirectPath); // 리디렉션 경로 로그 출력
+      navigate(redirectPath);
+    } catch (error) {
+      console.error("게시글 삭제 중 오류 발생:", error);
+    }
+  };
+
   return (
     <div className="container">
       <div className="container__line-1"></div>
       <div className="container__line-2"></div>
       <div className="container__line-3"></div>
-      <div className="container__deleteI">
+      <div className="container__deleteI" onClick={() => handleDelete(postId)}>
         <img src={deleteI} alt="deleteI" />
       </div>
       <div className="container__border_color" onClick={handleBorderClick}>
