@@ -1,11 +1,15 @@
 import sidemenu from "../assets/sidemenu.svg";
 import close from "../assets/close.svg";
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import "./SideBar.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
+import { signInWithGoogle } from "../firebase";
 
 function SideBar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
   const outside = useRef<any>();
+  const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.addEventListener("mousedown", handlerOutsie);
@@ -22,6 +26,22 @@ function SideBar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
 
   const toggleSide = () => {
     setIsOpen(false);
+  };
+
+  const handleAccountSettings = () => {
+    if (!currentUser) {
+      alert("구글 로그인이 필요합니다.");
+      signInWithGoogle()
+        .then(() => {
+          console.log("로그인 성공, settingspage로 이동 시도");
+          navigate("/settingspage");
+        })
+        .catch((error) => {
+          console.error("로그인 에러:", error);
+        });
+    } else {
+      navigate("/settingspage");
+    }
   };
 
   return (
@@ -48,11 +68,12 @@ function SideBar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
           <Link to={"/langset"}>
             <p className="sidebar-wrap__ul">언어 설정</p>
           </Link>
-          <Link to={"/settingspage"}>
-            <p className="sidebar-wrap__ul">계정 설정</p>
-          </Link>
+
+          <p className="sidebar-wrap__ul" onClick={handleAccountSettings}>
+            계정 설정
+          </p>
           <Link to={"/hotarticlelist"}>
-            <p className="sidebar-wrap__ul">Hot 게시판</p>
+            <p className="sidebar-wrap__ul">Hot 게시글</p>
           </Link>
           <Link to={"/freearticlelist"}>
             <p className="sidebar-wrap__ul">자유 게시판</p>
