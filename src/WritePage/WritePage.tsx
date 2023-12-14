@@ -46,6 +46,7 @@ interface PostData {
   authorUniv: DocumentReference<UserData> | null;
   category: string;
 }
+
 const WritePage: React.FC = () => {
   const CreateAt = new Date().toISOString();
   const UpdateAt = new Date().toISOString();
@@ -113,7 +114,7 @@ const WritePage: React.FC = () => {
     navigate(-1);
   };
   const TitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 16) {
+    if (e.target.value.length <= 24) {
       setTitleText(e.target.value);
     }
   };
