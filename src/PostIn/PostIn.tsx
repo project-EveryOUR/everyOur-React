@@ -22,11 +22,14 @@ import "./PostIn.scss";
 import {
   addDoc,
   increment,
+  orderBy,
   serverTimestamp,
   updateDoc,
+  where,
 } from "firebase/firestore";
 
 const PostIn: React.FC = () => {
+  console.log("Component rendered");
   const { postId } = useParams();
   const [user, setUser] = useState<any>(null);
   const [name, setName] = useState<any>("");
@@ -66,10 +69,30 @@ const PostIn: React.FC = () => {
     };
   }, [auth]);
 
+  const increaseViews = async () => {
+    console.log("Increase views start");
+    console.log("Increase views");
+    if (postId) {
+      try {
+        const postDocRef = doc(collection(db, "posts"), postId);
+        await updateDoc(postDocRef, {
+          views: increment(1 / 3),
+        });
+        console.log("Views increased successfully");
+      } catch (error) {
+        console.error("Error increasing views:", error);
+      }
+    }
+  };
+
   useEffect(() => {
     const getData = async () => {
-      increaseViews();
+      await increaseViews();
+
+      // fetchData 호출을 여기로 이동
+      await fetchData();
     };
+
     getData();
   }, [user, postId]);
 
@@ -96,7 +119,7 @@ const PostIn: React.FC = () => {
 
         if (postDocSnapshot.exists()) {
           const postData = postDocSnapshot.data();
-          setViews(postData?.views || "");
+          setViews(parseInt(postData?.views) || 0);
           setAuthor(postData?.author || "");
           setAuthorMajor(postData?.authorMajor || "");
           setAuthorUniv(postData?.authorUniv || "");
@@ -111,25 +134,7 @@ const PostIn: React.FC = () => {
           navigate(-1);
         }
       } catch (error) {
-        console.log("Error fetching data:", error);
-      }
-    }
-  };
-
-  const increaseViews = async () => {
-    console.log("Increase views");
-    if (postId) {
-      try {
-        const postDocRef = doc(collection(db, "posts"), postId);
-        await updateDoc(postDocRef, {
-          views: increment(1),
-        });
-        console.log("Views increased successfully");
-
-        await fetchData();
-        console.log("Data fetched successfully");
-      } catch (error) {
-        console.error("Error increasing views or fetching data:", error);
+        console.error("Error fetching data:", error);
       }
     }
   };
@@ -156,6 +161,8 @@ const PostIn: React.FC = () => {
   const handleBorderClick = () => {
     navigate("/writepage");
   };
+
+  const [comments, setComments] = useState([]);
 
   const handleCommentSend = async () => {
     try {
@@ -185,12 +192,18 @@ const PostIn: React.FC = () => {
               collection(db, "comments"),
               commentData
             );
-            console.log(
-              "댓글이 성공적으로 추가되었습니다. 댓글 ID:",
-              commentRef.id
-            );
+
+            setComments((prevComments) => {
+              return [...prevComments, { id: commentRef.id, ...commentData }];
+            });
 
             CommentinputText("");
+            fetchData();
+
+            const postDocRef = doc(collection(db, "posts"), postId);
+            await updateDoc(postDocRef, {
+              comCnt: increment(1),
+            });
           }
         }
       }
@@ -219,8 +232,8 @@ const PostIn: React.FC = () => {
         {author} ({authorUniv}, {authorMajor})
       </div>
       <div className="container__timestamp"></div>
-      <div className="container__comment-count">댓글 {numnum}개</div>
-      <div className="container__views">조회수: {views}</div>
+      <div className="container__comment-count">댓글 {comCnt}개</div>
+      <div className="container__views">조회수 {views}회</div>
 
       <div className="container__Eheart" onClick={handleHeartClick}>
         <img
@@ -228,22 +241,18 @@ const PostIn: React.FC = () => {
           alt={isHeart ? "Eheart" : "heart"}
         />
       </div>
-      <div className="container__number">{numnumnum}</div>
-      <div className="container__reply-author2">
-        윤윤윤 (한세대학교 18, 소프트웨어)
-      </div>
-      <div className="container__reply-text2">{replyText2}</div>
-      <div className="container__reply-author">
-        정정정 (한세대학교 18, ict 융합)
-      </div>
-      <div className="container__reply-text"></div>
-      <div className="container__reply">
-        <img src={reply} alt="reply" />
-      </div>
-      <div className="container__rectangle-1"></div>
-      <div className="container__user-3-author">
-        김김김 (한세대학교 20, 소프트웨어)
-      </div>
+      <div className="container__number">{comCnt}</div>
+
+      {comments.map((comment) => (
+        <div key={comment.id}>
+          {/* 댓글 내용 표시 부분 */}
+          <div className="container__reply-author">
+            {comment.author} ({comment.authorUniv}, {comment.authorMajor})
+          </div>
+          <div className="container__reply-text">{comment.content}</div>
+        </div>
+      ))}
+
       <div className="container__user-3-reply-text"></div>
       <div className="container__reply-send-1">
         <img src={send} alt="send" />
