@@ -23,34 +23,37 @@ import PostIn from "./PostIn/PostIn";
 import Langset from "./LangsetPage/LangsetPage";
 import UsePage from "./UsePage/UsePage";
 import InfoPage from "./ArticleList/InfoPage/InfoPage";
+import { AuthProvider } from "./AuthContext";
 function App() {
   return (
-    <Routes>
-      <Route element={<MainPage />} path="/" />
-      {/* <Route element={<ArticleList />} path="/articlelist" /> */}
-      <Route element={<PostIn />} path="/postIn" />
-      <Route element={<MyLike />} path="/mylike" />
-      <Route element={<MyPost />} path="/mypost" />
-      <Route element={<Email />} path="/email" />
-      <Route element={<LoginPage />} path="/loginpage/경기 남부" />
-      <Route element={<LoginPage />} path="/loginpage/경기 북부" />
-      <Route element={<MyReply />} path="/myreply" />
-      <Route element={<Nickname />} path="/nickname" />
-      <Route element={<Pw />} path="/pw" />
-      <Route element={<SettingsPage />} path="/settingspage" />
-      <Route element={<SignupPage />} path="/signuppage" />
-      <Route element={<UnivShift />} path="/univshift" />
-      <Route element={<WritePage />} path="/writepage" />
-      <Route element={<Leave />} path="/leave" />
-      <Route element={<FreeArticleList />} path="/freearticlelist" />
-      <Route element={<HotArticleList />} path="/hotarticlelist" />
-      <Route element={<InfoArticleList />} path="/infoarticlelist" />
-      <Route element={<SecretArticleList />} path="/secretarticlelist" />
-      <Route element={<PostIn />} path="/postIn" />
-      <Route element={<Langset />} path="/langset" />
-      <Route element={<UsePage />} path="/usepage" />
-      <Route element={<InfoPage />} path="/infopage" />
-    </Routes>
+    <AuthProvider>
+      <Routes>
+        <Route element={<MainPage />} path="/" />
+        {/* <Route element={<ArticleList />} path="/articlelist" /> */}
+        <Route element={<PostIn />} path="/postIn" />
+        <Route element={<MyLike />} path="/mylike" />
+        <Route element={<MyPost />} path="/mypost" />
+        <Route element={<Email />} path="/email" />
+        <Route element={<LoginPage />} path="/loginpage/경기 남부" />
+        <Route element={<LoginPage />} path="/loginpage/경기 북부" />
+        <Route element={<MyReply />} path="/myreply" />
+        <Route element={<Nickname />} path="/nickname" />
+        <Route element={<Pw />} path="/pw" />
+        <Route element={<SettingsPage />} path="/settingspage" />
+        <Route element={<SignupPage />} path="/signuppage" />
+        <Route element={<UnivShift />} path="/univshift" />
+        <Route element={<WritePage />} path="/writepage" />
+        <Route element={<Leave />} path="/leave" />
+        <Route element={<FreeArticleList />} path="/freearticlelist" />
+        <Route element={<HotArticleList />} path="/hotarticlelist" />
+        <Route element={<InfoArticleList />} path="/infoarticlelist" />
+        <Route element={<SecretArticleList />} path="/secretarticlelist" />
+        <Route element={<Langset />} path="/langset" />
+        <Route element={<UsePage />} path="/usepage" />
+        <Route element={<InfoPage />} path="/infopage" />
+        <Route element={<PostIn />} path="/postIn/:postId" />
+      </Routes>
+    </AuthProvider>
   );
 }
 
