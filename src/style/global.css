@@ -36,9 +36,20 @@ legend {
   height: 1px;
   margin: -1px;
 }
-
+.dark-mode select{
+  color: #c5c5c5;
+}
+.dark-mode option{
+  color: black;
+}
 button {
   font-family: inherit;
+}
+.dark-mode textarea {
+  color : #c5c5c5;
+}
+.dark-mode input {
+  color : #c5c5c5;
 }
 
 .dark-mode div {
@@ -66,3 +77,4 @@ button {
   color: black;
   font-weight: bold;
 }
+

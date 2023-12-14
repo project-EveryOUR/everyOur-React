@@ -1,12 +1,12 @@
 .nickname {
   position: relative;
-  height: 100vh;
+  height: 140vh;
   width: 100%;
-  background: ffffff;
   text-align: center;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+
   &__Logo {
     position: absolute;
     left: 50%;
@@ -18,7 +18,7 @@
       height: 150%;
     }
   }
-  &__nick-title {
+  &__nickname-title {
     color: #279eff;
     position: absolute;
     height: 27px;
@@ -29,6 +29,32 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 32px;
+  }
+  &__nickname-input {
+    &__nickname-group {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 1585%);
+      align-items: center;
+
+    }
+  }
+  &__nickname-new{
+  position: absolute;
+  height: 27px;
+  left: 50%;
+  transform: translate(-300%,1200%);
+  }
+  &__nickname-btnn{
+      position: absolute;
+      left: 50%;
+      transform: translate(180%, 1060%);
+      background-color: #c5c5c5;
+      width: 70px;
+      height: 30px;
+      &:active {
+        background-color: #279eff;
+      }
   }
   &__Backbtn {
     position: absolute;
@@ -43,44 +69,15 @@
       height: 115%;
     }
   }
-  &__nick-input {
+  &__nickname-btn {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 650%);
-    &__nick-group {
-      margin-top: 15px;
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      gap: 10px;
-      input {
-        flex: 1; // 텍스트박스가 나머지 공간을 차지하도록 설정
-        padding: 5px;
-        width: 100%; // 텍스트박스 너비 100%로 설정
-      }
-      button {
-        margin-left: -10px;
-        background-color: #c5c5c5;
-        padding: 5px 10px;
-        width: 70px; // 버튼 너비 조절
-        transition: background-color 0.3s;
-        &:active {
-          background-color: #279eff;
-        }
-      }
-    }
-  }
-  &__nick-btn {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 1800%);
+    transform: translate(-50%, 1700%);
     background-color: #c5c5c5;
-    padding: 5px 10px;
-    width: 70px; // 버튼 너비 조절
-    transition: background-color 0.3s;
+    width: 70px;
+    height: 30px;
     &:active {
       background-color: #279eff;
     }
-    margin-top: 20px;
   }
 }

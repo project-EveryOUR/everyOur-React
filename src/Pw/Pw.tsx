@@ -24,26 +24,30 @@ const Pw = () => {
       <h2 className="pw__pw-title">비밀번호 변경</h2>
 
       <div className="pw__pw-input">
+        <div className="pw__pw-now">
+          현재 비밀번호:
+        </div>
         <div className="pw__pw-input__pw-group">
-          <span>현재 PW : </span>
           <input
-            className="pw__pw-input__pw-group__pw-pre"
             type="password"
             placeholder="현재 비밀번호를 입력하세요"
           />
-          <button>확인</button>
         </div>
-
+        <button className="pw__pw-btnnn">
+           확인
+        </button>
+        <div className="pw__pw-new">
+          새 비밀번호:
+        </div>
         <div className="pw__pw-input2__pw-group">
-          <span>새 PW : </span>
           <input
-            className="pw__pw-input2__pw-group__pw-new"
             type="password"
             placeholder="변경할 비밀번호를 입력하세요"
-            
           />
-          <button>확인</button>
         </div>
+        <button className="pw__pw-btnn">
+          확인
+        </button>
       </div>
       <button className="pw__pw-btn">완료</button>
     </div>
