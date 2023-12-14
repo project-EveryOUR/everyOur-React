@@ -1,11 +1,13 @@
 import "../ArticleList.scss";
 import sidemenu from "../../assets/sidemenu.svg";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import SideBar from "../../SideBar/SideBar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import everyOURLogo from "../../assets/logo.svg";
 import { query, collection, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
+import { AuthContext } from "../../AuthContext";
+import { signInWithGoogle } from "../../firebase";
 
 function ArticleList(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,6 +55,25 @@ function ArticleList(): JSX.Element {
 
     fetchData();
   }, []);
+
+  const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleWriteButtonClick = () => {
+    if (!currentUser) {
+      alert("구글 로그인이 필요합니다.");
+      signInWithGoogle()
+        .then(() => {
+          navigate("/writepage");
+        })
+        .catch((error) => {
+          console.error("로그인 에러:", error);
+        });
+    } else {
+      navigate("/writepage");
+    }
+  };
+
   return (
     <div className="articleList">
       <Link to={"/"}>
@@ -70,8 +91,8 @@ function ArticleList(): JSX.Element {
         </div>
         <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
         <button className="articleSearch">검색</button>
-        <button className="writeBtn">
-          <Link to={"/writepage"}>글쓰기</Link>
+        <button className="writeBtn" onClick={handleWriteButtonClick}>
+          글쓰기
         </button>
         <div className="boardArticleList">
           <ul className="boardArticleList__ul">
