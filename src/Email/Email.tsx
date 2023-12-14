@@ -5,11 +5,12 @@ import { Link, useNavigate } from "react-router-dom";
 import everyOURLogo from "../assets/logo.svg";
 
 
-const email = () => {
-  const navigate = useNavigate();
+const Email = () => {
   const handleButtonClick = () => {
     alert("수정되었습니다");
   };
+  const navigate = useNavigate();
+
   const goBack = () => {
     navigate(-1);
   };
@@ -24,36 +25,31 @@ const email = () => {
       </Link>
        <img src={Backbtn} alt="Backbtn" className="email__Backbtn" onClick={goBack} />
       <h2 className="email__email-title">이메일 변경</h2>
-
       <div className="email__email-input">
-        <div className="email__email-now">
-          이메일 인증 :
-        </div>
         <div className="email__email-input__email-group">
+          <span className="email__email-input__email-group__email-oauth">
+            이메일 인증 :{" "}
+          </span>
           <input
+            className="email__email-input__email-group__email-text"
             type="email"
             placeholder="이메일을 입력하세요"
           />
+          <button>인증</button>
         </div>
-        <button className="email__email-btnnn">
-           인증
-        </button>
-        <div className="email__email-new">
-          변경할 이메일 :
-        </div>
-        <div className="email__email-input2__email-group">
+
+        <div className="email__email-input__email-group">
+          <span>이메일 변경 : </span>
           <input
+            className="email__email-input__email-group__email-new"
             type="email"
             placeholder="이메일을 입력하세요"
           />
+          <button onClick={handleButtonClick}>수정</button>
         </div>
-        <button className="email__email-btnn">
-          수정
-        </button>
       </div>
-      <button className="email__email-btn" onClick={handleButtonClick}>완료</button>
+      <button className="email__email-btn">완료</button>
     </div>
   );
 };
-
-export default email;
+export default Email;
