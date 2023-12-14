@@ -26,6 +26,7 @@ import InfoPage from "./ArticleList/InfoPage/InfoPage";
 import { AuthProvider } from "./AuthContext";
 function App() {
   return (
+
     <AuthProvider>
       <Routes>
         <Route element={<MainPage />} path="/" />
@@ -54,6 +55,7 @@ function App() {
         <Route element={<PostIn />} path="/postIn/:postId" />
       </Routes>
     </AuthProvider>
+
   );
 }
 
