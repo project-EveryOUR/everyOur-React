@@ -46,10 +46,11 @@ function App() {
       <Route element={<HotArticleList />} path="/hotarticlelist" />
       <Route element={<InfoArticleList />} path="/infoarticlelist" />
       <Route element={<SecretArticleList />} path="/secretarticlelist" />
-      <Route element={<PostIn />} path="/postIn" />
+      <Route element={<PostIn />} path="/postIn/:postId" />
       <Route element={<Langset />} path="/langset" />
       <Route element={<UsePage />} path="/usepage" />
       <Route element={<InfoPage />} path="/infopage" />
+      
     </Routes>
   );
 }
