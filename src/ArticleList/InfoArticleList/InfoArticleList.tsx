@@ -98,21 +98,23 @@ function ArticleList(): JSX.Element {
           <ul className="boardArticleList__ul">
             {articles.map((article) => (
               <li key={article.id} className="boardArticleList__ul__li">
-                <span className="boardArticleList__ul__li__title">
-                  {article.title}
-                </span>
-                <span className="boardArticleList__ul__li__comment">
-                  댓글 {article.comCnt}
-                </span>
-                <span className="boardArticleList__ul__li__like">
-                  좋아요 {article.likeCnt}
-                </span>
-                <span className="boardArticleList__ul__li__nickname">
-                  {article.author}
-                </span>
-                <span className="boardArticleList__ul__li__date">
-                  {article.formattedDate}
-                </span>
+                <Link to={`/postIn/${article.id}`}>
+                  <span className="boardArticleList__ul__li__title">
+                    {article.title}
+                  </span>
+                  <span className="boardArticleList__ul__li__comment">
+                    댓글 {article.comCnt}
+                  </span>
+                  <span className="boardArticleList__ul__li__like">
+                    좋아요 {article.likeCnt}
+                  </span>
+                  <span className="boardArticleList__ul__li__nickname">
+                    {article.author}
+                  </span>
+                  <span className="boardArticleList__ul__li__date">
+                    {article.formattedDate}
+                  </span>
+                </Link>
               </li>
             ))}
           </ul>
