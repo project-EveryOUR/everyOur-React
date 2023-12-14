@@ -13,19 +13,20 @@ const MyLike = () => {
   return (
     <div className="mylike">
       <Link to={"/"}>
-        <img
-          src={everyOURLogo}
-          alt="everyOURLogo"
-          className="Langset__Logo"
-        />
+        <img src={everyOURLogo} alt="everyOURLogo" className="Langset__Logo" />
       </Link>
-       <img src={Backbtn} alt="Backbtn" className="mylike__Backbtn" onClick={goBack} />
+      <img
+        src={Backbtn}
+        alt="Backbtn"
+        className="mylike__Backbtn"
+        onClick={goBack}
+      />
       <h2 className="mylike__like-title">내 좋아요 목록</h2>
 
       <div className="mylike__like-list">
         <li className="mylike__like-list__like-li">
           <p className="mylike__like-list__like-li__like-tit">
-            김수아님의 첫번째 게시물입니다.
+            김수아님의 첫번째 게시물
           </p>
           <div className="mylike__like-list__like-li__like-row">
             <span className="mylike_like-list__like-li__like-row__like-reply">
