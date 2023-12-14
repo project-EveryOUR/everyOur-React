@@ -149,7 +149,6 @@ const WritePage: React.FC = () => {
         <option value="자유 게시판">자유 게시판</option>
         <option value="정보 게시판">정보 게시판</option>
         <option value="비밀 게시판">비밀 게시판</option>
-        <option value="hot 게시판">hot 게시판</option>
       </select>
       <div className="writepage__line"></div>
       <textarea

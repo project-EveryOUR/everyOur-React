@@ -273,7 +273,6 @@ const PostIn: React.FC = () => {
       "비밀 게시판": "/secretarticlelist",
       "자유 게시판": "/freearticlelist",
       "정보 게시판": "/infoarticlelist",
-      "hot 게시판": "/hotarticlelist",
     };
     console.log("Mapping for:", categoryName, "is", mapping[categoryName]);
     return mapping[categoryName] || "/";
