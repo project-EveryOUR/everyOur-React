@@ -7,8 +7,8 @@ const BoardList: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       const q = query(
-        collection(db, "posts")
-        // where("category", "==", "자유 게시판")
+        collection(db, "posts"),
+        where("category", "==", "자유 게시판")
       );
 
       try {
@@ -27,6 +27,13 @@ const BoardList: React.FC = () => {
             formattedDate: formattedDate,
           };
         });
+        fetchedArticles.sort((a, b) => {
+          // Timestamp 비교하여 정렬, 최신 데이터가 앞에 오도록 설정
+          if (a.createAt.seconds === b.createAt.seconds) {
+            return b.createAt.nanoseconds - a.createAt.nanoseconds;
+          }
+          return b.createAt.seconds - a.createAt.seconds;
+        });
         setArticles(fetchedArticles);
       } catch (error) {
         console.error("Error fetching documents: ", error);
@@ -35,6 +42,7 @@ const BoardList: React.FC = () => {
 
     fetchData();
   }, []);
+
   return (
     <ul className="boardArticleList__ul">
       {articles.map((article) => (
