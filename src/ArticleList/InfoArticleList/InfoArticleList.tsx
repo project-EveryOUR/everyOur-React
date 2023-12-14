@@ -1,15 +1,58 @@
 import "../ArticleList.scss";
 import sidemenu from "../../assets/sidemenu.svg";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../../SideBar/SideBar";
 import { Link } from "react-router-dom";
 import everyOURLogo from "../../assets/logo.svg";
+import { query, collection, where, getDocs } from "firebase/firestore";
+import { db } from "../../firebase";
 
 function ArticleList(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
+  const [articles, setArticles] = useState<any[]>([]);
+
   const toggleSide = () => {
     setIsOpen(true);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const q = query(
+        collection(db, "posts"),
+        where("category", "==", "정보 게시판")
+      );
+
+      try {
+        const querySnapshot = await getDocs(q);
+        const fetchedArticles = querySnapshot.docs.map((doc) => {
+          const createAtTimestamp = doc.data().createAt;
+          const date = new Date(createAtTimestamp.seconds * 1000);
+          const formattedDate = date.toLocaleDateString("ko-KR", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          });
+          return {
+            id: doc.id,
+            ...doc.data(),
+            formattedDate: formattedDate,
+          };
+        });
+        fetchedArticles.sort((a, b) => {
+          // Timestamp 비교하여 정렬, 최신 데이터가 앞에 오도록 설정
+          if (a.createAt.seconds === b.createAt.seconds) {
+            return b.createAt.nanoseconds - a.createAt.nanoseconds;
+          }
+          return b.createAt.seconds - a.createAt.seconds;
+        });
+        setArticles(fetchedArticles);
+      } catch (error) {
+        console.error("Error fetching documents: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div className="articleList">
       <Link to={"/"}>
@@ -32,154 +75,25 @@ function ArticleList(): JSX.Element {
         </button>
         <div className="boardArticleList">
           <ul className="boardArticleList__ul">
-            <li className="boardArticleList__ul__li">
-              <span className="boardArticleList__ul__li__title">
-                안녕하세요 첫번째 글입니다.
-              </span>
-              <span className="boardArticleList__ul__li__comment">댓글 1</span>
-              <span className="boardArticleList__ul__li__like">좋아요 1</span>
-              <span className="boardArticleList__ul__li__nickname">
-                이크룡 (의왕대 18, 컴퓨터공학)
-              </span>
-              <span className="boardArticleList__ul__li__date">
-                2023-09-30 18:30
-              </span>
-            </li>
-          </ul>
-          <ul className="boardArticleList__ul">
-            <li className="boardArticleList__ul__li">
-              <span className="boardArticleList__ul__li__title">
-                안녕하세요 첫번째 글입니다.
-              </span>
-              <span className="boardArticleList__ul__li__comment">댓글 1</span>
-              <span className="boardArticleList__ul__li__like">좋아요 1</span>
-              <span className="boardArticleList__ul__li__nickname">
-                이크룡 (의왕대 18, 컴퓨터공학)
-              </span>
-              <span className="boardArticleList__ul__li__date">
-                2023-09-30 18:30
-              </span>
-            </li>
-          </ul>
-          <ul className="boardArticleList__ul">
-            <li className="boardArticleList__ul__li">
-              <span className="boardArticleList__ul__li__title">
-                안녕하세요 첫번째 글입니다.
-              </span>
-              <span className="boardArticleList__ul__li__comment">댓글 1</span>
-              <span className="boardArticleList__ul__li__like">좋아요 1</span>
-              <span className="boardArticleList__ul__li__nickname">
-                이크룡 (의왕대 18, 컴퓨터공학)
-              </span>
-              <span className="boardArticleList__ul__li__date">
-                2023-09-30 18:30
-              </span>
-            </li>
-          </ul>
-          <ul className="boardArticleList__ul">
-            <li className="boardArticleList__ul__li">
-              <span className="boardArticleList__ul__li__title">
-                안녕하세요 첫번째 글입니다.
-              </span>
-              <span className="boardArticleList__ul__li__comment">댓글 1</span>
-              <span className="boardArticleList__ul__li__like">좋아요 1</span>
-              <span className="boardArticleList__ul__li__nickname">
-                이크룡 (의왕대 18, 컴퓨터공학)
-              </span>
-              <span className="boardArticleList__ul__li__date">
-                2023-09-30 18:30
-              </span>
-            </li>
-          </ul>
-          <ul className="boardArticleList__ul">
-            <li className="boardArticleList__ul__li">
-              <span className="boardArticleList__ul__li__title">
-                안녕하세요 첫번째 글입니다.
-              </span>
-              <span className="boardArticleList__ul__li__comment">댓글 1</span>
-              <span className="boardArticleList__ul__li__like">좋아요 1</span>
-              <span className="boardArticleList__ul__li__nickname">
-                이크룡 (의왕대 18, 컴퓨터공학)
-              </span>
-              <span className="boardArticleList__ul__li__date">
-                2023-09-30 18:30
-              </span>
-            </li>
-          </ul>
-          <ul className="boardArticleList__ul">
-            <li className="boardArticleList__ul__li">
-              <span className="boardArticleList__ul__li__title">
-                안녕하세요 첫번째 글입니다.
-              </span>
-              <span className="boardArticleList__ul__li__comment">댓글 1</span>
-              <span className="boardArticleList__ul__li__like">좋아요 1</span>
-              <span className="boardArticleList__ul__li__nickname">
-                이크룡 (의왕대 18, 컴퓨터공학)
-              </span>
-              <span className="boardArticleList__ul__li__date">
-                2023-09-30 18:30
-              </span>
-            </li>
-          </ul>
-          <ul className="boardArticleList__ul">
-            <li className="boardArticleList__ul__li">
-              <span className="boardArticleList__ul__li__title">
-                안녕하세요 첫번째 글입니다.
-              </span>
-              <span className="boardArticleList__ul__li__comment">댓글 1</span>
-              <span className="boardArticleList__ul__li__like">좋아요 1</span>
-              <span className="boardArticleList__ul__li__nickname">
-                이크룡 (의왕대 18, 컴퓨터공학)
-              </span>
-              <span className="boardArticleList__ul__li__date">
-                2023-09-30 18:30
-              </span>
-            </li>
-          </ul>
-          <ul className="boardArticleList__ul">
-            <li className="boardArticleList__ul__li">
-              <span className="boardArticleList__ul__li__title">
-                안녕하세요 첫번째 글입니다.
-              </span>
-              <span className="boardArticleList__ul__li__comment">댓글 1</span>
-              <span className="boardArticleList__ul__li__like">좋아요 1</span>
-              <span className="boardArticleList__ul__li__nickname">
-                이크룡 (의왕대 18, 컴퓨터공학)
-              </span>
-              <span className="boardArticleList__ul__li__date">
-                2023-09-30 18:30
-              </span>
-            </li>
-          </ul>
-          <ul className="boardArticleList__ul">
-            <li className="boardArticleList__ul__li">
-              <span className="boardArticleList__ul__li__title">
-                안녕하세요 첫번째 글입니다.
-              </span>
-              <span className="boardArticleList__ul__li__comment">댓글 1</span>
-              <span className="boardArticleList__ul__li__like">좋아요 1</span>
-              <span className="boardArticleList__ul__li__nickname">
-                이크룡 (의왕대 18, 컴퓨터공학)
-              </span>
-              <span className="boardArticleList__ul__li__date">
-                2023-09-30 18:30
-              </span>
-            </li>
-          </ul>
-          <ul className="boardArticleList__ul">
-            <li className="boardArticleList__ul__li">
-              <span className="boardArticleList__ul__li__title">
-                안녕하세요 첫번째 글입니다.
-              </span>
-              <span className="boardArticleList__ul__li__comment">댓글 1</span>
-              <span className="boardArticleList__ul__li__like">좋아요 1</span>
-              <span className="boardArticleList__ul__li__nickname">
-                이크룡 (의왕대 18, 컴퓨터공학)
-              </span>
-              <span className="boardArticleList__ul__li__date">
-                2023-09-30 18:30
-              </span>
-            </li>
+            {articles.map((article) => (
+              <li key={article.id} className="boardArticleList__ul__li">
+                <span className="boardArticleList__ul__li__title">
+                  {article.title}
+                </span>
+                <span className="boardArticleList__ul__li__comment">
+                  댓글 {article.comCnt}
+                </span>
+                <span className="boardArticleList__ul__li__like">
+                  좋아요 {article.likeCnt}
+                </span>
+                <span className="boardArticleList__ul__li__nickname">
+                  {article.author}
+                </span>
+                <span className="boardArticleList__ul__li__date">
+                  {article.formattedDate}
+                </span>
+              </li>
+            ))}
           </ul>
           {/* <pagination /> */}
         </div>
