@@ -26,7 +26,7 @@ const MyLike = () => {
       <div className="mylike__like-list">
         <li className="mylike__like-list__like-li">
           <p className="mylike__like-list__like-li__like-tit">
-            김수아님의 첫번째 게시물
+            김수아님의 첫번째 게시물입니다.
           </p>
           <div className="mylike__like-list__like-li__like-row">
             <span className="mylike_like-list__like-li__like-row__like-reply">
