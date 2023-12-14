@@ -1,11 +1,11 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from "firebase/app";
 import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
   UserCredential,
-} from 'firebase/auth';
+} from "firebase/auth";
 import {
   getFirestore,
   collection,
@@ -15,7 +15,7 @@ import {
   DocumentData,
   FirestoreDataConverter,
   QueryDocumentSnapshot,
-} from 'firebase/firestore';
+} from "firebase/firestore";
 
 type FirebaseConfig = {
   apiKey: string;
@@ -49,9 +49,58 @@ interface UserData {
   name: string;
   studentId: string;
   univName: string;
-  region: '경기 남부' | '경기 북부';
+  region: "경기 남부" | "경기 북부";
 }
-
+interface PostData {
+  content: string;
+  createAt: Date;
+  title: string;
+  updateAt: Date;
+  comCnt: number;
+  likeCnt: number;
+  views: number;
+}
+interface PostInData {
+  content: string;
+  createAt: Date;
+  updateAt: Date;
+}
+const postInConverter: FirestoreDataConverter<PostInData> = {
+  toFirestore(user: PostInData): DocumentData {
+    return { ...user };
+  },
+  fromFirestore(
+    snapshot: QueryDocumentSnapshot<DocumentData>,
+    options: FirestoreDataConverter.Options
+  ): PostInData {
+    const data = snapshot.data(options);
+    return {
+      content: data.content,
+      createAt: data.createAt,
+      updateAt: data.updateAt,
+    };
+  },
+};
+const postConverter: FirestoreDataConverter<PostData> = {
+  toFirestore(user: PostData): DocumentData {
+    return { ...user };
+  },
+  fromFirestore(
+    snapshot: QueryDocumentSnapshot<DocumentData>,
+    options: FirestoreDataConverter.Options
+  ): PostData {
+    const data = snapshot.data(options);
+    return {
+      comCnt: data.comCnt,
+      likeCnt: data.likeCnt,
+      views: data.views,
+      content: data.content,
+      createAt: data.createAt,
+      title: data.title,
+      updateAt: data.updateAt,
+    };
+  },
+};
 const userConverter: FirestoreDataConverter<UserData> = {
   toFirestore(user: UserData): DocumentData {
     return { ...user };
@@ -73,16 +122,16 @@ const userConverter: FirestoreDataConverter<UserData> = {
   },
 };
 
-const usersCollection = collection(db, 'users');
+const usersCollection = collection(db, "users");
 
 const signInWithGoogle = async (): Promise<User | null> => {
   try {
     const result: UserCredential = await signInWithPopup(auth, provider);
     const user = result.user;
-    console.log('로그인 성공:', user);
+    console.log("로그인 성공:", user);
     return user;
   } catch (error: any) {
-    console.error('로그인 실패:', error.message || 'Unexpected error');
+    console.error("로그인 실패:", error.message || "Unexpected error");
     return null;
   }
 };
@@ -90,9 +139,9 @@ const signInWithGoogle = async (): Promise<User | null> => {
 const signOutUser = async (): Promise<void> => {
   try {
     await signOut(auth);
-    console.log('로그아웃 성공');
+    console.log("로그아웃 성공");
   } catch (error: any) {
-    console.error('로그아웃 실패:', error.message || 'Unexpected error');
+    console.error("로그아웃 실패:", error.message || "Unexpected error");
   }
 };
 
