@@ -227,23 +227,14 @@ const PostIn: React.FC = () => {
   const handleLikeClick = async () => {
     try {
       const postDocRef = doc(collection(db, "posts"), postId);
-
-      // 좋아요 상태 변경
       const liked = !isLiked;
-
       console.log("postId:", postId);
       console.log("liked:", liked);
-
-      // 좋아요 카운트 증가 또는 감소
       await updateDoc(postDocRef, {
         likeCnt: liked ? increment(1) : increment(-1),
       });
-
-      // isLiked 상태 업데이트
       setIsLiked(liked);
-
-      // fetchData 함수 호출 또는 likeCnt 상태 업데이트
-      fetchData(); // 또는 setLikeCnt(현재 likeCnt 값 + (liked ? -1 : 1));
+      fetchData();
     } catch (error) {
       console.error("Error handling like:", error);
     }
@@ -294,6 +285,7 @@ const PostIn: React.FC = () => {
 
   return (
     <div className="container">
+      <div className="container__number">{likeCnt}</div>
       <div className="container__line-1"></div>
       <div className="container__line-2"></div>
       <div className="container__line-3"></div>
