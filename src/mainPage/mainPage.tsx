@@ -7,14 +7,21 @@ import { Link, useNavigate } from "react-router-dom";
 import SideBar from "./../SideBar/SideBar";
 import { signOutUser, auth, db, signInWithGoogle } from "../firebase";
 import Backbtn from "../assets/Backbtn.svg";
-import { getDoc, doc } from "firebase/firestore";
-
-// interface Props {
-//   isOpen: isOpen
-// }
+import {
+  getDoc,
+  doc,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 const MainPage: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [articles, setArticles] = useState<any[]>([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isFirstLogin, setIsFirstLogin] = useState<boolean>(false);
+
   const toggleSide = () => {
     setIsOpen(true);
   };
@@ -23,7 +30,6 @@ const MainPage: React.FC = () => {
   const goBack = () => {
     navigate(-1);
   };
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setIsLoggedIn(!!user); // user가 있으면 로그인 상태, 없으면 로그아웃 상태
@@ -31,8 +37,6 @@ const MainPage: React.FC = () => {
     });
     return () => unsubscribe();
   }, []);
-
-  const [isFirstLogin, setIsFirstLogin] = useState<boolean>(false);
 
   const handleGoogleLogin = async () => {
     try {
@@ -70,6 +74,46 @@ const MainPage: React.FC = () => {
       }
     }
   };
+
+  //게시글 목록
+  useEffect(() => {
+    const fetchData = async () => {
+      const q = query(collection(db, "posts"));
+
+      try {
+        const querySnapshot = await getDocs(q);
+        const fetchedArticles = querySnapshot.docs.map((doc) => {
+          const createAtTimestamp = doc.data().createAt;
+          const date = new Date(createAtTimestamp.seconds * 1000);
+          const formattedDate = date.toLocaleDateString("ko-KR", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          });
+          return {
+            id: doc.id,
+            ...doc.data(),
+            formattedDate: formattedDate,
+          };
+        });
+        fetchedArticles.sort((a, b) => {
+          // Timestamp 비교하여 정렬, 최신 데이터가 앞에 오도록 설정
+          if (a.likeCnt === b.likeCnt) {
+            if (a.createAt.seconds === b.createAt.seconds) {
+              return b.createAt.nanoseconds - a.createAt.nanoseconds;
+            }
+            return b.createAt.seconds - a.createAt.seconds;
+          }
+          return b.likeCnt - a.likeCnt;
+        });
+        setArticles(fetchedArticles);
+      } catch (error) {
+        console.error("Error fetching documents: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="main">
@@ -111,189 +155,36 @@ const MainPage: React.FC = () => {
       <div className="main__hotposts">
         <div className="main__hotposts__ggNorth">
           <span className="main__hotposts__ggNorth__title">
-            경기 북부 인기 게시글
+            경기 대학 인기 게시글
           </span>
           <div className="main__hotposts__ggNorth__list">
             <ul className="main__hotposts__ggNorth__list__ul">
-              <li className="main__hotposts__ggNorth__list__ul__li">
-                <span className="main__hotposts__ggNorth__list__ul__li__title">
-                  글1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__comment">
-                  댓글30
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__like">
-                  좋아요10
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__nickname">
-                  이크롱(의왕대18, 소프트웨어)
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__date">
-                  2023-09-30 18:30
-                </span>
-              </li>
-              <li className="main__hotposts__ggNorth__list__ul__li">
-                <span className="main__hotposts__ggNorth__list__ul__li__title">
-                  글1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__comment">
-                  댓글1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__like">
-                  좋아요1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__nickname">
-                  이크롱(의왕대18, 소프트웨어)
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__date">
-                  2023-09-30 18:30
-                </span>
-              </li>
-              <li className="main__hotposts__ggNorth__list__ul__li">
-                <span className="main__hotposts__ggNorth__list__ul__li__title">
-                  글1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__comment">
-                  댓글1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__like">
-                  좋아요1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__nickname">
-                  이크롱(의왕대18, 소프트웨어)
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__date">
-                  2023-09-30 18:30
-                </span>
-              </li>
-              <li className="main__hotposts__ggNorth__list__ul__li">
-                <span className="main__hotposts__ggNorth__list__ul__li__title">
-                  글1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__comment">
-                  댓글1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__like">
-                  좋아요1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__nickname">
-                  이크롱(의왕대18, 소프트웨어)
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__date">
-                  2023-09-30 18:30
-                </span>
-              </li>
-              <li className="main__hotposts__ggNorth__list__ul__li">
-                <span className="main__hotposts__ggNorth__list__ul__li__title">
-                  글1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__comment">
-                  댓글1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__like">
-                  좋아요1
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__nickname">
-                  이크롱(의왕대18, 소프트웨어)
-                </span>
-                <span className="main__hotposts__ggNorth__list__ul__li__date">
-                  2023-09-30 18:30
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="main__hotposts__ggSouth">
-          <span className="main__hotposts__ggSouth__title">
-            경기 남부 인기 게시글
-          </span>
-          <div className="main__hotposts__ggSouth__list">
-            <ul className="main__hotposts__ggSouth__list__ul">
-              <li className="main__hotposts__ggSouth__list__ul__li">
-                <span className="main__hotposts__ggSouth__list__ul__li__title">
-                  글1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__comment">
-                  댓글30
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__like">
-                  좋아요10
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__nickname">
-                  이크롱(의왕대18, 소프트웨어)
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__date">
-                  2023-09-30 18:30
-                </span>
-              </li>
-              <li className="main__hotposts__ggSouth__list__ul__li">
-                <span className="main__hotposts__ggSouth__list__ul__li__title">
-                  글1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__comment">
-                  댓글1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__like">
-                  좋아요1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__nickname">
-                  이크롱(의왕대18, 소프트웨어)
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__date">
-                  2023-09-30 18:30
-                </span>
-              </li>
-              <li className="main__hotposts__ggSouth__list__ul__li">
-                <span className="main__hotposts__ggSouth__list__ul__li__title">
-                  글1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__comment">
-                  댓글1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__like">
-                  좋아요1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__nickname">
-                  이크롱(의왕대18, 소프트웨어)
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__date">
-                  2023-09-30 18:30
-                </span>
-              </li>
-              <li className="main__hotposts__ggSouth__list__ul__li">
-                <span className="main__hotposts__ggSouth__list__ul__li__title">
-                  글1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__comment">
-                  댓글1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__like">
-                  좋아요1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__nickname">
-                  이크롱(의왕대18, 소프트웨어)
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__date">
-                  2023-09-30 18:30
-                </span>
-              </li>
-              <li className="main__hotposts__ggSouth__list__ul__li">
-                <span className="main__hotposts__ggSouth__list__ul__li__title">
-                  글1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__comment">
-                  댓글1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__like">
-                  좋아요1
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__nickname">
-                  이크롱(의왕대18, 소프트웨어)
-                </span>
-                <span className="main__hotposts__ggSouth__list__ul__li__date">
-                  2023-09-30 18:30
-                </span>
-              </li>
+              {articles
+                .map((article) => (
+                  <li
+                    key={article.id}
+                    className="main__hotposts__ggNorth__list__ul__li"
+                  >
+                    <Link to={`/postIn/${article.id}`}>
+                      <span className="main__hotposts__ggNorth__list__ul__li__title">
+                        {article.title}
+                      </span>
+                      <span className="main__hotposts__ggNorth__list__ul__li__comment">
+                        댓글 {article.comCnt}
+                      </span>
+                      <span className="main__hotposts__ggNorth__list__ul__li__like">
+                        좋아요 {article.likeCnt}
+                      </span>
+                      <span className="main__hotposts__ggNorth__list__ul__li__nickname">
+                        {article.author}
+                      </span>
+                      <span className="main__hotposts__ggNorth__list__ul__li__date">
+                        {article.formattedDate}
+                      </span>
+                    </Link>
+                  </li>
+                ))
+                .slice(0, 10)}
             </ul>
           </div>
         </div>
