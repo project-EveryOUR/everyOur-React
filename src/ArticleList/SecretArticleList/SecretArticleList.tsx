@@ -7,14 +7,27 @@ import everyOURLogo from "../../assets/logo.svg";
 import { query, collection, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AuthContext } from "../../AuthContext";
-import { signInWithGoogle } from "../../firebase";
 
 function ArticleList(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
-  const [articles, setArticles] = useState<any[]>([]);
+  const [articles, setArticles] = useState([]);
+  const [filteredArticles, setFilteredArticles] = useState([]); // 필터링된 게시글을 저장할 상태
+  const [searchTerm, setSearchTerm] = useState("");
+  const [showSearchInput, setShowSearchInput] = useState(false);
 
-  const toggleSide = () => {
-    setIsOpen(true);
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (searchTerm) {
+      const filtered = articles.filter(
+        (article) =>
+          article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          article.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          article.author.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredArticles(filtered);
+    } else {
+      setFilteredArticles(articles);
+    }
   };
 
   useEffect(() => {
@@ -56,19 +69,20 @@ function ArticleList(): JSX.Element {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    setFilteredArticles(articles);
+  }, [articles]);
+
+  const toggleSide = () => {
+    setIsOpen(true);
+  };
+
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleWriteButtonClick = () => {
     if (!currentUser) {
       alert("구글 로그인이 필요합니다.");
-      signInWithGoogle()
-        .then(() => {
-          navigate("/writepage");
-        })
-        .catch((error) => {
-          console.error("로그인 에러:", error);
-        });
     } else {
       navigate("/writepage");
     }
@@ -89,35 +103,57 @@ function ArticleList(): JSX.Element {
           <img src={sidemenu} alt="사이드 메뉴 버튼" className="sideMenuBtn" />
         </div>
         <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
-        <button className="articleSearch">검색</button>
+
+        <button
+          onClick={() => setShowSearchInput((prev) => !prev)}
+          className="articleSearch"
+        >
+          검색
+        </button>
+        {showSearchInput && (
+          <form onSubmit={handleSearch} className="searchForm">
+            <input
+              type="text"
+              placeholder="검색어 입력"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="searchBar"
+            />
+            <input type="submit" value="검색" className="searchBtn" />
+          </form>
+        )}
+
         <button className="writeBtn" onClick={handleWriteButtonClick}>
           글쓰기
         </button>
         <div className="boardArticleList">
-          <ul className="boardArticleList__ul">
-            {articles.map((article) => (
-              <li key={article.id} className="boardArticleList__ul__li">
-                <Link to={`/postIn/${article.id}`}>
-                  <span className="boardArticleList__ul__li__title">
-                    {article.title}
-                  </span>
-                  <span className="boardArticleList__ul__li__comment">
-                    댓글 {article.comCnt}
-                  </span>
-                  <span className="boardArticleList__ul__li__like">
-                    좋아요 {article.likeCnt}
-                  </span>
-                  <span className="boardArticleList__ul__li__nickname">
-                    {article.author}
-                  </span>
-                  <span className="boardArticleList__ul__li__date">
-                    {article.formattedDate}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          {/* <pagination /> */}
+          {filteredArticles.length > 0 ? (
+            <ul className="boardArticleList__ul">
+              {filteredArticles.map((article) => (
+                <li key={article.id} className="boardArticleList__ul__li">
+                  <Link to={`/postIn/${article.id}`}>
+                    <span className="boardArticleList__ul__li__title">
+                      {article.title}
+                    </span>
+                    <span className="boardArticleList__ul__li__comment">
+                      댓글 {article.comCnt}
+                    </span>
+                    <span className="boardArticleList__ul__li__like">
+                      좋아요 {article.likeCnt}
+                    </span>
+                    <span className="boardArticleList__ul__li__nickname">
+                      {article.author}
+                    </span>
+                    <span className="boardArticleList__ul__li__date">
+                      {article.formattedDate}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className="no-results">검색 결과가 없습니다.</div>
+          )}
         </div>
       </div>
     </div>

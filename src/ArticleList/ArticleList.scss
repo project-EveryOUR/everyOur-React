@@ -4,11 +4,13 @@
   width: 100%;
   background: ffffff;
 }
+
 .sideMenuBtn {
   position: absolute;
   top: 0px;
   right: 8px;
 }
+
 .smallLogo {
   position: absolute;
   top: 28px;
@@ -35,6 +37,18 @@
   .articleSearch {
     position: absolute;
     right: 70px;
+  }
+  .searchBtn {
+    // transform: translate(-50%, 2500%);
+    background-color: #c5c5c5;
+    &:active {
+      background-color: #279eff;
+    }
+  }
+  .searchForm {
+    display: flex;
+    border: 1px solid #c5c5c5;
+    width: 240px;
   }
   .writeBtn {
     position: absolute;
