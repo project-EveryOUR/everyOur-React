@@ -26,7 +26,7 @@ const MyPost = () => {
       <div className="mypost__post-list">
         <li className="mypost__post-list__post-li">
           <p className="mypost__post-list__post-li__post-tit">
-            김수아님의 첫번째 게시물입니다.
+            닉네임님의 첫번째 게시물입니다.
           </p>
           <div className="mypost__post-list__post-li__post-row">
             <span className="mypost__post-list__post-li__post-row__post-reply">
