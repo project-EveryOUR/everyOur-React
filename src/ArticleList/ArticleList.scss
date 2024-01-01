@@ -1,8 +1,103 @@
 .articleList {
   position: relative;
-  height: 100vh;
+  height: 160vh;
   width: 100%;
-  background: ffffff;
+  background: #ffffff;
+  &__btn {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 400%);
+    background-color: #c5c5c5;
+    width: 70px;
+    height: 30px;
+    &:active {
+      background-color: #279eff;
+    }
+  }
+  &__gray-box-3 {
+    position: absolute;
+    width: 350px;
+    height: 400px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    top: 230px;
+    border: 2px solid rgba(197, 197, 197, 0.980392);
+    border-radius: 15px;
+   
+    &__accset {
+      margin-top: 200px;
+      text-align: center;
+      font-size: 22px;
+    }
+    
+    &__accs {
+      display: flex;
+      margin-left: 60px;
+      margin-top: 40px;
+      font-size: 22px;
+    }
+    &__accse1 {
+      position: absolute;
+      width: 80px;
+      height: 30px;
+      left: 50%;
+      transform: translate(80%, 240%);
+      top: 345px;
+      cursor: pointer;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+      border: 2px solid #000000;
+      border-radius: 15px;
+      &:active {
+        background-color: #279eff;
+      }
+    }
+    &__accse2 {
+      position: absolute;
+      width: 80px;
+      height: 30px;
+      left: 50%;
+      transform: translate(80%, 300%);
+      top: 380px;
+      cursor: pointer;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+      border: 2px solid #000000;
+      border-radius: 15px;
+      &:active {
+        background-color: #279eff;
+      }
+    }
+    &__accse3 {
+      position: absolute;
+      width: 80px;
+      height: 30px;
+      left: 50%;
+      transform: translate(80%, 360%);
+      top: 415px;
+      cursor: pointer;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+      border: 2px solid #000000;
+      border-radius: 15px;
+      &:active {
+        background-color: #279eff;
+      }
+    }
+    p {
+
+      font-weight: bold;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 22px;
+    }
+  }
 }
 
 .sideMenuBtn {

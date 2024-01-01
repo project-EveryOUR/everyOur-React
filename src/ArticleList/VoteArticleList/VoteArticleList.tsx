@@ -99,7 +99,7 @@ function ArticleList(): JSX.Element {
         />
       </Link>
       <div className="listBox">
-        <div className="boardName">Hot 게시판</div>
+        <div className="boardName">투표 게시판</div>
         <div className="ggArea">경기 남부</div>
         <div className="sideMenuBtn" onClick={toggleSide}>
           <img src={sidemenu} alt="사이드 메뉴 버튼" className="sideMenuBtn" />
@@ -126,36 +126,38 @@ function ArticleList(): JSX.Element {
         <button className="writeBtn" onClick={handleWriteButtonClick}>
           글쓰기
         </button>
-        <div className="boardArticleList">
-          {filteredArticles.length > 0 ? (
-            <ul className="boardArticleList__ul">
-              {filteredArticles.map((article) => (
-                <li key={article.id} className="boardArticleList__ul__li">
-                  <Link to={`/postIn/${article.id}`}>
-                    <span className="boardArticleList__ul__li__title">
-                      {article.title}
-                    </span>
-                    <span className="boardArticleList__ul__li__comment">
-                      댓글 {article.comCnt}
-                    </span>
-                    <span className="boardArticleList__ul__li__like">
-                      좋아요 {article.likeCnt}
-                    </span>
-                    <span className="boardArticleList__ul__li__nickname">
-                      {article.author}
-                    </span>
-                    <span className="boardArticleList__ul__li__date">
-                      {article.formattedDate}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <div className="no-results">검색 결과가 없습니다.</div>
-          )}
-        </div>
       </div>
+      <div className="articleList__gray-box-3 "><p>12월 21일 투표</p></div>
+      <div className="articleList__gray-box-3__accset ">우리학교의 음료자판기의 음료메뉴 중<br></br>(이것)이 생겼으면 좋겠다.</div>
+      <div className="articleList__gray-box-3__accs">1. 파워에이드<br></br><br></br>2. 포카리스웨트<br></br><br></br>3. 게토레이</div>
+      <label htmlFor="checkbox1">
+  <input
+    type="checkbox"
+    id="checkbox1"
+    className="articleList__gray-box-3__accse1 "
+    onChange={(e) => console.log('Checkbox 1 checked:', e.target.checked)}
+  />
+</label>
+
+<label htmlFor="checkbox2">
+  <input
+    type="checkbox"
+    id="checkbox2"
+    className="articleList__gray-box-3__accse2 "
+    onChange={(e) => console.log('Checkbox 2 checked:', e.target.checked)}
+  />
+</label>
+
+<label htmlFor="checkbox3">
+  <input
+    type="checkbox"
+    id="checkbox3"
+    className="articleList__gray-box-3__accse3 "
+    onChange={(e) => console.log('Checkbox 3 checked:', e.target.checked)}
+  />
+</label>
+
+<button className="articleList__btn">제출</button>
     </div>
   );
 }
