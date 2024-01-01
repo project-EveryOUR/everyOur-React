@@ -31,14 +31,6 @@ function SideBar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
   const handleAccountSettings = () => {
     if (!currentUser) {
       alert("구글 로그인이 필요합니다.");
-      signInWithGoogle()
-        .then(() => {
-          console.log("로그인 성공, settingspage로 이동 시도");
-          navigate("/settingspage");
-        })
-        .catch((error) => {
-          console.error("로그인 에러:", error);
-        });
     } else {
       navigate("/settingspage");
     }
@@ -72,8 +64,8 @@ function SideBar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
           <p className="sidebar-wrap__ul" onClick={handleAccountSettings}>
             계정 설정
           </p>
-          <Link to={"/hotarticlelist"}>
-            <p className="sidebar-wrap__ul">Hot 게시글</p>
+          <Link to={"/votearticlelist"}>
+            <p className="sidebar-wrap__ul">투표 게시판</p>
           </Link>
           <Link to={"/freearticlelist"}>
             <p className="sidebar-wrap__ul">자유 게시판</p>

@@ -16,7 +16,7 @@ import WritePage from "./WritePage/WritePage";
 import MyPost from "./MyPost/MyPost";
 import Leave from "./Leave/Leave";
 import FreeArticleList from "./ArticleList/FreeArticleList/FreeArticleList";
-import HotArticleList from "./ArticleList/HotArticleList/HotArticleList";
+import VoteArticleList from "./ArticleList/VoteArticleList/VoteArticleList";
 import InfoArticleList from "./ArticleList/InfoArticleList/InfoArticleList";
 import SecretArticleList from "./ArticleList/SecretArticleList/SecretArticleList";
 import PostIn from "./PostIn/PostIn";
@@ -46,7 +46,7 @@ function App() {
         <Route element={<WritePage />} path="/writepage" />
         <Route element={<Leave />} path="/leave" />
         <Route element={<FreeArticleList />} path="/freearticlelist" />
-        <Route element={<HotArticleList />} path="/hotarticlelist" />
+        <Route element={<VoteArticleList />} path="/votearticlelist" />
         <Route element={<InfoArticleList />} path="/infoarticlelist" />
         <Route element={<SecretArticleList />} path="/secretarticlelist" />
         <Route element={<Langset />} path="/langset" />

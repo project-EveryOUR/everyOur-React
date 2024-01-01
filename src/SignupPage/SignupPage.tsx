@@ -77,7 +77,7 @@ const SignupPage: React.FC = () => {
       try {
         await setDoc(userRef, userData);
         console.log("회원가입 완료");
-        navigate(`/loginpage/${region.toLowerCase()}`);
+        navigate(`/`);
       } catch (error) {
         console.error("error", error);
       }}

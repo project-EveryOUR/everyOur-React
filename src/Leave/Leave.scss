@@ -52,9 +52,9 @@
   }
   &__readbox {
     position: absolute;
-    width: 370px;
+    width: 400px;
     left: 50%;
-    transform: translate(-54%, 100%);
+    transform: translate(-50%, 100%);
     background-color: #c5c5c5;
     p {
       text-align: left;
@@ -74,7 +74,7 @@
     position: absolute;
     left: 50%;
     width: 100%;
-    transform: translate(-50%, 1050%);
+    transform: translate(-48%, 1020%);
     text-align: left;
   }
   &__leave-box {
